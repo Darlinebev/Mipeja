@@ -95,6 +95,11 @@ export const hotel = {
       quote: "Lovely hotel with great value. Would definitely return."
     }
   ],
+	socials: [
+		{ label: "Facebook", url: "https://facebook.com/mipejahotel" },
+		{ label: "Instagram", url: "https://instagram.com/mipejahotel" },
+		{ label: "YouTube", url: "https://youtube.com/mipejahotel" }
+	],
   faqs: [
     {
       question: "What is the check-in and check-out time?",
@@ -133,3 +138,6 @@ export const hotel = {
       question: "Do you accommodate large groups?",
       answer:
         "We can accommodate groups and events. Please contact us directly at hello@mipejahotel.com or call +254 712 345 678 for group bookings and special arrangements."
+		}
+	]
+};
