@@ -1,0 +1,43 @@
+---
+const { hotel, bookingUrl, image = '/images/hero.svg' } = Astro.props;
+---
+<header role="banner" class="relative overflow-hidden">
+  <picture class="absolute inset-0 h-full w-full">
+    <img src={image} alt={`${hotel.name} overview`} class="object-cover w-full h-full" loading="lazy" />
+  </picture>
+
+  <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6 py-20 lg:py-28">
+    <div class="max-w-2xl text-white">
+      <p class="text-sm font-medium uppercase tracking-wider text-amber-300">{hotel.location} • Beachfront</p>
+      <h1 class="mt-3 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+        {hotel.tagline || `Wake up to ${hotel.location} views & cozy comfort`}
+      </h1>
+      <p class="mt-4 text-lg opacity-90">{hotel.description}</p>
+
+      <div class="mt-6 flex gap-3">
+        <a href={bookingUrl} class="inline-flex items-center rounded-md bg-amber-500 px-5 py-3 text-sm font-semibold text-black shadow hover:scale-105 transition-transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-300" target="_blank" rel="noreferrer">
+          Check Availability
+        </a>
+        <a href="/rooms" class="inline-flex items-center rounded-md border border-white/30 px-4 py-3 text-sm text-white hover:bg-white/5 transition">
+          View Rooms
+        </a>
+      </div>
+
+      <div class="mt-6 flex items-center gap-4 text-sm opacity-90">
+        <span>⭐ {hotel.rating || '4.8'} ({hotel.reviews || '1.2k+'} reviews)</span>
+        <span class="hidden sm:inline">• Complimentary breakfast</span>
+      </div>
+    </div>
+
+    <!-- Optional booking card (appears on large screens) -->
+    <form class="mt-8 sm:mt-0 sm:absolute sm:top-1/2 sm:right-6 sm:transform sm:-translate-y-1/2 bg-white/95 p-4 rounded-lg shadow-md w-full sm:max-w-sm text-black">
+      <label class="sr-only" for="dates">Dates</label>
+      <div class="flex gap-2">
+        <input id="dates" type="text" placeholder="Check-in — Check-out" class="flex-1 rounded-md border px-3 py-2" />
+        <button type="submit" class="ml-2 rounded-md bg-amber-500 px-3 py-2 text-sm font-semibold">Check</button>
+      </div>
+    </form>
+  </div>
+</header>

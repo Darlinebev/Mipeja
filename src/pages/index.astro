@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import MobileNav from "../components/MobileNav.astro";
+import Hero from "../components/Hero.astro";
 import { hotel } from "../data/hotel";
 
 const pageTitle = `${hotel.name} | Boutique Stay in ${hotel.location}`;
@@ -38,48 +39,8 @@ const bookingUrl = hotel.bookingUrl;
 			</div>
 		</header>
 
-		<section class="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-			<div class="space-y-8">
-				<div class="inline-flex items-center gap-2 rounded-full bg-coral/10 px-4 py-2 text-coral font-bold text-xs uppercase tracking-wider">
-					<span class="w-2 h-2 rounded-full bg-coral animate-pulse"></span>
-					Open for bookings
-				</div>
-				<h1 class="text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-ink leading-[1.1] tracking-tight">
-					Stay <span class="text-coral">Bubbly.</span><br />
-					Rest <span class="text-teal">Easy.</span>
-				</h1>
-				<p class="text-xl text-slate-600 leading-relaxed max-w-lg">
-					{hotel.description}
-				</p>
-				<div class="flex flex-wrap gap-4">
-					<a class="btn-primary text-lg px-10 py-5" href={bookingUrl} target="_blank" rel="noreferrer">
-						Check Availability
-					</a>
-					<a class="btn-outline text-lg px-8 py-5" href="#rooms">View Rooms</a>
-				</div>
-				<div class="flex flex-wrap gap-6 text-sm font-medium text-slate-500 pt-4">
-					<span class="flex items-center gap-2">
-						<svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-						No hidden fees
-					</span>
-					<span class="flex items-center gap-2">
-						<svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-						Instant confirmation
-					</span>
-				</div>
-			</div>
-			<div class="relative group">
-				<div class="absolute inset-0 bg-gradient-to-tr from-coral/20 to-gold/20 rounded-[3rem] blur-3xl -z-10 group-hover:blur-2xl transition-all duration-700"></div>
-				<img src="/images/hero.svg" alt="Mipeja Hotel overview" class="w-full rounded-[3rem] shadow-2xl animate-float" loading="lazy" />
-				<div class="glass-card absolute -bottom-10 -left-6 p-6 flex flex-col gap-1 max-w-[200px] animate-none">
-					<div class="flex items-center gap-1 text-gold">
-						★★★★★
-					</div>
-					<p class="font-display font-bold text-lg leading-tight">"Best stay in Busia!"</p>
-					<p class="text-xs text-slate-500 font-medium">— Wanjiku K.</p>
-				</div>
-			</div>
-		</section>
+		<Hero hotel={hotel} bookingUrl={bookingUrl} />
+
 
 		<section class="mx-auto max-w-6xl px-6 py-8">
 			<div class="grid gap-6 md:grid-cols-3">
