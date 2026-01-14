@@ -1,22 +1,19 @@
 
+
+
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "mipeja",
-	"main": "dist/_worker.js/index.js",
-	"compatibility_date": "2025-11-27",
-	"compatibility_flags": [
-		"nodejs_compat",
-		"global_fetch_strictly_public"
-	],
-	"pages_build_output_dir": "./dist",
-	"assets": {
-		"binding": "ASSETS_BINDING",
-		"directory": "./dist"
-	},
-	"build": {
-		"command": "npm run build"
-	},
-	"observability": {
-		"enabled": true
-	}
+    "main": "dist/_worker.js/index.js",
+    "name": "mipeja",
+    "compatibility_date": "2025-11-27",
+    "compatibility_flags": [
+        "nodejs_compat",
+        "global_fetch_strictly_public"
+    ],
+    "assets": {
+        "binding": "ASSETS",
+        "directory": "./dist"
+    },
+    "observability": {
+        "enabled": true
+    }
 }
