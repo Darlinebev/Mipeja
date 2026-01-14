@@ -1,7 +1,7 @@
 
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "astro-blog-starter-template",
+	"name": "mipeja",
 	"main": "dist/_worker.js/index.js",
 	"compatibility_date": "2025-11-27",
 	"compatibility_flags": [
