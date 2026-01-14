@@ -1,0 +1,104 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="roomBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdf8f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1f5f9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5f5f5;stop-opacity:1" />
+    </linearGradient>
+    <filter id="roomShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#roomBg)"/>
+  
+  <!-- Wall -->
+  <rect x="0" y="0" width="1200" height="600" fill="url(#wallGrad)"/>
+  
+  <!-- Baseboard -->
+  <rect x="0" y="550" width="1200" height="50" fill="#e2e8f0" opacity="0.6"/>
+  
+  <!-- Accent stripe -->
+  <rect x="0" y="0" width="1200" height="12" fill="#fa7e61"/>
+  
+  <!-- Floor -->
+  <rect x="0" y="600" width="1200" height="200" fill="#d4a574" opacity="0.3"/>
+  <g opacity="0.15">
+    <line x1="0" y1="620" x2="1200" y2="620" stroke="#8b7355" stroke-width="1"/>
+    <line x1="0" y1="640" x2="1200" y2="640" stroke="#8b7355" stroke-width="1"/>
+    <line x1="0" y1="660" x2="1200" y2="660" stroke="#8b7355" stroke-width="1"/>
+  </g>
+  
+  <!-- Bed -->
+  <g filter="url(#roomShadow)">
+    <rect x="50" y="200" width="500" height="350" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" rx="8"/>
+    <!-- Headboard -->
+    <rect x="40" y="190" width="520" height="30" fill="#0d9488" rx="4"/>
+    <!-- Pillows -->
+    <ellipse cx="200" cy="280" rx="80" ry="60" fill="#fdf8f4" stroke="#e2e8f0" stroke-width="1.5"/>
+    <ellipse cx="340" cy="280" rx="80" ry="60" fill="#fdf8f4" stroke="#e2e8f0" stroke-width="1.5"/>
+    <!-- Bedding -->
+    <rect x="70" y="320" width="440" height="200" fill="#fa7e61" opacity="0.3" rx="4"/>
+    <path d="M 70 340 Q 300 360 510 340" stroke="#fa7e61" stroke-width="2" fill="none" opacity="0.4"/>
+  </g>
+  
+  <!-- Nightstand (left) -->
+  <g filter="url(#roomShadow)">
+    <rect x="600" y="280" width="120" height="140" fill="#f5f5f5" stroke="#d1d5db" stroke-width="1.5" rx="4"/>
+    <!-- Drawer handle -->
+    <rect x="615" y="330" width="90" height="6" fill="#1e293b" opacity="0.4" rx="3"/>
+    <!-- Lamp -->
+    <rect x="640" y="240" width="40" height="50" fill="#fbbf24" opacity="0.7" rx="4"/>
+    <circle cx="660" cy="235" r="25" fill="#fbbf24" opacity="0.5"/>
+  </g>
+  
+  <!-- Nightstand (right) -->
+  <g filter="url(#roomShadow)">
+    <rect x="480" y="280" width="120" height="140" fill="#f5f5f5" stroke="#d1d5db" stroke-width="1.5" rx="4"/>
+    <rect x="495" y="330" width="90" height="6" fill="#1e293b" opacity="0.4" rx="3"/>
+  </g>
+  
+  <!-- Seating area -->
+  <g filter="url(#roomShadow)">
+    <!-- Sofa -->
+    <rect x="750" y="300" width="380" height="180" fill="#0d9488" opacity="0.8" rx="12" stroke="#1e293b" stroke-width="1.5"/>
+    <!-- Sofa details -->
+    <rect x="770" y="320" width="340" height="40" fill="#0d9488" opacity="0.5" rx="8"/>
+    <!-- Cushions -->
+    <circle cx="800" cy="350" r="35" fill="#0d9488" opacity="0.6"/>
+    <circle cx="900" cy="350" r="35" fill="#0d9488" opacity="0.6"/>
+    <circle cx="1000" cy="350" r="35" fill="#0d9488" opacity="0.6"/>
+    <circle cx="1100" cy="350" r="35" fill="#0d9488" opacity="0.6"/>
+  </g>
+  
+  <!-- Window -->
+  <g filter="url(#roomShadow)">
+    <rect x="750" y="80" width="400" height="200" fill="#87ceeb" stroke="#1e293b" stroke-width="2" rx="8"/>
+    <!-- Window panes -->
+    <line x1="950" y1="80" x2="950" y2="280" stroke="#1e293b" stroke-width="2"/>
+    <line x1="750" y1="180" x2="1150" y2="180" stroke="#1e293b" stroke-width="2"/>
+    <!-- Outside view -->
+    <rect x="750" y="80" width="400" height="200" fill="#87ceeb" opacity="0.4" rx="6"/>
+    <circle cx="900" cy="120" r="60" fill="#fbbf24" opacity="0.3"/>
+  </g>
+  
+  <!-- Decorative elements -->
+  <circle cx="150" cy="100" r="8" fill="#fa7e61" opacity="0.3"/>
+  <circle cx="1050" cy="500" r="10" fill="#0d9488" opacity="0.2"/>
+  <circle cx="200" cy="650" r="6" fill="#fbbf24" opacity="0.25"/>
+  
+  <!-- Bathroom glimpse (right) -->
+  <g opacity="0.6">
+    <rect x="1080" y="280" width="100" height="200" fill="#e0f4ff" stroke="#a5b4fc" stroke-width="1" rx="4"/>
+    <rect x="1090" y="310" width="35" height="40" fill="#87ceeb" opacity="0.6" rx="2"/>
+    <rect x="1140" y="310" width="30" height="40" fill="#87ceeb" opacity="0.6" rx="2"/>
+  </g>
+  
+  <!-- Room label -->
+  <text x="600" y="750" text-anchor="middle" font-family="Outfit, sans-serif" font-size="36" font-weight="bold" fill="#1e293b">Deluxe Double Room</text>
+  <text x="600" y="785" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="18" fill="#0d9488">Modern luxury with ocean views</text>
+</svg>

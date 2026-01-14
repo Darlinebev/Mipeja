@@ -1,0 +1,91 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="execBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdf8f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1f5f9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="execWall" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5f5f5;stop-opacity:1" />
+    </linearGradient>
+    <filter id="execShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#execBg)"/>
+  
+  <!-- Main wall -->
+  <rect x="0" y="0" width="1200" height="600" fill="url(#execWall)"/>
+  
+  <!-- Accent stripe -->
+  <rect x="0" y="0" width="1200" height="12" fill="#0d9488"/>
+  
+  <!-- Floor -->
+  <rect x="0" y="600" width="1200" height="200" fill="#d4a574" opacity="0.35"/>
+  <g opacity="0.12">
+    <line x1="0" y1="620" x2="1200" y2="620" stroke="#8b7355" stroke-width="2"/>
+    <line x1="0" y1="645" x2="1200" y2="645" stroke="#8b7355" stroke-width="1"/>
+    <line x1="0" y1="670" x2="1200" y2="670" stroke="#8b7355" stroke-width="1"/>
+  </g>
+  
+  <!-- Large bed with premium styling -->
+  <g filter="url(#execShadow)">
+    <rect x="30" y="180" width="520" height="380" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" rx="8"/>
+    <!-- Bed frame accent -->
+    <rect x="20" y="170" width="540" height="30" fill="#fa7e61" opacity="0.85" rx="4"/>
+    <!-- Luxury pillows -->
+    <ellipse cx="180" cy="260" rx="90" ry="70" fill="#fdf8f4" stroke="#e2e8f0" stroke-width="2"/>
+    <ellipse cx="350" cy="260" rx="90" ry="70" fill="#fdf8f4" stroke="#e2e8f0" stroke-width="2"/>
+    <!-- Premium bedding -->
+    <rect x="50" y="310" width="480" height="230" fill="#0d9488" opacity="0.25" rx="4"/>
+    <path d="M 50 330 Q 290 350 530 330" stroke="#0d9488" stroke-width="3" fill="none" opacity="0.4"/>
+  </g>
+  
+  <!-- Work desk area -->
+  <g filter="url(#execShadow)">
+    <rect x="600" y="200" width="550" height="280" fill="#f5f5f5" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
+    <!-- Desk surface -->
+    <rect x="620" y="220" width="510" height="180" fill="#ffffff" opacity="0.8" rx="4"/>
+    <!-- Office chair -->
+    <circle cx="880" cy="450" r="45" fill="#0d9488" opacity="0.7"/>
+    <rect x="840" y="495" width="80" height="40" fill="#1e293b" opacity="0.5" rx="3"/>
+    <!-- Computer setup -->
+    <rect x="720" y="240" width="140" height="100" fill="#87ceeb" opacity="0.6" rx="4" stroke="#1e293b" stroke-width="1"/>
+    <rect x="880" y="250" width="30" height="20" fill="#1e293b" opacity="0.7" rx="2"/>
+    <!-- Lamp -->
+    <rect x="750" y="200" width="25" height="50" fill="#fbbf24" opacity="0.8" rx="3"/>
+    <circle cx="762" cy="195" r="20" fill="#fbbf24" opacity="0.6"/>
+  </g>
+  
+  <!-- Bathroom area with luxury touches -->
+  <g filter="url(#execShadow)">
+    <rect x="1020" y="180" width="150" height="300" fill="#e0f4ff" stroke="#a5b4fc" stroke-width="1.5" rx="4"/>
+    <!-- Fixtures -->
+    <rect x="1035" y="210" width="40" height="50" fill="#87ceeb" opacity="0.7" rx="2"/>
+    <rect x="1090" y="210" width="50" height="50" fill="#87ceeb" opacity="0.7" rx="2"/>
+    <circle cx="1045" cy="300" r="25" fill="#87ceeb" opacity="0.6"/>
+    <!-- Towel rack -->
+    <rect x="1025" y="340" width="120" height="8" fill="#fbbf24" opacity="0.6" rx="4"/>
+  </g>
+  
+  <!-- Balcony doors -->
+  <g filter="url(#execShadow)">
+    <rect x="50" y="60" width="450" height="100" fill="#87ceeb" stroke="#1e293b" stroke-width="2" rx="4"/>
+    <!-- Door divisions -->
+    <line x1="275" y1="60" x2="275" y2="160" stroke="#1e293b" stroke-width="2.5"/>
+    <line x1="50" y1="110" x2="500" y2="110" stroke="#1e293b" stroke-width="2"/>
+    <!-- Outside view -->
+    <rect x="50" y="60" width="450" height="100" fill="#87ceeb" opacity="0.3" rx="4"/>
+    <circle cx="180" cy="95" r="35" fill="#fbbf24" opacity="0.25"/>
+  </g>
+  
+  <!-- Accent elements -->
+  <circle cx="920" cy="80" r="12" fill="#fa7e61" opacity="0.25"/>
+  <circle cx="1100" cy="500" r="15" fill="#0d9488" opacity="0.15"/>
+  
+  <!-- Room label -->
+  <text x="600" y="750" text-anchor="middle" font-family="Outfit, sans-serif" font-size="36" font-weight="bold" fill="#1e293b">Executive Suite</text>
+  <text x="600" y="785" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="18" fill="#fa7e61">Work space + luxury sleeping area</text>
+</svg>

@@ -1,0 +1,110 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="restBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdf8f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1f5f9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="restWall" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fffaf7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5f5f5;stop-opacity:1" />
+    </linearGradient>
+    <filter id="restShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" />
+    </filter>
+    <pattern id="woodfloor" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#8b6f47"/>
+      <line x1="0" y1="0" x2="40" y2="40" stroke="#6b5634" stroke-width="0.3" opacity="0.5"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#restBg)"/>
+  
+  <!-- Walls -->
+  <rect x="0" y="0" width="1200" height="650" fill="url(#restWall)"/>
+  
+  <!-- Accent stripe -->
+  <rect x="0" y="0" width="1200" height="12" fill="#fa7e61"/>
+  
+  <!-- Floor -->
+  <rect x="0" y="650" width="1200" height="150" fill="url(#woodfloor)" opacity="0.8"/>
+  
+  <!-- Large window with garden view -->
+  <g filter="url(#restShadow)">
+    <rect x="50" y="60" width="500" height="450" fill="#87ceeb" stroke="#1e293b" stroke-width="2" rx="8"/>
+    <!-- Window panes (3x2 grid) -->
+    <line x1="216" y1="60" x2="216" y2="510" stroke="#1e293b" stroke-width="2"/>
+    <line x1="382" y1="60" x2="382" y2="510" stroke="#1e293b" stroke-width="2"/>
+    <line x1="50" y1="225" x2="550" y2="225" stroke="#1e293b" stroke-width="2"/>
+    <!-- Garden view -->
+    <rect x="50" y="60" width="500" height="450" fill="#228b22" opacity="0.2" rx="6"/>
+    <circle cx="180" cy="150" r="80" fill="#228b22" opacity="0.3"/>
+    <circle cx="400" cy="180" r="100" fill="#228b22" opacity="0.25"/>
+  </g>
+  
+  <!-- Dining table 1 - Center -->
+  <g filter="url(#restShadow)">
+    <ellipse cx="700" cy="320" rx="180" ry="120" fill="#d4a574" opacity="0.8" stroke="#8b7355" stroke-width="2"/>
+    <!-- Table surface shine -->
+    <ellipse cx="700" cy="310" rx="160" ry="100" fill="#d4a574" opacity="0.5"/>
+    <!-- Chairs -->
+    <g fill="#1e293b" opacity="0.65">
+      <circle cx="560" cy="320" r="32"/>
+      <circle cx="840" cy="320" r="32"/>
+      <circle cx="700" cy="200" r="32"/>
+      <circle cx="700" cy="440" r="32"/>
+    </g>
+  </g>
+  
+  <!-- Dining table 2 -->
+  <g filter="url(#restShadow)">
+    <ellipse cx="950" cy="280" rx="140" ry="90" fill="#d4a574" opacity="0.8" stroke="#8b7355" stroke-width="2"/>
+    <!-- Chairs -->
+    <circle cx="860" cy="280" r="28" fill="#1e293b" opacity="0.65"/>
+    <circle cx="1040" cy="280" r="28" fill="#1e293b" opacity="0.65"/>
+    <circle cx="950" cy="190" r="28" fill="#1e293b" opacity="0.65"/>
+    <circle cx="950" cy="370" r="28" fill="#1e293b" opacity="0.65"/>
+  </g>
+  
+  <!-- Bar counter - Right side -->
+  <g filter="url(#restShadow)">
+    <rect x="980" y="460" width="220" height="180" fill="#d4a574" opacity="0.75" stroke="#8b7355" stroke-width="2" rx="6"/>
+    <!-- Bar stools -->
+    <circle cx="1010" cy="520" r="22" fill="#1e293b" opacity="0.6"/>
+    <circle cx="1065" cy="520" r="22" fill="#1e293b" opacity="0.6"/>
+    <circle cx="1120" cy="520" r="22" fill="#1e293b" opacity="0.6"/>
+    <!-- Bottles/glassware display -->
+    <rect x="995" y="470" width="20" height="40" fill="#87ceeb" opacity="0.7" rx="3"/>
+    <rect x="1030" y="475" width="20" height="35" fill="#87ceeb" opacity="0.7" rx="3"/>
+    <rect x="1065" y="470" width="20" height="40" fill="#87ceeb" opacity="0.7" rx="3"/>
+    <rect x="1100" y="475" width="20" height="35" fill="#87ceeb" opacity="0.7" rx="3"/>
+    <rect x="1135" y="470" width="20" height="40" fill="#87ceeb" opacity="0.7" rx="3"/>
+  </g>
+  
+  <!-- Open kitchen area -->
+  <g filter="url(#restShadow)">
+    <rect x="600" y="540" width="350" height="110" fill="#e0e7ff" stroke="#a5b4fc" stroke-width="2" rx="6"/>
+    <!-- Cooking stations -->
+    <rect x="620" y="560" width="60" height="60" fill="#fa7e61" opacity="0.6" rx="4"/>
+    <rect x="710" y="560" width="60" height="60" fill="#fa7e61" opacity="0.6" rx="4"/>
+    <rect x="800" y="560" width="60" height="60" fill="#fa7e61" opacity="0.6" rx="4"/>
+    <rect x="890" y="560" width="60" height="60" fill="#fa7e61" opacity="0.6" rx="4"/>
+    <!-- Pass-through window -->
+    <rect x="620" y="545" width="330" height="12" fill="#fbbf24" opacity="0.7" rx="2"/>
+  </g>
+  
+  <!-- Ambient lighting -->
+  <circle cx="300" cy="100" r="6" fill="#fbbf24" opacity="0.3"/>
+  <circle cx="900" cy="120" r="8" fill="#fbbf24" opacity="0.35"/>
+  <circle cx="150" cy="450" r="5" fill="#fa7e61" opacity="0.25"/>
+  
+  <!-- Decorative plant in corner -->
+  <g filter="url(#restShadow)">
+    <rect x="100" y="500" width="90" height="150" fill="#228b22" opacity="0.5" rx="45"/>
+    <circle cx="145" cy="480" r="40" fill="#228b22" opacity="0.4"/>
+    <circle cx="110" cy="460" r="35" fill="#2fa93e" opacity="0.4"/>
+  </g>
+  
+  <!-- Label -->
+  <text x="600" y="760" text-anchor="middle" font-family="Outfit, sans-serif" font-size="32" font-weight="bold" fill="#1e293b">Restaurant & Bar</text>
+</svg>

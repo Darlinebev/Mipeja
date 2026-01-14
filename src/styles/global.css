@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	color-scheme: light;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	@apply bg-sand text-ink font-body selection:bg-coral/20 selection:text-ink;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	@apply font-display tracking-tight;
+}
+
+.section-heading {
+	@apply text-3xl sm:text-4xl md:text-5xl font-display font-bold text-ink leading-tight;
+}
+
+.kicker {
+	@apply uppercase tracking-widest text-xs font-bold text-coral mb-4 block;
+}
+
+.card {
+	@apply bg-surface rounded-3xl shadow-card hover:shadow-hover border border-white/50 transition-all duration-300 ease-out;
+}
+
+.card-image-container {
+	@apply overflow-hidden rounded-t-3xl;
+}
+
+.btn-primary {
+	@apply inline-flex items-center justify-center rounded-full bg-ink px-8 py-4 text-white font-semibold transition-all hover:bg-coral hover:-translate-y-1 hover:shadow-soft active:translate-y-0 active:scale-95;
+}
+
+.btn-outline {
+	@apply inline-flex items-center justify-center rounded-full border-2 border-slate-200 px-8 py-4 text-ink font-semibold bg-transparent hover:border-ink hover:bg-white transition-all active:scale-95;
+}
+
+/* Glass effect utilities */
+.glass {
+	@apply backdrop-blur-md bg-white/80 border border-white/40 shadow-sm;
+}
+
+.glass-card {
+	@apply backdrop-blur-xl bg-white/60 border border-white/60 shadow-soft rounded-[2.5rem];
+}
+
+/* Animations */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translateY(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideInRight {
+	from {
+		opacity: 0;
+		transform: translateX(40px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-40px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes float {
+	0%, 100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-20px);
+	}
+}
+
+@keyframes pulse-glow {
+	0%, 100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+}
+
+@keyframes scaleIn {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.animate-fade-in-up {
+	animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fade-in-down {
+	animation: fadeInDown 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+	animation: slideInRight 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+	animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-float {
+	animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+	animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-scale-in {
+	animation: scaleIn 0.5s ease-out;
+}
+
+/* Staggered animations for children */
+.animate-fade-in-up > :nth-child(6) {
+	animation: fadeInUp 0.6s ease-out;
+	animation-delay: 0.6s;
+}
+.animate-fade-in-up > :nth-child(7) {
+	animation-delay: 0.2s;
+}
+.animate-fade-in-up > :nth-child(3) {
+	animation: fadeInUp 0.6s ease-out;
+	animation-delay: 0.3s;
+}
+.animate-fade-in-up > :nth-child(4) {
+	animation: fadeInUp 0.6s ease-out;
+	animation-delay: 0.4s;
+}
+.animate-fade-in-up > :nth-child(5) {
+	animation: fadeInUp 0.6s ease-out;
+	animation-delay: 0.5s;
+}
+.animate-fade-in-up > :nth-child(6) {
+	animation: fadeInUp 0.6s ease-out;
+	animation-delay: 0.6s;
+}
+.animate-fade-in-up > :nth-child(7) {
+	animation: fadeInUp 0.6s ease-out;
+	animation-delay: 0.7s;
+}
+.animate-fade-in-up > :nth-child(8) {
+	animation: fadeInUp 0.6s ease-out;
+	animation-delay: 0.8s;
+}
+.animate-fade-in-up > :nth-child(9) {
+	animation: fadeInUp 0.6s ease-out;
+	animation-delay: 0.9s;
+}
+.animate-fade-in-up > :nth-child(10) {
+	animation: fadeInUp 0.6s ease-out;
+	animation-delay: 1s;
+}
+
+/* Smooth transitions */
+a, button {
+	@apply transition-all duration-200 ease-out;
+}
+
+/* Details (accordion) styling */
+details > summary {
+	list-style-type: none;
+}
+
+details > summary::-webkit-details-marker {
+	display: none;
+}

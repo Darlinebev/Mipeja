@@ -1,0 +1,37 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Rooms", href: "/rooms" },
+  { label: "Amenities", href: "/amenities" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "About", href: "/about" },
+  { label: "FAQs", href: "/faqs" },
+  { label: "Contact", href: "/contact" },
+];
+
+const isActive = (href: string) => {
+  if (href === "/" && currentPath === "/") return true;
+  return currentPath.startsWith(href) && href !== "/";
+};
+---
+
+<nav class="flex flex-col md:flex-row items-center gap-2 md:gap-1">
+  {navItems.map((item) => (
+    <a
+      href={item.href}
+      class={`px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 ${
+        isActive(item.href)
+          ? "bg-coral text-white"
+          : "text-slate-600 hover:text-coral hover:bg-coral/10"
+      }`}
+    >
+      {item.label}
+    </a>
+  ))}
+</nav>

@@ -1,0 +1,118 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87ceeb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f4ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa7e61;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#0d9488;stop-opacity:0.9" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+      <feOffset dx="2" dy="4" result="offsetblur" />
+    </filter>
+    <pattern id="waves" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M0,50 Q25,25 50,50 T100,50" stroke="#0d9488" stroke-width="2" fill="none" opacity="0.1"/>
+    </pattern>
+  </defs>
+  
+  <!-- Sky -->
+  <rect width="1600" height="900" fill="url(#skyGrad)"/>
+  
+  <!-- Sun -->
+  <circle cx="1400" cy="120" r="100" fill="#fbbf24" opacity="0.4"/>
+  <circle cx="1400" cy="120" r="70" fill="#fbbf24" opacity="0.6"/>
+  
+  <!-- Background landscape -->
+  <path d="M 0 550 Q 400 450 800 500 T 1600 520 L 1600 900 L 0 900 Z" fill="#0d9488" opacity="0.15"/>
+  <path d="M 0 650 Q 300 580 600 620 T 1600 700 L 1600 900 L 0 900 Z" fill="#0d9488" opacity="0.25"/>
+  
+  <!-- Main hotel building -->
+  <g filter="url(#shadow)">
+    <!-- Building body -->
+    <rect x="350" y="300" width="900" height="500" fill="#f5f5f5" stroke="#1e293b" stroke-width="2" rx="12"/>
+    
+    <!-- Main accent stripe -->
+    <rect x="350" y="300" width="900" height="45" fill="url(#heroGrad)" rx="12"/>
+    <rect x="350" y="300" width="900" height="8" fill="#fa7e61" rx="12"/>
+    
+    <!-- Window grid - Left section -->
+    <g fill="#87ceeb" stroke="#d1d5db" stroke-width="1.5">
+      <rect x="390" y="370" width="55" height="55"/>
+      <rect x="475" y="370" width="55" height="55"/>
+      <rect x="390" y="445" width="55" height="55"/>
+      <rect x="475" y="445" width="55" height="55"/>
+      <rect x="390" y="520" width="55" height="55"/>
+      <rect x="475" y="520" width="55" height="55"/>
+      <rect x="390" y="595" width="55" height="55"/>
+      <rect x="475" y="595" width="55" height="55"/>
+    </g>
+    
+    <!-- Window grid - Center section (main) -->
+    <g fill="#87ceeb" stroke="#d1d5db" stroke-width="1.5">
+      <rect x="600" y="370" width="55" height="55"/>
+      <rect x="685" y="370" width="55" height="55"/>
+      <rect x="770" y="370" width="55" height="55"/>
+      <rect x="600" y="445" width="55" height="55"/>
+      <rect x="685" y="445" width="55" height="55"/>
+      <rect x="770" y="445" width="55" height="55"/>
+      <rect x="600" y="520" width="55" height="55"/>
+      <rect x="685" y="520" width="55" height="55"/>
+      <rect x="770" y="520" width="55" height="55"/>
+      <rect x="600" y="595" width="55" height="55"/>
+      <rect x="685" y="595" width="55" height="55"/>
+      <rect x="770" y="595" width="55" height="55"/>
+    </g>
+    
+    <!-- Window grid - Right section -->
+    <g fill="#87ceeb" stroke="#d1d5db" stroke-width="1.5">
+      <rect x="895" y="370" width="55" height="55"/>
+      <rect x="980" y="370" width="55" height="55"/>
+      <rect x="895" y="445" width="55" height="55"/>
+      <rect x="980" y="445" width="55" height="55"/>
+      <rect x="895" y="520" width="55" height="55"/>
+      <rect x="980" y="520" width="55" height="55"/>
+      <rect x="895" y="595" width="55" height="55"/>
+      <rect x="980" y="595" width="55" height="55"/>
+    </g>
+    
+    <!-- Main entrance -->
+    <rect x="680" y="680" width="240" height="120" fill="#1e293b" stroke="#fa7e61" stroke-width="4" rx="8"/>
+    <g fill="#fbbf24" opacity="0.7">
+      <rect x="705" y="705" width="85" height="90" rx="4"/>
+      <rect x="810" y="705" width="85" height="90" rx="4"/>
+    </g>
+    
+    <!-- Roof elements -->
+    <polygon points="350,300 800,150 1250,300" fill="#fa7e61" stroke="#1e293b" stroke-width="2.5"/>
+    <polygon points="380,300 800,200 1220,300" fill="#fbbf24" opacity="0.7"/>
+    
+    <!-- Roof details -->
+    <circle cx="600" cy="250" r="8" fill="#1e293b" opacity="0.6"/>
+    <circle cx="800" cy="180" r="12" fill="#fbbf24"/>
+    <circle cx="1000" cy="250" r="8" fill="#1e293b" opacity="0.6"/>
+  </g>
+  
+  <!-- Decorative elements - Palm trees -->
+  <g>
+    <line x1="250" y1="640" x2="250" y2="520" stroke="#654321" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="220" cy="480" r="30" fill="#228b22"/>
+    <circle cx="280" cy="480" r="30" fill="#228b22"/>
+    <circle cx="250" cy="440" r="30" fill="#2fa93e"/>
+    
+    <line x1="1350" y1="660" x2="1350" y2="540" stroke="#654321" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="1320" cy="500" r="30" fill="#228b22"/>
+    <circle cx="1380" cy="500" r="30" fill="#228b22"/>
+    <circle cx="1350" cy="460" r="30" fill="#2fa93e"/>
+  </g>
+  
+  <!-- Water element -->
+  <path d="M 0 750 Q 200 740 400 750 T 800 750 T 1200 750 T 1600 750 L 1600 900 L 0 900 Z" fill="#0d9488" opacity="0.08"/>
+  
+  <!-- Accent stars/lights -->
+  <circle cx="150" cy="180" r="6" fill="#fbbf24" opacity="0.5"/>
+  <circle cx="1500" cy="250" r="5" fill="#fbbf24" opacity="0.4"/>
+  <circle cx="200" cy="350" r="4" fill="#fa7e61" opacity="0.3"/>
+  <circle cx="1550" cy="420" r="5" fill="#fa7e61" opacity="0.35"/>
+</svg>

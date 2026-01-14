@@ -1,0 +1,140 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { hotel } from "../../data/hotel";
+
+export function getStaticPaths() {
+	return hotel.rooms.map((room) => ({
+		params: { slug: room.slug },
+		props: { room }
+	}));
+}
+
+const { room } = Astro.props;
+const pageTitle = `${room.name} | ${hotel.name}`;
+const pageDescription = `${room.name} at ${hotel.name} in ${hotel.location}. Features, rate in ${hotel.currency}, and instant booking.`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+	<div class="min-h-screen">
+		<header class="sticky top-0 z-50 glass border-b-0 transition-all duration-300">
+			<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+				<a href="/" class="flex items-center gap-3">
+					<div class="h-10 w-10 rounded-2xl bg-coral text-white flex items-center justify-center font-display font-bold shadow-soft">
+						M
+					</div>
+					<div>
+						<p class="text-lg font-display font-bold">{hotel.name}</p>
+						<p class="text-xs text-slate-500">{hotel.location}</p>
+					</div>
+				</a>
+				<nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+					<a href="/" class="hover:text-coral transition-colors">Home</a>
+					<a href="/rooms" class="hover:text-coral transition-colors">Rooms</a>
+					<a href="/#amenities" class="hover:text-coral transition-colors">Amenities</a>
+					<a href="/#gallery" class="hover:text-coral transition-colors">Gallery</a>
+				</nav>
+				<div class="flex items-center gap-3">
+					<a class="btn-outline text-sm px-6 py-2" href={hotel.whatsAppUrl} target="_blank" rel="noreferrer">
+						WhatsApp
+					</a>
+					<a class="btn-primary text-sm px-6 py-2" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
+						Book Now
+					</a>
+				</div>
+			</div>
+		</header>
+
+		<section class="mx-auto max-w-6xl px-6 py-16">
+			<div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+				<div class="space-y-6">
+					<p class="kicker">Room Details</p>
+					<h1 class="text-4xl sm:text-5xl font-display font-semibold text-ink">{room.name}</h1>
+					<p class="text-lg text-slate-600">
+						A calm, airy space designed for comfort and easy rest. Wake up refreshed with fast WiFi, a clean private bathroom, and attentive service.
+					</p>
+					<div class="flex flex-wrap items-center gap-4">
+						<span class="rounded-full bg-sand px-4 py-2 text-sm font-semibold">{room.price}</span>
+						<span class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-600">{hotel.currency}</span>
+					</div>
+					<div class="flex flex-wrap gap-3">
+						<a class="btn-primary" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
+							Book now
+						</a>
+						<a class="btn-outline" href="/rooms">Back to rooms</a>
+					</div>
+				</div>
+				<img src={room.image} alt={room.name} class="w-full rounded-[32px] shadow-soft" loading="lazy" />
+			</div>
+		</section>
+
+		<section class="mx-auto max-w-6xl px-6 pb-16">
+			<div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+				<div>
+					<h2 class="section-heading">Room highlights</h2>
+					<ul class="mt-6 grid gap-3 text-sm text-slate-600">
+						{room.features.map((feature) => (
+							<li class="card px-4 py-3">{feature}</li>
+						))}
+					</ul>
+					<div class="mt-6 flex flex-wrap gap-3 text-sm">
+						<span class="rounded-full bg-teal/10 px-4 py-2 font-semibold text-teal">Fast mobile load times</span>
+						<span class="rounded-full bg-coral/10 px-4 py-2 font-semibold text-coral">Instant booking buttons</span>
+					</div>
+				</div>
+				<div class="card p-6">
+					<h3 class="text-xl font-semibold">Stay essentials</h3>
+					<p class="mt-2 text-sm text-slate-600">
+						Every booking includes 24-hour front desk support, free WiFi, and professional cleaning between stays.
+					</p>
+					<ul class="mt-4 space-y-2 text-sm text-slate-600">
+						{hotel.amenities.slice(0, 6).map((item) => (
+							<li>• {item}</li>
+						))}
+					</ul>
+					<a class="btn-primary mt-6 w-full" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
+						Book in {hotel.currency}
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-white/70">
+			<div class="mx-auto max-w-6xl px-6 py-16">
+				<div class="flex items-center justify-between gap-4">
+					<h2 class="section-heading">Other rooms</h2>
+					<a class="btn-outline" href="/rooms">View all rooms</a>
+				</div>
+				<div class="mt-10 grid gap-6 md:grid-cols-3">
+					{hotel.rooms.filter((item) => item.slug !== room.slug).map((item) => (
+						<a href={`/rooms/${item.slug}`} class="card overflow-hidden">
+							<img src={item.image} alt={item.name} class="h-44 w-full object-cover" loading="lazy" />
+							<div class="p-5">
+								<p class="font-semibold">{item.name}</p>
+								<p class="mt-2 text-sm text-slate-600">From {item.price}</p>
+							</div>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<footer class="border-t border-slate-100 bg-sand">
+			<div class="mx-auto max-w-6xl px-6 py-10">
+				<div class="flex flex-wrap items-center justify-between gap-6">
+					<div>
+						<p class="font-display text-xl font-semibold">{hotel.name}</p>
+						<p class="text-sm text-slate-500">{hotel.tagline}</p>
+					</div>
+					<div class="flex flex-wrap gap-4 text-sm font-semibold">
+						{hotel.socials.map((social) => (
+							<a href={social.url} target="_blank" rel="noreferrer" class="hover:text-ink">
+								{social.label}
+							</a>
+						))}
+					</div>
+				</div>
+				<p class="mt-6 text-xs text-slate-400">© {new Date().getFullYear()} {hotel.name}. All rights reserved.</p>
+			</div>
+		</footer>
+	</div>
+</BaseLayout>

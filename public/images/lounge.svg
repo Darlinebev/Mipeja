@@ -1,0 +1,105 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="loungeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdf8f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1f5f9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="loungeWall" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1" />
+    </linearGradient>
+    <filter id="loungeShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" />
+    </filter>
+    <pattern id="tiles" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+      <rect width="80" height="80" fill="#d4a574"/>
+      <line x1="0" y1="0" x2="80" y2="80" stroke="#c9975a" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#loungeBg)"/>
+  
+  <!-- Walls -->
+  <rect x="0" y="0" width="1200" height="650" fill="url(#loungeWall)"/>
+  
+  <!-- Accent stripe top -->
+  <rect x="0" y="0" width="1200" height="12" fill="#0d9488"/>
+  
+  <!-- Floor -->
+  <rect x="0" y="650" width="1200" height="150" fill="url(#tiles)" opacity="0.7"/>
+  
+  <!-- Main seating area - Left sofa -->
+  <g filter="url(#loungeShadow)">
+    <rect x="80" y="200" width="420" height="280" fill="#fa7e61" opacity="0.8" rx="12" stroke="#1e293b" stroke-width="2"/>
+    <!-- Cushions -->
+    <circle cx="140" cy="280" r="50" fill="#fa7e61" opacity="0.6"/>
+    <circle cx="230" cy="280" r="50" fill="#fa7e61" opacity="0.6"/>
+    <circle cx="320" cy="280" r="50" fill="#fa7e61" opacity="0.6"/>
+    <circle cx="410" cy="280" r="50" fill="#fa7e61" opacity="0.6"/>
+    <!-- Backrest -->
+    <rect x="90" y="170" width="400" height="50" fill="#fa7e61" opacity="0.9" rx="8"/>
+  </g>
+  
+  <!-- Coffee table -->
+  <g filter="url(#loungeShadow)">
+    <rect x="150" y="500" width="280" height="140" fill="#d4a574" opacity="0.7" stroke="#8b7355" stroke-width="2" rx="8"/>
+    <!-- Table surface details -->
+    <circle cx="220" cy="530" r="20" fill="#fbbf24" opacity="0.4"/>
+    <circle cx="350" cy="540" r="15" fill="#fbbf24" opacity="0.3"/>
+  </g>
+  
+  <!-- Center seating - Modern chairs -->
+  <g filter="url(#loungeShadow)">
+    <!-- Chair 1 -->
+    <rect x="550" y="250" width="140" height="180" fill="#0d9488" opacity="0.75" rx="8" stroke="#1e293b" stroke-width="1.5"/>
+    <!-- Chair 2 -->
+    <rect x="730" y="250" width="140" height="180" fill="#0d9488" opacity="0.75" rx="8" stroke="#1e293b" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Right seating area - Lounge sofa -->
+  <g filter="url(#loungeShadow)">
+    <rect x="920" y="220" width="260" height="200" fill="#0d9488" opacity="0.8" rx="10" stroke="#1e293b" stroke-width="2"/>
+    <!-- Armrest -->
+    <rect x="900" y="280" width="30" height="120" fill="#0d9488" opacity="0.7" rx="6"/>
+    <rect x="1180" y="280" width="30" height="120" fill="#0d9488" opacity="0.7" rx="6"/>
+  </g>
+  
+  <!-- Bar/beverage counter -->
+  <g filter="url(#loungeShadow)">
+    <rect x="600" y="500" width="400" height="140" fill="#e0e7ff" stroke="#a5b4fc" stroke-width="2" rx="8"/>
+    <!-- Counter surface -->
+    <rect x="620" y="510" width="360" height="30" fill="#cbd5f5" opacity="0.8" rx="4"/>
+    <!-- Beverage dispensers -->
+    <rect x="650" y="550" width="50" height="60" fill="#87ceeb" opacity="0.7" rx="4"/>
+    <rect x="730" y="550" width="50" height="60" fill="#87ceeb" opacity="0.7" rx="4"/>
+    <rect x="810" y="550" width="50" height="60" fill="#87ceeb" opacity="0.7" rx="4"/>
+    <rect x="890" y="550" width="50" height="60" fill="#87ceeb" opacity="0.7" rx="4"/>
+  </g>
+  
+  <!-- Windows with views -->
+  <g filter="url(#loungeShadow)">
+    <rect x="550" y="50" width="600" height="150" fill="#87ceeb" stroke="#1e293b" stroke-width="2" rx="8"/>
+    <!-- Window divisions -->
+    <line x1="750" y1="50" x2="750" y2="200" stroke="#1e293b" stroke-width="2"/>
+    <line x1="950" y1="50" x2="950" y2="200" stroke="#1e293b" stroke-width="2"/>
+    <line x1="550" y1="125" x2="1150" y2="125" stroke="#1e293b" stroke-width="1.5"/>
+    <!-- Outside view -->
+    <rect x="550" y="50" width="600" height="150" fill="#87ceeb" opacity="0.3" rx="6"/>
+    <circle cx="700" cy="100" r="40" fill="#fbbf24" opacity="0.2"/>
+  </g>
+  
+  <!-- Decorative plants -->
+  <g filter="url(#loungeShadow)">
+    <rect x="50" y="550" width="80" height="120" fill="#228b22" opacity="0.6" rx="40"/>
+    <circle cx="90" cy="520" r="35" fill="#228b22" opacity="0.5"/>
+    <circle cx="60" cy="500" r="30" fill="#2fa93e" opacity="0.5"/>
+  </g>
+  
+  <!-- Accent lighting -->
+  <circle cx="300" cy="80" r="8" fill="#fbbf24" opacity="0.3"/>
+  <circle cx="1050" cy="400" r="12" fill="#fa7e61" opacity="0.2"/>
+  
+  <!-- Label -->
+  <text x="600" y="760" text-anchor="middle" font-family="Outfit, sans-serif" font-size="32" font-weight="bold" fill="#1e293b">Guest Lounge</text>
+</svg>

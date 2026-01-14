@@ -1,0 +1,110 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { hotel } from "../../data/hotel";
+
+const pageTitle = `Rooms | ${hotel.name}`;
+const pageDescription = `Browse rooms at ${hotel.name} in ${hotel.location}. See features, rates in ${hotel.currency}, and book instantly.`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+	<div class="min-h-screen">
+		<header class="sticky top-0 z-50 glass border-b-0 transition-all duration-300">
+			<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+				<a href="/" class="flex items-center gap-3">
+					<div class="h-10 w-10 rounded-2xl bg-coral text-white flex items-center justify-center font-display font-bold shadow-soft">
+						M
+					</div>
+					<div>
+						<p class="text-lg font-display font-bold">{hotel.name}</p>
+						<p class="text-xs text-slate-500">{hotel.location}</p>
+					</div>
+				</a>
+				<nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+					<a href="/" class="hover:text-coral transition-colors">Home</a>
+					<a href="#room-list" class="hover:text-coral transition-colors">Rooms</a>
+					<a href="/#amenities" class="hover:text-coral transition-colors">Amenities</a>
+					<a href="/#gallery" class="hover:text-coral transition-colors">Gallery</a>
+				</nav>
+				<div class="flex items-center gap-3">
+					<a class="btn-outline text-sm px-6 py-2" href={hotel.whatsAppUrl} target="_blank" rel="noreferrer">
+						WhatsApp
+					</a>
+					<a class="btn-primary text-sm px-6 py-2" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
+						Book Now
+					</a>
+				</div>
+			</div>
+		</header>
+
+		<section class="mx-auto max-w-6xl px-6 py-16">
+			<div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+				<div class="space-y-6">
+					<p class="kicker">Rooms & Suites</p>
+					<h1 class="text-4xl sm:text-5xl font-display font-semibold text-ink">
+						Find the right fit for your stay.
+					</h1>
+					<p class="text-lg text-slate-600">
+						Every room includes air conditioning, a private bathroom, fresh linens, and fast WiFi. Choose from cozy doubles to a family suite.
+					</p>
+					<div class="flex flex-wrap gap-4">
+						<a class="btn-primary" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
+							Instant booking
+						</a>
+						<a class="btn-outline" href="/">
+							Back to home
+						</a>
+					</div>
+				</div>
+				<img src="/images/hero.svg" alt="Mipeja Hotel rooms" class="w-full rounded-[32px] shadow-soft" loading="lazy" />
+			</div>
+		</section>
+
+		<section id="room-list" class="mx-auto max-w-6xl px-6 pb-16">
+			<div class="grid gap-8 md:grid-cols-3">
+				{hotel.rooms.map((room) => (
+					<div class="card overflow-hidden">
+						<img src={room.image} alt={room.name} class="h-56 w-full object-cover" loading="lazy" />
+						<div class="space-y-4 p-6">
+							<div class="flex items-center justify-between">
+								<h2 class="text-xl font-semibold">{room.name}</h2>
+								<span class="rounded-full bg-sand px-3 py-1 text-sm font-semibold">{room.price}</span>
+							</div>
+							<ul class="space-y-2 text-sm text-slate-600">
+								{room.features.map((feature) => (
+									<li>• {feature}</li>
+								))}
+							</ul>
+							<div class="grid gap-3">
+								<a class="btn-outline w-full" href={`/rooms/${room.slug}`}>
+									View details
+								</a>
+								<a class="btn-primary w-full" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
+									Book in {hotel.currency}
+								</a>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<footer class="border-t border-slate-100 bg-sand">
+			<div class="mx-auto max-w-6xl px-6 py-10">
+				<div class="flex flex-wrap items-center justify-between gap-6">
+					<div>
+						<p class="font-display text-xl font-semibold">{hotel.name}</p>
+						<p class="text-sm text-slate-500">{hotel.tagline}</p>
+					</div>
+					<div class="flex flex-wrap gap-4 text-sm font-semibold">
+						{hotel.socials.map((social) => (
+							<a href={social.url} target="_blank" rel="noreferrer" class="hover:text-ink">
+								{social.label}
+							</a>
+						))}
+					</div>
+				</div>
+				<p class="mt-6 text-xs text-slate-400">© {new Date().getFullYear()} {hotel.name}. All rights reserved.</p>
+			</div>
+		</footer>
+	</div>
+</BaseLayout>
