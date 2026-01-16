@@ -4,20 +4,20 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				ink: "#1e293b", // Slate 800 - softer black
-				sand: "#fdf8f4", // Warm off-white
+				charcoal: "#1F1F1F",
+				brown: "#3A2F2A",
+				beige: "#F4EFEA",
+				gold: "#C9A46A",
+				"gold-dark": "#B08C50",
+				ink: "#1F1F1F",
+				sand: "#F4EFEA",
 				white: "#ffffff",
-				coral: "#fa7e61", // Bubbly orange-pink
-				teal: "#0d9488", // Teal 600 - Professional yet vibrant
-				gold: "#fbbf24", // Warm accent
 				surface: "#ffffff",
-				"surface-muted": "#f1f5f9"
+				"surface-muted": "#F4EFEA"
 			},
 			fontFamily: {
-				// Rounder, friendly display font
-				display: ["'Outfit'", "sans-serif"],
-				// Clean, legible body font
-				body: ["'DM Sans'", "sans-serif"]
+				display: ["'Playfair Display'", "serif"],
+				body: ["'Montserrat'", "sans-serif"]
 			},
 			borderRadius: {
 				'4xl': '2rem',

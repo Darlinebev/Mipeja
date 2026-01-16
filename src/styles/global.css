@@ -11,35 +11,35 @@ html {
 }
 
 body {
-	@apply bg-sand text-ink font-body selection:bg-coral/20 selection:text-ink;
+	@apply bg-beige text-charcoal font-body selection:bg-gold/20 selection:text-charcoal;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	@apply font-display tracking-tight;
+	@apply font-display tracking-tight text-brown;
 }
 
 .section-heading {
-	@apply text-3xl sm:text-4xl md:text-5xl font-display font-bold text-ink leading-tight;
+	@apply text-3xl sm:text-4xl md:text-5xl font-display font-bold text-brown leading-tight;
 }
 
 .kicker {
-	@apply uppercase tracking-widest text-xs font-bold text-coral mb-4 block;
+	@apply uppercase tracking-widest text-xs font-bold text-gold mb-4 block;
 }
 
 .card {
-	@apply bg-surface rounded-3xl shadow-card hover:shadow-hover border border-white/50 transition-all duration-300 ease-out;
+	@apply bg-white rounded-none shadow-soft hover:shadow-hover border border-beige transition-all duration-300 ease-out;
 }
 
 .card-image-container {
-	@apply overflow-hidden rounded-t-3xl;
+	@apply overflow-hidden rounded-none;
 }
 
 .btn-primary {
-	@apply inline-flex items-center justify-center rounded-full bg-ink px-8 py-4 text-white font-semibold transition-all hover:bg-coral hover:-translate-y-1 hover:shadow-soft active:translate-y-0 active:scale-95;
+	@apply inline-flex items-center justify-center rounded-none bg-gold px-8 py-4 text-white font-body font-medium uppercase tracking-widest transition-all hover:bg-gold-dark hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-95;
 }
 
 .btn-outline {
-	@apply inline-flex items-center justify-center rounded-full border-2 border-slate-200 px-8 py-4 text-ink font-semibold bg-transparent hover:border-ink hover:bg-white transition-all active:scale-95;
+	@apply inline-flex items-center justify-center rounded-none border border-gold px-8 py-4 text-gold font-body font-medium uppercase tracking-widest bg-transparent hover:bg-gold hover:text-white transition-all active:scale-95;
 }
 
 /* Glass effect utilities */
@@ -197,6 +197,17 @@ h1, h2, h3, h4, h5, h6 {
 /* Smooth transitions */
 a, button {
 	@apply transition-all duration-200 ease-out;
+}
+
+/* Navigation link utilities */
+.nav-link {
+	@apply px-4 py-2 font-medium text-xs transition-all duration-200 border-b border-transparent uppercase tracking-widest;
+}
+.nav-link:hover {
+	@apply text-gold border-gold;
+}
+.nav-active {
+	@apply text-gold border-gold;
 }
 
 /* Details (accordion) styling */

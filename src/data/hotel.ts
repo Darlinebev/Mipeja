@@ -1,7 +1,7 @@
 export const hotel = {
 	name: "Mipeja Hotel",
 	location: "Busia, Kenya",
-	tagline: "Where vibrant comfort meets thoughtful service.",
+	tagline: "Welcome to Mipeja Hotel – Comfort in the Heart of Busia",
 	bookingUrl: "https://booking.example.com/mipeja",
 	whatsAppUrl: "https://wa.me/254712345678",
 	email: "hello@mipejahotel.com",
@@ -12,7 +12,12 @@ export const hotel = {
 	currency: "KES",
 	languages: ["EN", "SW"],
 	description:
-		"Mipeja Hotel offers a fresh, friendly take on boutique stays in Busia. Expect bright, comfortable rooms, a relaxed terrace for evening conversation, and an on-site restaurant serving local favorites. We focus on thoughtful details — fast WiFi, reliable service, and small touches that make a stay effortless.",
+		"Relax in our modern, air-conditioned rooms with free Wi-Fi, great food, and 24-hour service. Perfect for business, travel, and leisure stays.",
+	quickFacts: [
+		"32 km from Tororo Railway Station",
+		"41 km from Myanga Railway Station",
+		"104 km from Kisumu International Airport"
+	],
 	quickFacts: [
 		"33 km from Tororo Railway Station",
 		"41 km from Myanga Railway Station",

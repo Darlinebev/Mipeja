@@ -1,101 +1,13 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { hotel } from "../data/hotel";
-
-const pageTitle = `FAQs | ${hotel.name}`;
-const pageDescription = `Frequently asked questions about ${hotel.name} in ${hotel.location}. Booking, amenities, policies, and more.`;
 ---
-
-<BaseLayout title={pageTitle} description={pageDescription}>
-	<div class="min-h-screen flex flex-col">
-		<!-- Header -->
-		<header class="sticky top-0 z-50 glass border-b-0 transition-all duration-300">
-			<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-				<a href="/" class="flex items-center gap-3">
-					<div class="h-12 w-12 rounded-2xl bg-coral text-white flex items-center justify-center font-display text-xl font-bold shadow-soft">
-						M
-					</div>
-					<div>
-						<p class="text-xl font-display font-bold leading-none">{hotel.name}</p>
-						<p class="text-xs text-slate-500 font-medium">{hotel.location}</p>
-					</div>
-				</a>
-				<nav class="hidden md:flex items-center gap-2">
-					<a href="/" class="px-4 py-2 rounded-full font-medium text-sm transition-all text-slate-600 hover:text-coral hover:bg-coral/10">Home</a>
-					<a href="/rooms" class="px-4 py-2 rounded-full font-medium text-sm transition-all text-slate-600 hover:text-coral hover:bg-coral/10">Rooms</a>
-					<a href="/amenities" class="px-4 py-2 rounded-full font-medium text-sm transition-all text-slate-600 hover:text-coral hover:bg-coral/10">Amenities</a>
-					<a href="/faqs" class="px-4 py-2 rounded-full font-medium text-sm transition-all bg-coral text-white">FAQs</a>
-					<a href="/contact" class="px-4 py-2 rounded-full font-medium text-sm transition-all text-slate-600 hover:text-coral hover:bg-coral/10">Contact</a>
-				</nav>
-				<a class="btn-primary py-2 px-6 text-sm shadow-none hover:shadow-soft" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
-					Book Now
-				</a>
-			</div>
-		</header>
-
-		<!-- Main Content -->
-		<main class="flex-1">
-			<!-- Hero -->
-			<section class="mx-auto max-w-4xl px-6 py-20">
-				<div class="text-center space-y-4 mb-16">
-					<p class="kicker">Questions & Answers</p>
-					<h1 class="text-5xl sm:text-6xl font-display font-bold text-ink leading-tight">
-						Frequently Asked Questions
-					</h1>
-					<p class="text-xl text-slate-600 max-w-2xl mx-auto">
-						Find answers to common questions about booking, amenities, policies, and your stay at Mipeja Hotel.
-					</p>
-				</div>
-
-				<!-- FAQs -->
-				<div class="space-y-6">
-					{hotel.faqs.map((faq, index) => (
-						<details class="card p-6 group cursor-pointer hover:shadow-hover transition-all duration-300">
-							<summary class="flex items-center justify-between font-semibold text-lg text-ink list-none select-none">
-								<span>{faq.question}</span>
-								<svg class="w-5 h-5 text-coral transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-								</svg>
-							</summary>
-							<p class="mt-4 text-slate-600 leading-relaxed">{faq.answer}</p>
-						</details>
-					))}
-				</div>
-
-				<!-- Contact CTA -->
-				<div class="mt-16 card p-8 bg-gradient-to-br from-coral/10 to-teal/10 border-0">
-					<div class="text-center space-y-4">
-						<h3 class="text-2xl font-display font-bold">Still have questions?</h3>
-						<p class="text-slate-600">Get in touch with our team. We're here to help!</p>
-						<div class="flex flex-wrap justify-center gap-4">
-							<a class="btn-primary" href={hotel.whatsAppUrl} target="_blank" rel="noreferrer">
-								WhatsApp us
-							</a>
-							<a class="btn-outline" href="/contact">Send email</a>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-
-		<!-- Footer -->
-		<footer class="border-t border-slate-100 bg-surface mt-20">
-			<div class="mx-auto max-w-6xl px-6 py-10">
-				<div class="flex flex-wrap items-center justify-between gap-6">
-					<div>
-						<p class="font-display text-xl font-bold">{hotel.name}</p>
-						<p class="text-sm text-slate-500">{hotel.tagline}</p>
-					</div>
-					<div class="flex flex-wrap gap-4 text-sm font-medium">
-						{hotel.socials.map((social) => (
-							<a href={social.url} target="_blank" rel="noreferrer" class="hover:text-coral transition-colors">
-								{social.label}
-							</a>
-						))}
-					</div>
-				</div>
-				<p class="mt-6 text-xs text-slate-400">© {new Date().getFullYear()} {hotel.name}. All rights reserved.</p>
-			</div>
-		</footer>
-	</div>
-</BaseLayout>
+<html>
+  <head>
+	<meta http-equiv="refresh" content="0;url=/" />
+	<meta name="robots" content="noindex" />
+	<title>Redirecting…</title>
+  </head>
+  <body>
+	<p>Redirecting to <a href="/">home</a>…</p>
+	<script>location.replace('/');</script>
+  </body>
+</html>

@@ -1,106 +1,57 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { hotel } from "../data/hotel";
+import Header from "../components/Header.astro";
 
 const pageTitle = `Gallery | ${hotel.name}`;
 const pageDescription = `Gallery of photos from ${hotel.name} in ${hotel.location}. Rooms, amenities, and guest experiences.`;
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-	<div class="min-h-screen flex flex-col">
-		<!-- Header -->
-		<header class="sticky top-0 z-50 glass border-b-0 transition-all duration-300">
-			<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-				<a href="/" class="flex items-center gap-3">
-					<div class="h-12 w-12 rounded-2xl bg-coral text-white flex items-center justify-center font-display text-xl font-bold shadow-soft">
-						M
-					</div>
-					<div>
-						<p class="text-xl font-display font-bold leading-none">{hotel.name}</p>
-						<p class="text-xs text-slate-500 font-medium">{hotel.location}</p>
-					</div>
-				</a>
-				<nav class="hidden md:flex items-center gap-2">
-					<a href="/" class="px-4 py-2 rounded-full font-medium text-sm transition-all text-slate-600 hover:text-coral hover:bg-coral/10">Home</a>
-					<a href="/rooms" class="px-4 py-2 rounded-full font-medium text-sm transition-all text-slate-600 hover:text-coral hover:bg-coral/10">Rooms</a>
-					<a href="/amenities" class="px-4 py-2 rounded-full font-medium text-sm transition-all text-slate-600 hover:text-coral hover:bg-coral/10">Amenities</a>
-					<a href="/gallery" class="px-4 py-2 rounded-full font-medium text-sm transition-all bg-coral text-white">Gallery</a>
-					<a href="/faqs" class="px-4 py-2 rounded-full font-medium text-sm transition-all text-slate-600 hover:text-coral hover:bg-coral/10">FAQs</a>
-				</nav>
-				<a class="btn-primary py-2 px-6 text-sm shadow-none hover:shadow-soft" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
-					Book Now
-				</a>
+	<div class="min-h-screen bg-white">
+		<Header bookingUrl={hotel.bookingUrl} />
+
+		<!-- Subpage Hero -->
+		<section class="relative h-[60vh] flex items-center justify-center overflow-hidden">
+			<img src="/images/restaurant.svg" alt="Gallery" class="absolute inset-0 w-full h-full object-cover brightness-50" />
+			<div class="relative z-10 text-center space-y-4">
+				<p class="text-[10px] uppercase tracking-[0.4em] text-white font-bold">Visual Journey</p>
+				<h1 class="text-6xl md:text-8xl font-display text-white italic">Gallery</h1>
 			</div>
-		</header>
+		</section>
 
-		<!-- Main Content -->
-		<main class="flex-1">
-			<!-- Hero -->
-			<section class="mx-auto max-w-6xl px-6 py-20">
-				<div class="text-center space-y-4 mb-16">
-					<p class="kicker">Visual Tour</p>
-					<h1 class="text-5xl sm:text-6xl font-display font-bold text-ink leading-tight">
-						Gallery
-					</h1>
-					<p class="text-xl text-slate-600 max-w-2xl mx-auto">
-						Explore the beauty and comfort of Mipeja Hotel through our photo gallery.
-					</p>
+		<!-- Gallery Grid -->
+		<section class="max-w-7xl mx-auto px-6 py-32">
+            <div class="text-center mb-20 space-y-4">
+				<p class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold">Moments of Perfection</p>
+				<h2 class="text-5xl md:text-6xl font-display text-brown italic">Photography collection</h2>
+			</div>
+
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                    ...hotel.rooms.map(r => ({ src: r.image, title: r.name })),
+                    { src: "/images/lounge.svg", title: "Shared Lounge" },
+                    { src: "/images/restaurant.svg", title: "Restaurant" },
+                    { src: "/images/hero.svg", title: "Hotel Exterior" },
+                    { src: "/images/mipeja-hero.jpg", title: "Welcome Plaza" }
+                ].map((item, index) => (
+                    <div class={`relative group overflow-hidden ${index % 4 === 0 ? 'lg:col-span-2 aspect-[16/9]' : 'aspect-square'}`}>
+                        <img src={item.src} alt={item.title} class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000" loading="lazy" />
+                        <div class="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                            <p class="text-white text-xs uppercase tracking-[0.3em] font-bold italic">{item.title}</p>
+                        </div>
+                    </div>
+                ))}
+			</div>
+		</section>
+
+		<footer class="bg-charcoal text-white py-24 border-t border-white/5 font-body">
+			<div class="max-w-7xl mx-auto px-6">
+                <div class="mt-20 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.3em] opacity-40">
+					<p>© {new Date().getFullYear()} {hotel.name}. All rights reserved.</p>
 				</div>
-
-				<!-- Gallery Grid -->
-				<div class="grid md:grid-cols-3 gap-6 auto-rows-[300px]">
-					<!-- Featured Large -->
-					<div class="md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 group cursor-pointer">
-						<img src="/images/hero.svg" alt="Hotel exterior" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-					</div>
-
-					<!-- Rooms -->
-					{hotel.rooms.map((room) => (
-						<div class="rounded-3xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 group cursor-pointer">
-							<img src={room.image} alt={room.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-						</div>
-					))}
-
-					<!-- Lounge -->
-					<div class="rounded-3xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 group cursor-pointer">
-						<img src="/images/lounge.svg" alt="Shared lounge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-					</div>
-
-					<!-- Restaurant -->
-					<div class="md:col-span-2 rounded-3xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 group cursor-pointer">
-						<img src="/images/restaurant.svg" alt="Restaurant" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-					</div>
-				</div>
-
-				<!-- CTA Section -->
-				<div class="mt-16 card p-8 bg-gradient-to-r from-coral/10 to-teal/10 border-0 text-center">
-					<h3 class="text-2xl font-display font-bold mb-2">Discover your next getaway</h3>
-					<p class="text-slate-600 mb-6">Experience the comfort and beauty of Mipeja Hotel in person.</p>
-					<a class="btn-primary" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
-						Book your stay now
-					</a>
-				</div>
-			</section>
-		</main>
-
-		<!-- Footer -->
-		<footer class="border-t border-slate-100 bg-surface mt-20">
-			<div class="mx-auto max-w-6xl px-6 py-10">
-				<div class="flex flex-wrap items-center justify-between gap-6">
-					<div>
-						<p class="font-display text-xl font-bold">{hotel.name}</p>
-						<p class="text-sm text-slate-500">{hotel.tagline}</p>
-					</div>
-					<div class="flex flex-wrap gap-4 text-sm font-medium">
-						{hotel.socials.map((social) => (
-							<a href={social.url} target="_blank" rel="noreferrer" class="hover:text-coral transition-colors">
-								{social.label}
-							</a>
-						))}
-					</div>
-				</div>
-				<p class="mt-6 text-xs text-slate-400">© {new Date().getFullYear()} {hotel.name}. All rights reserved.</p>
 			</div>
 		</footer>
 	</div>
 </BaseLayout>
+

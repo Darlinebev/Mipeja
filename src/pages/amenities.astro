@@ -1,159 +1,126 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { hotel } from "../data/hotel";
+import Header from "../components/Header.astro";
+
+const facilities = [
+	{ title: "Restaurant", img: "/images/restaurant.svg" },
+	{ title: "Shared lounge / TV area", img: "/images/lounge.svg" },
+	{ title: "Terrace & outdoor furniture", img: "/images/hero.svg" },
+	{ title: "Free private parking", img: "/images/mipeja-hero.jpg" },
+	{ title: "Non-smoking rooms", img: "/images/room-deluxe.svg" },
+	{ title: "Designated smoking area", img: "/images/room-family.svg" },
+];
 
 const pageTitle = `Amenities | ${hotel.name}`;
 const pageDescription = `Discover the amenities and facilities at ${hotel.name} in ${hotel.location}.`;
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-	<div class="min-h-screen flex flex-col">
-		<!-- Header -->
-		<header class="sticky top-0 z-50 glass border-b-0 transition-all duration-300">
-			<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-				<a href="/" class="flex items-center gap-3">
-					<div class="h-12 w-12 rounded-2xl bg-coral text-white flex items-center justify-center font-display text-xl font-bold shadow-soft">
-						M
-					</div>
-					<div>
-						<p class="text-xl font-display font-bold leading-none">{hotel.name}</p>
-						<p class="text-xs text-slate-500 font-medium">{hotel.location}</p>
-					</div>
-				</a>
-				<nav class="hidden md:flex items-center gap-2">
-					<a href="/" class="px-4 py-2 rounded-full font-medium text-sm transition-all text-slate-600 hover:text-coral hover:bg-coral/10">Home</a>
-					<a href="/rooms" class="px-4 py-2 rounded-full font-medium text-sm transition-all text-slate-600 hover:text-coral hover:bg-coral/10">Rooms</a>
-					<a href="/amenities" class="px-4 py-2 rounded-full font-medium text-sm transition-all bg-coral text-white">Amenities</a>
-					<a href="/faqs" class="px-4 py-2 rounded-full font-medium text-sm transition-all text-slate-600 hover:text-coral hover:bg-coral/10">FAQs</a>
-					<a href="/contact" class="px-4 py-2 rounded-full font-medium text-sm transition-all text-slate-600 hover:text-coral hover:bg-coral/10">Contact</a>
-				</nav>
-				<a class="btn-primary py-2 px-6 text-sm shadow-none hover:shadow-soft" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
-					Book Now
-				</a>
+	<div class="min-h-screen bg-beige/30">
+		<Header bookingUrl={hotel.bookingUrl} />
+
+		<!-- Subpage Hero -->
+		<section class="relative h-[60vh] flex items-center justify-center overflow-hidden">
+			<img src="/images/lounge.svg" alt="Amenities" class="absolute inset-0 w-full h-full object-cover brightness-50" />
+			<div class="relative z-10 text-center space-y-4">
+				<p class="text-[10px] uppercase tracking-[0.4em] text-white font-bold">Experience & Luxury</p>
+				<h1 class="text-6xl md:text-8xl font-display text-white italic">Amenities</h1>
 			</div>
-		</header>
+		</section>
 
-		<!-- Main Content -->
-		<main class="flex-1">
-			<!-- Hero -->
-			<section class="mx-auto max-w-6xl px-6 py-20">
-				<div class="text-center space-y-4 mb-16">
-					<p class="kicker">Facilities & Services</p>
-					<h1 class="text-5xl sm:text-6xl font-display font-bold text-ink leading-tight">
-						Amenities
-					</h1>
-					<p class="text-xl text-slate-600 max-w-2xl mx-auto">
-						Everything you need for a comfortable, memorable stay.
-					</p>
-				</div>
+		<!-- Facilities (Image Cards) -->
+		<section class="max-w-7xl mx-auto px-6 py-32">
+			<div class="text-center mb-20 space-y-4">
+				<p class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold">Premium Services</p>
+				<h2 class="text-5xl md:text-6xl font-display text-brown">Our Facilities</h2>
+			</div>
 
-				<!-- Amenities Grid -->
-				<div class="grid md:grid-cols-2 gap-8 mb-16">
-					<!-- Guest Services -->
-					<div class="space-y-6">
-						<h2 class="text-3xl font-display font-bold flex items-center gap-3">
-							<span class="w-10 h-10 rounded-full bg-coral/20 flex items-center justify-center text-coral font-bold">🏨</span>
-							Guest Services
-						</h2>
-						<div class="grid gap-4">
-							{["24-hour front desk", "24-hour security", "Room service", "Food delivery to rooms", "Concierge service"].map((item) => (
-								<div class="card p-4 flex items-center gap-3 hover:shadow-hover transition-all">
-									<svg class="w-5 h-5 text-coral flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-									</svg>
-									<span class="font-medium">{item}</span>
-								</div>
-							))}
+			<div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+				{facilities.map((f) => (
+					<div class="group space-y-6">
+						<div class="aspect-[4/5] overflow-hidden bg-charcoal">
+							<img src={f.img} alt={f.title} class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" loading="lazy" />
+						</div>
+						<div class="space-y-2">
+							<h3 class="font-display text-2xl font-bold text-brown">{f.title}</h3>
+							<p class="text-[10px] uppercase tracking-[0.2em] text-charcoal/60 leading-relaxed font-bold">Comprehensive guest services</p>
 						</div>
 					</div>
+				))}
+			</div>
+		</section>
 
+		<!-- Room Features & Safety Details -->
+		<section class="bg-white py-32 border-t border-beige">
+			<div class="max-w-7xl mx-auto px-6">
+				<div class="grid lg:grid-cols-2 gap-24">
 					<!-- Room Features -->
-					<div class="space-y-6">
-						<h2 class="text-3xl font-display font-bold flex items-center gap-3">
-							<span class="w-10 h-10 rounded-full bg-teal/20 flex items-center justify-center text-teal font-bold">🛏️</span>
-							Room Features
-						</h2>
-						<div class="grid gap-4">
-							{["Air conditioning", "Flat-screen TV", "Free WiFi", "Private bathroom", "Workspace desk", "Wardrobe"].map((item) => (
-								<div class="card p-4 flex items-center gap-3 hover:shadow-hover transition-all">
-									<svg class="w-5 h-5 text-teal flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-									</svg>
-									<span class="font-medium">{item}</span>
-								</div>
-							))}
+					<div class="space-y-12">
+						<div class="space-y-4">
+							<p class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold">Personal Comfort</p>
+							<h2 class="text-4xl font-display text-brown italic">Room Features</h2>
 						</div>
-					</div>
-				</div>
-
-				<!-- More Amenities -->
-				<div class="grid md:grid-cols-2 gap-8 mb-16">
-					<!-- Facilities -->
-					<div class="space-y-6">
-						<h2 class="text-3xl font-display font-bold flex items-center gap-3">
-							<span class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold font-bold">🍽️</span>
-							Facilities
-						</h2>
-						<div class="grid gap-4">
-							{["Restaurant", "Shared lounge / TV area", "Terrace & outdoor furniture", "Free private parking", "Non-smoking rooms", "Designated smoking area"].map((item) => (
-								<div class="card p-4 flex items-center gap-3 hover:shadow-hover transition-all">
-									<svg class="w-5 h-5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-									</svg>
-									<span class="font-medium">{item}</span>
+						<div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
+							{["Air conditioning", "Flat-screen TV", "Free WiFi", "Private bathroom", "Workspace desk", "Wardrobe"].map((item) => (
+								<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
+									<span class="text-gold">✦</span>
+									{item}
 								</div>
 							))}
 						</div>
 					</div>
 
 					<!-- Safety & Security -->
-					<div class="space-y-6">
-						<h2 class="text-3xl font-display font-bold flex items-center gap-3">
-							<span class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 font-bold">🔒</span>
-							Safety & Security
-						</h2>
-						<div class="grid gap-4">
+					<div class="space-y-12">
+						<div class="space-y-4">
+							<p class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold">Your Well-being</p>
+							<h2 class="text-4xl font-display text-brown italic">Safety & Security</h2>
+						</div>
+						<div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
 							{hotel.safety.map((item) => (
-								<div class="card p-4 flex items-center gap-3 hover:shadow-hover transition-all">
-									<svg class="w-5 h-5 text-slate-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-									</svg>
-									<span class="font-medium text-sm">{item}</span>
+								<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
+									<span class="text-gold">✦</span>
+									{item}
 								</div>
 							))}
 						</div>
 					</div>
 				</div>
+			</div>
+		</section>
 
-				<!-- CTA -->
-				<div class="card p-8 bg-gradient-to-r from-coral/10 to-teal/10 border-0 text-center">
-					<h3 class="text-2xl font-display font-bold mb-2">Ready to experience comfort?</h3>
-					<p class="text-slate-600 mb-6">Book your stay at Mipeja Hotel today.</p>
-					<a class="btn-primary" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
-						Check availability
-					</a>
-				</div>
-			</section>
-		</main>
-
-		<!-- Footer -->
-		<footer class="border-t border-slate-100 bg-surface mt-20">
-			<div class="mx-auto max-w-6xl px-6 py-10">
-				<div class="flex flex-wrap items-center justify-between gap-6">
-					<div>
-						<p class="font-display text-xl font-bold">{hotel.name}</p>
-						<p class="text-sm text-slate-500">{hotel.tagline}</p>
+		<footer class="bg-charcoal text-white py-24 border-t border-white/5 font-body">
+			<div class="max-w-7xl mx-auto px-6">
+				<div class="grid lg:grid-cols-4 gap-16">
+					<div class="col-span-2 space-y-8">
+						<div>
+							<p class="font-display text-3xl font-bold tracking-widest uppercase mb-4">{hotel.name}</p>
+							<p class="text-xs opacity-60 uppercase tracking-[0.2em] max-w-sm leading-relaxed">{hotel.tagline}</p>
+						</div>
 					</div>
-					<div class="flex flex-wrap gap-4 text-sm font-medium">
-						{hotel.socials.map((social) => (
-							<a href={social.url} target="_blank" rel="noreferrer" class="hover:text-coral transition-colors">
-								{social.label}
-							</a>
-						))}
+					<div class="space-y-6">
+						<p class="text-[10px] uppercase tracking-[0.3em] font-bold text-gold">Contact Us</p>
+						<div class="space-y-4 text-xs uppercase tracking-widest opacity-70">
+							<p>{hotel.location}</p>
+							<p>{hotel.phone}</p>
+							<p>{hotel.email}</p>
+						</div>
+					</div>
+					<div class="space-y-6">
+						<p class="text-[10px] uppercase tracking-[0.3em] font-bold text-gold">Quick Links</p>
+						<nav class="flex flex-col gap-4 text-xs uppercase tracking-widest opacity-70">
+							<a href="/rooms" class="hover:text-gold transition-colors">Rooms & Suites</a>
+							<a href="/about" class="hover:text-gold transition-colors">Our Story</a>
+							<a href="/contact" class="hover:text-gold transition-colors">Get in touch</a>
+						</nav>
 					</div>
 				</div>
-				<p class="mt-6 text-xs text-slate-400">© {new Date().getFullYear()} {hotel.name}. All rights reserved.</p>
+				<div class="mt-20 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.3em] opacity-40">
+					<p>© {new Date().getFullYear()} {hotel.name}. All rights reserved.</p>
+				</div>
 			</div>
 		</footer>
 	</div>
 </BaseLayout>
+

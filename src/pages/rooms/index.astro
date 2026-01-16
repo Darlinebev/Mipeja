@@ -1,110 +1,71 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { hotel } from "../../data/hotel";
+import Header from "../../components/Header.astro";
 
 const pageTitle = `Rooms | ${hotel.name}`;
 const pageDescription = `Browse rooms at ${hotel.name} in ${hotel.location}. See features, rates in ${hotel.currency}, and book instantly.`;
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-	<div class="min-h-screen">
-		<header class="sticky top-0 z-50 glass border-b-0 transition-all duration-300">
-			<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-				<a href="/" class="flex items-center gap-3">
-					<div class="h-10 w-10 rounded-2xl bg-coral text-white flex items-center justify-center font-display font-bold shadow-soft">
-						M
-					</div>
-					<div>
-						<p class="text-lg font-display font-bold">{hotel.name}</p>
-						<p class="text-xs text-slate-500">{hotel.location}</p>
-					</div>
-				</a>
-				<nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-					<a href="/" class="hover:text-coral transition-colors">Home</a>
-					<a href="#room-list" class="hover:text-coral transition-colors">Rooms</a>
-					<a href="/#amenities" class="hover:text-coral transition-colors">Amenities</a>
-					<a href="/#gallery" class="hover:text-coral transition-colors">Gallery</a>
-				</nav>
-				<div class="flex items-center gap-3">
-					<a class="btn-outline text-sm px-6 py-2" href={hotel.whatsAppUrl} target="_blank" rel="noreferrer">
-						WhatsApp
-					</a>
-					<a class="btn-primary text-sm px-6 py-2" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
-						Book Now
-					</a>
-				</div>
-			</div>
-		</header>
+	<div class="min-h-screen bg-beige/30">
+		<Header bookingUrl={hotel.bookingUrl} />
 
-		<section class="mx-auto max-w-6xl px-6 py-16">
-			<div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-				<div class="space-y-6">
-					<p class="kicker">Rooms & Suites</p>
-					<h1 class="text-4xl sm:text-5xl font-display font-semibold text-ink">
-						Find the right fit for your stay.
-					</h1>
-					<p class="text-lg text-slate-600">
-						Every room includes air conditioning, a private bathroom, fresh linens, and fast WiFi. Choose from cozy doubles to a family suite.
-					</p>
-					<div class="flex flex-wrap gap-4">
-						<a class="btn-primary" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
-							Instant booking
-						</a>
-						<a class="btn-outline" href="/">
-							Back to home
-						</a>
-					</div>
-				</div>
-				<img src="/images/hero.svg" alt="Mipeja Hotel rooms" class="w-full rounded-[32px] shadow-soft" loading="lazy" />
+		<!-- Subpage Hero -->
+		<section class="relative h-[60vh] flex items-center justify-center overflow-hidden">
+			<img src="/images/mipeja-hero.jpg" alt="Rooms & Suites" class="absolute inset-0 w-full h-full object-cover brightness-50" />
+			<div class="relative z-10 text-center space-y-4">
+				<p class="text-[10px] uppercase tracking-[0.4em] text-white font-bold">Unrivaled Comfort</p>
+				<h1 class="text-6xl md:text-8xl font-display text-white italic">Rooms & Suites</h1>
 			</div>
 		</section>
 
-		<section id="room-list" class="mx-auto max-w-6xl px-6 pb-16">
-			<div class="grid gap-8 md:grid-cols-3">
-				{hotel.rooms.map((room) => (
-					<div class="card overflow-hidden">
-						<img src={room.image} alt={room.name} class="h-56 w-full object-cover" loading="lazy" />
-						<div class="space-y-4 p-6">
-							<div class="flex items-center justify-between">
-								<h2 class="text-xl font-semibold">{room.name}</h2>
-								<span class="rounded-full bg-sand px-3 py-1 text-sm font-semibold">{room.price}</span>
+		<!-- Room Collection -->
+		<section class="max-w-7xl mx-auto px-6 py-32">
+			<div class="space-y-32">
+				{hotel.rooms.map((room, index) => (
+					<div class={`grid lg:grid-cols-[1fr_1.2fr] gap-16 items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+						<div class={`space-y-8 ${index % 2 !== 0 ? 'lg:order-2' : 'lg:order-1'}`}>
+							<div class="space-y-4">
+								<p class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold">Exclusive Discovery</p>
+								<h2 class="text-5xl font-display text-brown italic">{room.name}</h2>
 							</div>
-							<ul class="space-y-2 text-sm text-slate-600">
-								{room.features.map((feature) => (
-									<li>• {feature}</li>
+							<p class="text-charcoal/70 leading-relaxed">
+								Experience high-end amenities and sophisticated design in our {room.name}. Every detail is crafted for your utmost comfort and relaxation.
+							</p>
+							<div class="grid grid-cols-2 gap-y-4 text-[10px] uppercase tracking-widest font-bold text-charcoal/60">
+								{room.features.slice(0, 4).map(feature => (
+									<div class="flex items-center gap-3">
+										<span class="text-gold">✦</span> {feature}
+									</div>
 								))}
-							</ul>
-							<div class="grid gap-3">
-								<a class="btn-outline w-full" href={`/rooms/${room.slug}`}>
-									View details
-								</a>
-								<a class="btn-primary w-full" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
-									Book in {hotel.currency}
-								</a>
 							</div>
+							<div class="flex items-center gap-8 pt-4">
+								<div class="text-brown">
+									<span class="text-[10px] uppercase tracking-widest block opacity-50 font-bold mb-1">Starting from</span>
+									<span class="text-3xl font-display italic">{room.price}</span>
+								</div>
+								<div class="flex gap-4">
+									<a href={`/rooms/${room.slug}`} class="border border-brown/20 px-8 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-brown hover:border-brown transition-all">Explore →</a>
+									<a href={hotel.bookingUrl} class="bg-brown px-10 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-white hover:bg-gold transition-all shadow-xl shadow-brown/10">Book Now</a>
+								</div>
+							</div>
+						</div>
+						<div class={`relative aspect-video overflow-hidden group ${index % 2 !== 0 ? 'lg:order-1' : 'lg:order-2'}`}>
+							<img src={room.image} alt={room.name} class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" loading="lazy" />
 						</div>
 					</div>
 				))}
 			</div>
 		</section>
 
-		<footer class="border-t border-slate-100 bg-sand">
-			<div class="mx-auto max-w-6xl px-6 py-10">
-				<div class="flex flex-wrap items-center justify-between gap-6">
-					<div>
-						<p class="font-display text-xl font-semibold">{hotel.name}</p>
-						<p class="text-sm text-slate-500">{hotel.tagline}</p>
-					</div>
-					<div class="flex flex-wrap gap-4 text-sm font-semibold">
-						{hotel.socials.map((social) => (
-							<a href={social.url} target="_blank" rel="noreferrer" class="hover:text-ink">
-								{social.label}
-							</a>
-						))}
-					</div>
+		<footer class="bg-charcoal text-white py-24 border-t border-white/5 font-body">
+			<div class="max-w-7xl mx-auto px-6">
+                <div class="mt-20 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.3em] opacity-40">
+					<p>© {new Date().getFullYear()} {hotel.name}. All rights reserved.</p>
 				</div>
-				<p class="mt-6 text-xs text-slate-400">© {new Date().getFullYear()} {hotel.name}. All rights reserved.</p>
 			</div>
 		</footer>
 	</div>
 </BaseLayout>
+
