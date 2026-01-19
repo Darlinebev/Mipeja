@@ -1,44 +1,45 @@
 ---
 const { hotel, bookingUrl, image = '/images/mipeja-hero.jpg' } = Astro.props;
 ---
-<header role="banner" class="relative h-[90vh] min-h-[600px] overflow-hidden flex items-center">
+<header role="banner" class="relative h-screen min-h-[700px] overflow-hidden flex items-center">
   <div class="absolute inset-0 z-0">
-    <img src={image} alt={`${hotel.name} luxury hotel`} class="object-cover w-full h-full scale-105 animate-float-slow" loading="eager" />
-    <div class="absolute inset-0 bg-charcoal/40"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-transparent to-charcoal/60"></div>
+    <img src={image} alt="Double Deluxe Room" class="object-cover w-full h-full scale-105 animate-float-slow" loading="eager" />
+    <div class="absolute inset-0 bg-black/30"></div>
   </div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-6 w-full text-center">
     <div class="max-w-4xl mx-auto text-white">
-      <div class="flex items-center justify-center gap-2 mb-6 animate-fade-in-down">
-         <div class="flex text-gold">
-            {[...Array(5)].map(() => (
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-            ))}
-         </div>
-      </div>
+      <p class="text-[12px] md:text-[14px] font-accent font-bold uppercase tracking-[0.5em] mb-6 animate-fade-in-down">
+        A blend of elegance and nature
+      </p>
       
-      <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-medium leading-[1.1] mb-6 animate-fade-in-up tracking-wider uppercase">
-        {hotel.name} Luxury Hotel
+      <h1 class="text-6xl md:text-8xl lg:text-9xl font-display font-medium leading-[1.1] mb-12 animate-fade-in-up">
+        Double Deluxe Room
       </h1>
       
-      <p class="text-lg md:text-xl text-sand/90 font-light mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-100">
-        Located in the heart of the city, this luxurious, modern hotel offers top-notch amenities for a perfect stay.
-      </p>
-
       <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up delay-200">
-        <a href="/rooms" class="group flex items-center gap-3 text-white uppercase tracking-[0.3em] font-medium text-xs border-b border-white pb-2 hover:border-gold hover:text-gold transition-all">
-          Explore Rooms <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        <a href={bookingUrl} target="_blank" rel="noopener noreferrer" class="bg-gold-rich hover:bg-gold-rich/90 text-white px-12 py-5 text-[14px] font-accent font-bold uppercase tracking-[0.3em] transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 rounded-sm">
+          BOOK ROOM
         </a>
       </div>
     </div>
   </div>
 
-  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:block animate-bounce opacity-50">
-     <div class="w-px h-16 bg-white mx-auto relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-white after:rounded-full"></div>
-     <p class="text-[10px] uppercase tracking-[0.4em] text-white mt-4 vertical-text">Scroll</p>
+  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 hidden md:block animate-bounce opacity-80">
+     <div class="w-px h-20 bg-white/40 mx-auto relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1.5 after:h-1.5 after:bg-white after:rounded-full"></div>
   </div>
 </header>
+
+<style>
+  @keyframes float-slow {
+    0%, 100% { transform: scale(1.05) translateY(0); }
+    50% { transform: scale(1.1) translateY(-10px); }
+  }
+  .animate-float-slow {
+    animation: float-slow 20s ease-in-out infinite;
+  }
+  .delay-200 { animation-delay: 0.2s; }
+</style>
 
 <style>
   .vertical-text {

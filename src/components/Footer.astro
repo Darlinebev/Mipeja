@@ -1,0 +1,54 @@
+---
+import { hotel } from '../data/hotel';
+---
+
+<footer class="bg-charcoal-gray text-white py-24 border-t border-white/5 font-body">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-4 gap-16">
+      <div class="col-span-2 space-y-8">
+        <div>
+          <p class="font-display text-3xl font-bold tracking-widest uppercase mb-4">{hotel.name}</p>
+          <p class="text-xs opacity-60 uppercase tracking-[0.2em] max-w-sm leading-relaxed">{hotel.tagline}</p>
+        </div>
+        <div class="flex gap-6">
+          {hotel.socials?.map((social) => (
+            <a href={social.url} target="_blank" rel="noreferrer" class="text-white hover:text-gold-rich transition-colors text-xs uppercase tracking-widest">
+              {social.label}
+            </a>
+          ))}
+        </div>
+      </div>
+      <div class="space-y-6">
+        <p class="text-[10px] uppercase tracking-[0.3em] font-bold text-gold-rich">Contact Us</p>
+        <div class="space-y-4 text-xs uppercase tracking-widest opacity-70">
+          <p>{hotel.location}</p>
+          <p>{hotel.phone}</p>
+          <p>{hotel.email}</p>
+        </div>
+      </div>
+      <div class="space-y-6">
+        <p class="text-[10px] uppercase tracking-[0.3em] font-bold text-gold-rich">Quick Links</p>
+        <nav class="flex flex-col gap-4 text-xs uppercase tracking-widest opacity-70">
+          <a href="/rooms" class="hover:text-gold-rich transition-colors">Rooms & Suites</a>
+          <a href="/amenities" class="hover:text-gold-rich transition-colors">Experience</a>
+          <a href="/about" class="hover:text-gold-rich transition-colors">Our Story</a>
+          <a href="/contact" class="hover:text-gold-rich transition-colors">Get in touch</a>
+        </nav>
+      </div>
+    </div>
+    <div class="mt-20 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.3em] opacity-40">
+      <p>© {new Date().getFullYear()} {hotel.name}. All rights reserved.</p>
+      <div class="flex gap-8">
+        <span>Terms & Conditions</span>
+        <span>Privacy Policy</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Sticky CTA (Reservation) -->
+  <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-md border-t border-gray-light md:hidden z-50">
+    <a class="w-full bg-gold-rich py-4 rounded-sm flex items-center justify-center text-xs font-bold text-white uppercase tracking-[0.2em]" href={hotel.bookingUrl} target="_blank" rel="noreferrer">
+      Reservation
+    </a>
+  </div>
+</footer>

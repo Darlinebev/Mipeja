@@ -38,7 +38,7 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 		<!-- Facilities (Image Cards) -->
 		<section class="max-w-7xl mx-auto px-6 py-32">
 			<div class="text-center mb-20 space-y-4">
-				<p class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold">Premium Services</p>
+				<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Premium Services</p>
 				<h2 class="text-5xl md:text-6xl font-display text-brown">Our Facilities</h2>
 			</div>
 
@@ -64,7 +64,7 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 					<!-- Room Features -->
 					<div class="space-y-12">
 						<div class="space-y-4">
-							<p class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold">Personal Comfort</p>
+							<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Personal Comfort</p>
 							<h2 class="text-4xl font-display text-brown italic">Room Features</h2>
 						</div>
 							<div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
@@ -77,7 +77,7 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 									{ icon: Wardrobe, label: "Wardrobe" }
 								].map((item) => (
 									<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
-										<span class="text-gold w-6 h-6">
+										<span class="text-terracotta w-6 h-6">
 											<item.icon className="w-6 h-6" />
 										</span>
 										{item.label}
@@ -89,13 +89,13 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 					<!-- Safety & Security -->
 					<div class="space-y-12">
 						<div class="space-y-4">
-							<p class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold">Your Well-being</p>
+							<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Your Well-being</p>
 							<h2 class="text-4xl font-display text-brown italic">Safety & Security</h2>
 						</div>
 						<div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
 							{hotel.safety.map((item) => (
 								<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
-									<span class="text-gold">✦</span>
+									<span class="text-terracotta">✦</span>
 									{item}
 								</div>
 							))}
@@ -105,37 +105,7 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 			</div>
 		</section>
 
-		<footer class="bg-charcoal text-white py-24 border-t border-white/5 font-body">
-			<div class="max-w-7xl mx-auto px-6">
-				<div class="grid lg:grid-cols-4 gap-16">
-					<div class="col-span-2 space-y-8">
-						<div>
-							<p class="font-display text-3xl font-bold tracking-widest uppercase mb-4">{hotel.name}</p>
-							<p class="text-xs opacity-60 uppercase tracking-[0.2em] max-w-sm leading-relaxed">{hotel.tagline}</p>
-						</div>
-					</div>
-					<div class="space-y-6">
-						<p class="text-[10px] uppercase tracking-[0.3em] font-bold text-gold">Contact Us</p>
-						<div class="space-y-4 text-xs uppercase tracking-widest opacity-70">
-							<p>{hotel.location}</p>
-							<p>{hotel.phone}</p>
-							<p>{hotel.email}</p>
-						</div>
-					</div>
-					<div class="space-y-6">
-						<p class="text-[10px] uppercase tracking-[0.3em] font-bold text-gold">Quick Links</p>
-						<nav class="flex flex-col gap-4 text-xs uppercase tracking-widest opacity-70">
-							<a href="/rooms" class="hover:text-gold transition-colors">Rooms & Suites</a>
-							<a href="/about" class="hover:text-gold transition-colors">Our Story</a>
-							<a href="/contact" class="hover:text-gold transition-colors">Get in touch</a>
-						</nav>
-					</div>
-				</div>
-				<div class="mt-20 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.3em] opacity-40">
-					<p>© {new Date().getFullYear()} {hotel.name}. All rights reserved.</p>
-				</div>
-			</div>
-		</footer>
+
 	</div>
 </BaseLayout>
 

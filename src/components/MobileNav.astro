@@ -5,6 +5,13 @@ interface Props {
 }
 
 const { hotelName, hotelLocation } = Astro.props;
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Amenities", href: "/amenities" },
+  { label: "Room", href: "/rooms" },
+  { label: "Contact", href: "/contact" },
+];
 ---
 
 <div class="lg:hidden">
@@ -13,36 +20,29 @@ const { hotelName, hotelLocation } = Astro.props;
     class="relative z-[60] flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none group"
     aria-label="Toggle menu"
   >
-    <span id="bar-1" class="w-6 h-0.5 bg-white transition-all duration-300"></span>
-    <span id="bar-2" class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+    <span id="bar-1" class="w-6 h-0.5 bg-white transition-all duration-300 mobile-menu-bar"></span>
+    <span id="bar-2" class="w-6 h-0.5 bg-white transition-all duration-300 mobile-menu-bar"></span>
   </button>
 
   <!-- Mobile menu panel -->
   <div 
     id="mobile-menu" 
-    class="fixed inset-0 bg-charcoal translate-x-full transition-transform duration-500 ease-in-out z-50 flex flex-col justify-center items-center text-center p-8 lg:hidden"
+    class="fixed inset-0 bg-ivory translate-x-full transition-transform duration-500 ease-in-out z-50 flex flex-col justify-center items-center text-center p-8 lg:hidden"
   >
-    <nav class="flex flex-col gap-8">
-      {[
-        { label: "Home", href: "/" },
-        { label: "Rooms", href: "/rooms" },
-        { label: "Amenities", href: "/amenities" },
-        { label: "Gallery", href: "/gallery" },
-        { label: "About", href: "/about" },
-        { label: "Contact", href: "/contact" }
-      ].map(item => (
+    <nav class="flex flex-col gap-6">
+      {navItems.map(item => (
         <a 
           href={item.href} 
-          class="text-2xl font-display text-white hover:text-gold italic transition-colors tracking-widest"
+          class="text-2xl font-display text-charcoal-gray hover:text-gold-rich transition-colors tracking-widest uppercase font-bold"
         >
           {item.label}
         </a>
       ))}
     </nav>
     
-    <div class="mt-20 border-t border-white/10 pt-10 w-full">
-        <p class="text-[10px] uppercase tracking-[0.4em] text-white/40 mb-4 whitespace-nowrap">Reservations</p>
-        <p class="text-gold font-body tracking-wider font-bold">+254 722 206 289</p>
+    <div class="mt-20 border-t border-gray-light pt-10 w-full">
+        <p class="text-[10px] uppercase tracking-[0.4em] text-charcoal-gray/40 mb-4 whitespace-nowrap">Reservations</p>
+        <p class="text-gold-rich font-accent tracking-wider font-bold">+888-607-5000</p>
     </div>
   </div>
 </div>

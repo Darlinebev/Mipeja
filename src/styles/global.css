@@ -11,23 +11,23 @@ html {
 }
 
 body {
-	@apply bg-beige text-charcoal font-body selection:bg-gold/20 selection:text-charcoal;
+	@apply bg-ivory text-charcoal-gray font-body selection:bg-gold-rich/20 selection:text-charcoal-gray;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	@apply font-display tracking-tight text-brown;
+	@apply font-display tracking-tight text-charcoal-gray;
 }
 
 .section-heading {
-	@apply text-3xl sm:text-4xl md:text-5xl font-display font-bold text-brown leading-tight;
+	@apply text-3xl sm:text-4xl md:text-5xl font-display font-bold text-charcoal-gray leading-tight;
 }
 
 .kicker {
-	@apply uppercase tracking-widest text-xs font-bold text-gold mb-4 block;
+	@apply uppercase tracking-widest text-xs font-bold text-deep-teal mb-4 block;
 }
 
 .card {
-	@apply bg-white rounded-none shadow-soft hover:shadow-hover border border-beige transition-all duration-300 ease-out;
+	@apply bg-white rounded-none shadow-soft hover:shadow-hover border border-gray-light transition-all duration-300 ease-out;
 }
 
 .card-image-container {
@@ -35,11 +35,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-	@apply inline-flex items-center justify-center rounded-none bg-gold px-8 py-4 text-white font-body font-medium uppercase tracking-widest transition-all hover:bg-gold-dark hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-95;
+	@apply inline-flex items-center justify-center rounded-none bg-gold-rich px-8 py-4 text-white font-accent font-bold uppercase tracking-[0.2em] transition-all hover:bg-gold-rich/90 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-95;
 }
 
 .btn-outline {
-	@apply inline-flex items-center justify-center rounded-none border border-gold px-8 py-4 text-gold font-body font-medium uppercase tracking-widest bg-transparent hover:bg-gold hover:text-white transition-all active:scale-95;
+	@apply inline-flex items-center justify-center rounded-none border border-gold-rich px-8 py-4 text-gold-rich font-accent font-bold uppercase tracking-[0.2em] bg-transparent hover:bg-gold-rich hover:text-white transition-all active:scale-95;
 }
 
 /* Glass effect utilities */
@@ -149,6 +149,22 @@ h1, h2, h3, h4, h5, h6 {
 	animation: pulse-glow 3s ease-in-out infinite;
 }
 
+/* Reveal Animation */
+.reveal {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
 .animate-scale-in {
 	animation: scaleIn 0.5s ease-out;
 }
@@ -204,10 +220,10 @@ a, button {
 	@apply px-4 py-2 font-medium text-xs transition-all duration-200 border-b border-transparent uppercase tracking-widest;
 }
 .nav-link:hover {
-	@apply text-gold border-gold;
+	@apply text-terracotta border-terracotta;
 }
 .nav-active {
-	@apply text-gold border-gold;
+	@apply text-terracotta border-terracotta;
 }
 
 /* Details (accordion) styling */

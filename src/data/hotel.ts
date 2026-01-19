@@ -18,32 +18,30 @@ export const hotel = {
 		"41 km from Myanga Railway Station",
 		"104 km from Kisumu International Airport"
 	],
-	quickFacts: [
-		"33 km from Tororo Railway Station",
-		"41 km from Myanga Railway Station",
-		"104 km from Kisumu International Airport"
-	],
 	rooms: [
 		{
-			name: "Deluxe Double",
-			slug: "deluxe-double",
+			name: "Double Deluxe with Ocean View",
+			slug: "double-deluxe",
 			price: "KES 5,800",
-			image: "/images/room-deluxe.svg",
-			features: ["Air conditioning", "Flat-screen TV", "Private bathroom", "Free WiFi"]
+			image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1000",
+			description: "Experience unparalleled comfort in our Double Deluxe rooms, where modern luxury meets the calming influence of nature. Each room is meticulously designed to provide a serene sanctuary with breathtaking views of the ocean.",
+			features: ["56 m² in size", "Connecting rooms", "Pillow Menu", "Breakfast room"]
 		},
 		{
-			name: "Executive Twin",
+			name: "Executive Twin City View",
 			slug: "executive-twin",
 			price: "KES 6,500",
-			image: "/images/room-executive.svg",
-			features: ["Workspace desk", "Wardrobe", "Room service", "City view"]
+			image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&q=80&w=1000",
+			description: "Designed for business and leisure travelers alike, our Executive Twin rooms offer a blend of functionality and relaxation with stunning city vistas. Perfect for those who need a dedicated workspace without compromising on comfort.",
+			features: ["45 m² in size", "Workspace desk", "City view", "High-speed WiFi"]
 		},
 		{
-			name: "Family Suite",
+			name: "Family Suite Garden View",
 			slug: "family-suite",
 			price: "KES 8,400",
-			image: "/images/room-family.svg",
-			features: ["Two-room layout", "Extra seating", "Quiet wing", "Fast WiFi"]
+			image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1000",
+			description: "Spacious and inviting, the Family Suite provides the perfect retreat for your loved ones, featuring separate living areas and direct garden access. Create lasting memories in a space designed for togetherness.",
+			features: ["80 m² in size", "Two bedrooms", "Private terrace", "Kitchenette"]
 		}
 	],
 	amenities: [

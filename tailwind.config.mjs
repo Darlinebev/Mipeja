@@ -4,9 +4,18 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				charcoal: "#1F1F1F",
+				ivory: "#F8F5F2",
+				"charcoal-gray": "#333333",
+				"deep-teal": "#2C6E63",
+				"gold-rich": "#CFAE6D",
+				"sand-light": "#EDE3D1",
+				"gray-light": "#DADADA",
+				charcoal: "#1F1F1F", // Keeping some old ones just in case or for transition
 				brown: "#3A2F2A",
 				beige: "#F4EFEA",
+				cream: "#FFFDF5",
+				terracotta: "#B35A38",
+				"burnt-orange": "#CC5500",
 				gold: "#C9A46A",
 				"gold-dark": "#B08C50",
 				ink: "#1F1F1F",
@@ -17,7 +26,8 @@ export default {
 			},
 			fontFamily: {
 				display: ["'Playfair Display'", "serif"],
-				body: ["'Montserrat'", "sans-serif"]
+				body: ["'Lato'", "'Open Sans'", "sans-serif"],
+				accent: ["'Montserrat'", "sans-serif"]
 			},
 			borderRadius: {
 				'4xl': '2rem',

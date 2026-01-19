@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Footer from '../components/Footer.astro';
 
 const { title, description } = Astro.props;
 ---
@@ -16,9 +17,10 @@ const { title, description } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
 			rel="stylesheet"
 		/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 		<style>
 			::view-transition-old(root) {
 				animation: slide-out-fade 0.4s cubic-bezier(0.4, 0, 1, 1);
@@ -36,10 +38,29 @@ const { title, description } = Astro.props;
 			}
 		</style>
 	</head>
-	<body class="bg-sand text-ink antialiased">
+	<body class="bg-ivory text-charcoal-gray antialiased">
 		<slot />
 
+		<Footer />
+
 		<script>
+			// Intersection Observer for reveal animations
+			const observerOptions = {
+				threshold: 0.1
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('active');
+					}
+				});
+			}, observerOptions);
+
+			document.querySelectorAll('.reveal').forEach((el) => {
+				observer.observe(el);
+			});
+
 			(function () {
 				const path = location.pathname.replace(/\/$/, '') || '/';
 				document.querySelectorAll('a.nav-link').forEach(a => {
