@@ -172,10 +172,9 @@ const pageDescription = `${room.name} at ${hotel.name} in ${hotel.location}. Fea
                 const prev = document.getElementById('prevBtn');
                 const next = document.getElementById('nextBtn');
                 const dotsWrap = document.getElementById('other-rooms-dots');
-                let slides = Array.from(track.children);
-                let current = 0;
                 let slidesPerView = 1;
                 let autoplayInterval = null;
+                let transitionDuration = 500; // ms
 
                 function updateSlidesPerView() {
                     const w = window.innerWidth;
@@ -184,64 +183,117 @@ const pageDescription = `${room.name} at ${hotel.name} in ${hotel.location}. Fea
                     else slidesPerView = 1;
                 }
 
-                function updateSizes() {
+                function setupCarousel() {
                     updateSlidesPerView();
-                    slides = Array.from(track.children);
-                    slides.forEach(s => s.style.minWidth = (container.clientWidth / slidesPerView) + 'px');
-                    moveTo(current);
-                    renderDots();
-                }
+                    // clean any existing clones
+                    Array.from(track.querySelectorAll('.__clone')).forEach(n => n.remove());
 
-                function moveTo(index) {
-                    const maxIndex = Math.max(0, slides.length - slidesPerView);
-                    current = Math.min(Math.max(0, index), maxIndex);
-                    const offset = current * (container.clientWidth / slidesPerView);
-                    track.style.transform = `translateX(-${offset}px)`;
-                    updateActiveDot();
-                }
+                    const original = Array.from(track.children);
+                    const originalCount = original.length;
+                    if (!originalCount) return;
 
-                function prevSlide() { moveTo(current - 1); }
-                function nextSlide() { moveTo(current + 1); }
-
-                function renderDots() {
-                    dotsWrap.innerHTML = '';
-                    const count = Math.max(1, slides.length - slidesPerView + 1);
-                    for (let i = 0; i < count; i++) {
-                        const d = document.createElement('button');
-                        d.className = 'w-3 h-3 rounded-full bg-white/30';
-                        d.addEventListener('click', () => moveTo(i));
-                        dotsWrap.appendChild(d);
+                    // create clones
+                    const clonesBefore = [];
+                    const clonesAfter = [];
+                    for (let i = 0; i < slidesPerView; i++) {
+                        const before = original[originalCount - 1 - i].cloneNode(true);
+                        before.classList.add('__clone');
+                        clonesBefore.unshift(before);
+                        const after = original[i].cloneNode(true);
+                        after.classList.add('__clone');
+                        clonesAfter.push(after);
                     }
-                    updateActiveDot();
-                }
 
-                function updateActiveDot() {
-                    Array.from(dotsWrap.children).forEach((d, i) => {
-                        d.classList.toggle('bg-gold', i === current);
-                        d.classList.toggle('bg-white/30', i !== current);
+                    clonesBefore.forEach(n => track.insertBefore(n, track.firstChild));
+                    clonesAfter.forEach(n => track.appendChild(n));
+
+                    // recompute slides
+                    const slides = Array.from(track.children);
+
+                    // sizing
+                    const slideWidth = container.clientWidth / slidesPerView;
+                    slides.forEach(s => s.style.minWidth = slideWidth + 'px');
+
+                    // start index (after clonesBefore)
+                    let index = slidesPerView;
+                    track.style.transition = `transform ${transitionDuration}ms ease`;
+                    track.style.transform = `translateX(-${index * slideWidth}px)`;
+
+                    // dots
+                    renderDots(originalCount);
+
+                    // events
+                    track.addEventListener('transitionend', () => {
+                        const slidesNow = Array.from(track.children);
+                        const total = slidesNow.length;
+                        const maxIndex = total - slidesPerView;
+                        if (index <= slidesPerView - 1) {
+                            // jumped to clones at start -> jump to real ones
+                            index = index + originalCount;
+                            track.style.transition = 'none';
+                            track.style.transform = `translateX(-${index * slideWidth}px)`;
+                            // force repaint
+                            void track.offsetWidth;
+                            track.style.transition = `transform ${transitionDuration}ms ease`;
+                        } else if (index >= originalCount + slidesPerView) {
+                            index = index - originalCount;
+                            track.style.transition = 'none';
+                            track.style.transform = `translateX(-${index * slideWidth}px)`;
+                            void track.offsetWidth;
+                            track.style.transition = `transform ${transitionDuration}ms ease`;
+                        }
+                        updateActiveDot(index - slidesPerView, originalCount);
                     });
-                }
 
-                prev.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
-                next.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
+                    // control handlers
+                    prev.onclick = () => { moveBy(-1); resetAutoplay(); };
+                    next.onclick = () => { moveBy(1); resetAutoplay(); };
 
-                window.addEventListener('resize', updateSizes);
+                    function moveBy(delta) {
+                        index += delta;
+                        track.style.transform = `translateX(-${index * slideWidth}px)`;
+                    }
 
-                function startAutoplay() {
-                    autoplayInterval = setInterval(() => {
-                        const maxIndex = Math.max(0, slides.length - slidesPerView);
-                        if (current >= maxIndex) moveTo(0);
-                        else moveTo(current + 1);
-                    }, 4000);
-                }
+                    function renderDots(count) {
+                        dotsWrap.innerHTML = '';
+                        for (let i = 0; i < count; i++) {
+                            const btn = document.createElement('button');
+                            btn.className = 'w-3 h-3 rounded-full bg-white/30';
+                            btn.addEventListener('click', () => {
+                                index = i + slidesPerView;
+                                track.style.transform = `translateX(-${index * slideWidth}px)`;
+                                resetAutoplay();
+                            });
+                            dotsWrap.appendChild(btn);
+                        }
+                        updateActiveDot(0, count);
+                    }
 
-                function resetAutoplay() {
-                    clearInterval(autoplayInterval);
+                    function updateActiveDot(logicalIndex, count) {
+                        const active = ((index - slidesPerView) % count + count) % count;
+                        Array.from(dotsWrap.children).forEach((d, i) => {
+                            d.classList.toggle('bg-gold', i === active);
+                            d.classList.toggle('bg-white/30', i !== active);
+                        });
+                    }
+
+                    function startAutoplay() {
+                        autoplayInterval = setInterval(() => { moveBy(1); }, 4000);
+                    }
+
+                    function resetAutoplay() { clearInterval(autoplayInterval); startAutoplay(); }
+
                     startAutoplay();
                 }
 
-                updateSizes();
-                startAutoplay();
+                window.addEventListener('resize', () => {
+                    // debounce simple
+                    clearTimeout(window.__rooms_resize_timeout);
+                    window.__rooms_resize_timeout = setTimeout(() => setupCarousel(), 150);
+                });
+
+                // initial setup
+                setupCarousel();
             })();
         </script>
 	</div>

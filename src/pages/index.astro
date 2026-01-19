@@ -4,6 +4,12 @@ import MobileNav from "../components/MobileNav.astro";
 import Hero from "../components/Hero.astro";
 import Header from "../components/Header.astro";
 import { hotel } from "../data/hotel";
+import WifiIcon from "../components/icons/Wifi.astro";
+import Parking from "../components/icons/Parking.astro";
+import RestaurantIcon from "../components/icons/Restaurant.astro";
+import Spa from "../components/icons/Spa.astro";
+import Fitness from "../components/icons/Fitness.astro";
+import Pool from "../components/icons/Pool.astro";
 
 const pageTitle = `${hotel.name} | Boutique Stay in ${hotel.location}`;
 const pageDescription = `${hotel.name} in ${hotel.location} offers warm hospitality, stylish rooms, and a secure booking experience. Discover rooms, amenities, and book your stay.`;
@@ -187,17 +193,17 @@ const bookingUrl = hotel.bookingUrl;
 				</div>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-12">
-                     {[
-                        { title: "High Speed Wifi", desc: "Enjoy seamless, high-speed internet access throughout the hotel.", icon: "W" },
-                        { title: "Parking Space", desc: "Ample and secure parking space provided for all hotel guests.", icon: "P" },
-                        { title: "Restaurant & Bar", desc: "Savor gourmet dishes and cocktails at our elegant restaurant and bar.", icon: "R" },
-                        { title: "Spa Center", desc: "Indulge in a variety of relaxing and rejuvenating treatments at our spa.", icon: "S" },
-                        { title: "Fitness Center", desc: "Stay active with state-of-the-art fitness equipment in our modern gym.", icon: "F" },
-                        { title: "Swimming Pool", desc: "Refresh and unwind in our pristine outdoor swimming pool.", icon: "L" }
+                    {[
+                        { title: "High Speed Wifi", desc: "Enjoy seamless, high-speed internet access throughout the hotel.", icon: WifiIcon },
+                        { title: "Parking Space", desc: "Ample and secure parking space provided for all hotel guests.", icon: Parking },
+                        { title: "Restaurant & Bar", desc: "Savor gourmet dishes and cocktails at our elegant restaurant and bar.", icon: RestaurantIcon },
+                        { title: "Spa Center", desc: "Indulge in a variety of relaxing and rejuvenating treatments at our spa.", icon: Spa },
+                        { title: "Fitness Center", desc: "Stay active with state-of-the-art fitness equipment in our modern gym.", icon: Fitness },
+                        { title: "Swimming Pool", desc: "Refresh and unwind in our pristine outdoor swimming pool.", icon: Pool }
                     ].map(item => (
                         <div class="flex gap-6 group">
                             <div class="flex-shrink-0 w-12 h-12 bg-beige flex items-center justify-center text-gold font-bold text-xl group-hover:bg-gold group-hover:text-white transition-all">
-                                {item.icon}
+                                <item.icon className="w-6 h-6" />
                             </div>
                             <div class="space-y-2">
                                 <h3 class="font-display text-xl font-bold text-brown">{item.title}</h3>

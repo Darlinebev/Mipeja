@@ -2,6 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { hotel } from "../data/hotel";
 import Header from "../components/Header.astro";
+import AirConditioning from "../components/icons/AirConditioning.astro";
+import Tv from "../components/icons/Tv.astro";
+import WifiIcon from "../components/icons/Wifi.astro";
+import Bathroom from "../components/icons/Bathroom.astro";
+import Desk from "../components/icons/Desk.astro";
+import Wardrobe from "../components/icons/Wardrobe.astro";
 
 const facilities = [
 	{ title: "Restaurant", img: "/images/restaurant.svg" },
@@ -61,14 +67,23 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 							<p class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold">Personal Comfort</p>
 							<h2 class="text-4xl font-display text-brown italic">Room Features</h2>
 						</div>
-						<div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
-							{["Air conditioning", "Flat-screen TV", "Free WiFi", "Private bathroom", "Workspace desk", "Wardrobe"].map((item) => (
-								<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
-									<span class="text-gold">✦</span>
-									{item}
-								</div>
-							))}
-						</div>
+							<div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
+								{[
+									{ icon: AirConditioning, label: "Air conditioning" },
+									{ icon: Tv, label: "Flat-screen TV" },
+									{ icon: WifiIcon, label: "Free WiFi" },
+									{ icon: Bathroom, label: "Private bathroom" },
+									{ icon: Desk, label: "Workspace desk" },
+									{ icon: Wardrobe, label: "Wardrobe" }
+								].map((item) => (
+									<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
+										<span class="text-gold w-6 h-6">
+											<item.icon className="w-6 h-6" />
+										</span>
+										{item.label}
+									</div>
+								))}
+							</div>
 					</div>
 
 					<!-- Safety & Security -->
