@@ -18,6 +18,43 @@ const facilities = [
 	{ title: "Designated smoking area", img: "/images/room-family.svg" },
 ];
 
+const amenitiesA = [
+	"Air conditioning",
+	"Free WiFi",
+	"WiFi",
+	"WiFi available in all areas",
+	"Internet services",
+	"Non-smoking rooms",
+	"Designated smoking area",
+	"Room service",
+	"Food can be delivered to guest accommodation",
+	"Restaurant",
+	"Outdoor furniture",
+	"Terrace",
+	"Shared lounge / TV area",
+	"Parking",
+	"Parking on site",
+	"Free parking",
+	"Private parking"
+];
+
+const amenitiesB = [
+	"24-hour front desk",
+	"24-hour security",
+	"CCTV in common areas",
+	"Security alarm",
+	"Fire extinguishers"
+];
+
+const amenitiesC = [
+	"Guest accommodation is disinfected between stays",
+	"Guest accommodation sealed after cleaning",
+	"Property is cleaned by professional cleaning companies",
+	"Use of cleaning chemicals effective against Coronavirus",
+	"Linens, towels and laundry washed according to local authority guidelines",
+	"Guests can cancel cleaning services during their stay"
+];
+
 const pageTitle = `Amenities | ${hotel.name}`;
 const pageDescription = `Discover the amenities and facilities at ${hotel.name} in ${hotel.location}.`;
 ---
@@ -57,43 +94,53 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 			</div>
 		</section>
 
-		<!-- Room Features & Safety Details -->
+		<!-- Amenities Details -->
 		<section class="bg-white py-32 border-t border-beige">
 			<div class="max-w-7xl mx-auto px-6">
-				<div class="grid lg:grid-cols-2 gap-24">
-					<!-- Room Features -->
+				<div class="grid lg:grid-cols-3 gap-24">
+					<!-- Room Features & Guest Amenities -->
 					<div class="space-y-12">
 						<div class="space-y-4">
-							<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Personal Comfort</p>
-							<h2 class="text-4xl font-display text-brown italic">Room Features</h2>
+							<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Comfort & Convenience</p>
+							<h2 class="text-4xl font-display text-brown italic">Room Features & Guest Amenities</h2>
+							<p class="text-sm text-charcoal/70">These are the comfort + convenience perks your guests actually feel.</p>
 						</div>
-							<div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
-								{[
-									{ icon: AirConditioning, label: "Air conditioning" },
-									{ icon: Tv, label: "Flat-screen TV" },
-									{ icon: WifiIcon, label: "Free WiFi" },
-									{ icon: Bathroom, label: "Private bathroom" },
-									{ icon: Desk, label: "Workspace desk" },
-									{ icon: Wardrobe, label: "Wardrobe" }
-								].map((item) => (
-									<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
-										<span class="text-terracotta w-6 h-6">
-											<item.icon className="w-6 h-6" />
-										</span>
-										{item.label}
-									</div>
-								))}
-							</div>
+						<div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
+							{amenitiesA.map((item) => (
+								<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
+									<span class="text-terracotta">✦</span>
+									{item}
+								</div>
+							))}
+						</div>
 					</div>
 
 					<!-- Safety & Security -->
 					<div class="space-y-12">
 						<div class="space-y-4">
-							<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Your Well-being</p>
+							<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Peace of Mind</p>
 							<h2 class="text-4xl font-display text-brown italic">Safety & Security</h2>
+							<p class="text-sm text-charcoal/70">This is your "peace of mind" package. Very important for trust.</p>
 						</div>
 						<div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
-							{hotel.safety.map((item) => (
+							{amenitiesB.map((item) => (
+								<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
+									<span class="text-terracotta">✦</span>
+									{item}
+								</div>
+							))}
+						</div>
+					</div>
+
+					<!-- Cleanliness, Hygiene & Health Measures -->
+					<div class="space-y-12">
+						<div class="space-y-4">
+							<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Clean & Safe</p>
+							<h2 class="text-4xl font-display text-brown italic">Cleanliness, Hygiene & Health Measures</h2>
+							<p class="text-sm text-charcoal/70">Your anti-germ, hotel-is-not-playing-around section.</p>
+						</div>
+						<div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
+							{amenitiesC.map((item) => (
 								<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
 									<span class="text-terracotta">✦</span>
 									{item}
