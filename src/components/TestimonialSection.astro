@@ -1,0 +1,243 @@
+---
+interface Testimonial {
+	quote: string;
+	name: string;
+	role: string;
+	rating: number;
+}
+
+const testimonials: Testimonial[] = [
+	{
+		quote: "The ambiance was serene, the staff were incredibly welcoming, and the rooftop views were breathtaking.",
+		name: "Judith Atieno",
+		role: "Solo Traveler",
+		rating: 5
+	},
+	{
+		quote: "Our kids loved the pool and play area. The rooms were spotless and the breakfast was divine!",
+		name: "Rich Jackobam",
+		role: "Family Guest",
+		rating: 5
+	},
+	{
+		quote: "Perfect location, fast Wi-Fi, and quiet rooms. Ideal for work trips. Will definitely return.",
+		name: "Darline Beverly",
+		role: "Business Visitor",
+		rating: 5
+	}
+];
+---
+
+<section class="py-32 bg-white overflow-hidden">
+	<div class="max-w-7xl mx-auto px-6">
+		<!-- Section Header -->
+		<div class="text-center mb-20 space-y-6 max-w-3xl mx-auto">
+			<span class="inline-block px-4 py-2 bg-deep-teal text-white text-xs font-bold rounded-full uppercase tracking-wider">
+				Loved by Thousands
+			</span>
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-display text-charcoal-gray">
+				What Our Guests Say
+			</h2>
+			<p class="text-lg text-charcoal-gray/70 leading-relaxed">
+				Don't just take our word for it. Here's what real guests have to say about their stay with us.
+			</p>
+		</div>
+
+		<!-- Testimonials Carousel -->
+		<div class="relative">
+			<!-- Carousel Container -->
+			<div class="testimonial-carousel relative">
+				<div class="testimonial-track flex transition-transform duration-500 ease-out">
+					{testimonials.map((testimonial, index) => (
+						<div key={index} class="testimonial-card flex-shrink-0 w-full px-6 lg:px-8">
+							<div class="bg-ivory/50 border border-beige rounded-2xl p-8 lg:p-12 h-full flex flex-col justify-between hover:shadow-lg transition-shadow duration-300">
+								<!-- Rating -->
+								<div class="flex gap-1 mb-6">
+									{[...Array(testimonial.rating)].map((_, i) => (
+										<svg key={i} class="w-5 h-5 text-gold-rich fill-current" viewBox="0 0 24 24">
+											<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+										</svg>
+									))}
+								</div>
+
+								<!-- Quote -->
+								<blockquote class="mb-8 flex-grow">
+									<p class="text-lg lg:text-xl text-charcoal-gray/80 font-light leading-relaxed italic">
+										"{testimonial.quote}"
+									</p>
+								</blockquote>
+
+								<!-- Guest Info -->
+								<div class="border-t border-beige pt-6">
+									<h3 class="font-display text-lg font-bold text-charcoal-gray">
+										{testimonial.name}
+									</h3>
+									<p class="text-sm text-charcoal-gray/60 uppercase tracking-widest font-bold">
+										{testimonial.role}
+									</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+
+			<!-- Navigation Arrows -->
+			<div class="flex items-center justify-center gap-4 mt-12">
+				<button 
+					class="testimonial-prev flex items-center justify-center w-12 h-12 rounded-full border-2 border-deep-teal text-deep-teal hover:bg-deep-teal hover:text-white transition-all duration-300 transform hover:scale-110"
+					aria-label="Previous testimonial"
+				>
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+					</svg>
+				</button>
+
+				<!-- Dots Indicator -->
+				<div class="flex gap-2">
+					{testimonials.map((_, index) => (
+						<button
+							key={index}
+							class={`testimonial-dot w-2 h-2 rounded-full transition-all duration-300 ${
+								index === 0 ? 'bg-deep-teal w-8' : 'bg-beige hover:bg-charcoal/30'
+							}`}
+							aria-label={`Go to testimonial ${index + 1}`}
+							data-index={index}
+						></button>
+					))}
+				</div>
+
+				<button 
+					class="testimonial-next flex items-center justify-center w-12 h-12 rounded-full border-2 border-deep-teal text-deep-teal hover:bg-deep-teal hover:text-white transition-all duration-300 transform hover:scale-110"
+					aria-label="Next testimonial"
+				>
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+					</svg>
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	function initTestimonialCarousel() {
+		const carousel = document.querySelector('.testimonial-carousel');
+		const track = carousel?.querySelector('.testimonial-track');
+		const cards = track?.querySelectorAll('.testimonial-card');
+		const prevBtn = document.querySelector('.testimonial-prev');
+		const nextBtn = document.querySelector('.testimonial-next');
+		const dots = document.querySelectorAll('.testimonial-dot');
+
+		if (!carousel || !track || !cards || cards.length === 0) return;
+
+		let currentIndex = 0;
+		const totalCards = cards.length;
+		let autoplayInterval: NodeJS.Timeout;
+
+		function updateCarousel() {
+			const offset = -currentIndex * 100;
+			track.style.transform = `translateX(${offset}%)`;
+
+			// Update dots
+			dots.forEach((dot, index) => {
+				if (index === currentIndex) {
+					dot.classList.add('bg-deep-teal', 'w-8');
+					dot.classList.remove('bg-beige', 'hover:bg-charcoal/30');
+				} else {
+					dot.classList.remove('bg-deep-teal', 'w-8');
+					dot.classList.add('bg-beige', 'hover:bg-charcoal/30');
+				}
+			});
+		}
+
+		function nextSlide() {
+			currentIndex = (currentIndex + 1) % totalCards;
+			updateCarousel();
+			resetAutoplay();
+		}
+
+		function prevSlide() {
+			currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+			updateCarousel();
+			resetAutoplay();
+		}
+
+		function goToSlide(index: number) {
+			currentIndex = index;
+			updateCarousel();
+			resetAutoplay();
+		}
+
+		function resetAutoplay() {
+			clearInterval(autoplayInterval);
+			startAutoplay();
+		}
+
+		function startAutoplay() {
+			autoplayInterval = setInterval(() => {
+				nextSlide();
+			}, 5000); // Auto-advance every 5 seconds
+		}
+
+		// Event Listeners
+		nextBtn?.addEventListener('click', nextSlide);
+		prevBtn?.addEventListener('click', prevSlide);
+
+		dots.forEach((dot, index) => {
+			dot.addEventListener('click', () => goToSlide(index));
+		});
+
+		// Touch/Swipe Support
+		let touchStartX = 0;
+		let touchEndX = 0;
+
+		track.addEventListener('touchstart', (e) => {
+			touchStartX = e.changedTouches[0].screenX;
+		}, false);
+
+		track.addEventListener('touchend', (e) => {
+			touchEndX = e.changedTouches[0].screenX;
+			handleSwipe();
+		}, false);
+
+		function handleSwipe() {
+			const swipeThreshold = 50;
+			const diff = touchStartX - touchEndX;
+
+			if (Math.abs(diff) > swipeThreshold) {
+				if (diff > 0) {
+					nextSlide();
+				} else {
+					prevSlide();
+				}
+			}
+		}
+
+		// Start autoplay
+		startAutoplay();
+
+		// Pause autoplay on hover
+		carousel.addEventListener('mouseenter', () => {
+			clearInterval(autoplayInterval);
+		});
+
+		carousel.addEventListener('mouseleave', () => {
+			startAutoplay();
+		});
+	}
+
+	// Initialize on DOMContentLoaded and after Astro transitions
+	document.addEventListener('DOMContentLoaded', initTestimonialCarousel);
+	document.addEventListener('astro:after-swap', initTestimonialCarousel);
+</script>
+
+<style>
+	.testimonial-track {
+		display: flex;
+	}
+
+	.testimonial-card {
+		min-width: 100%;
+	}
+</style>
