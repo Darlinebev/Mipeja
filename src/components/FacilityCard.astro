@@ -40,51 +40,14 @@ const { title, image, description, detailedDescription, metadata } = Astro.props
 
 	<!-- Expanded View (Appears on hover/click) -->
 	<div class="absolute inset-0 flex flex-col justify-between p-8 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-20 bg-gradient-to-br from-black/80 via-black/85 to-black/90">
-		<!-- Top Section: Title -->
-		<div class="space-y-4">
+		<!-- Content Section -->
+		<div class="space-y-6 flex flex-col justify-center h-full">
 			<h3 class="text-3xl font-bold text-white font-display">
 				{title}
 			</h3>
-			<p class="text-gray-300 text-sm leading-relaxed">
+			<p class="text-gray-300 text-base leading-relaxed">
 				{detailedDescription}
 			</p>
-		</div>
-
-		<!-- Middle Section: Metadata -->
-		<div class="space-y-4">
-			{metadata.capacity && (
-				<div class="flex items-center justify-between text-sm">
-					<span class="text-gray-400">Capacity</span>
-					<span class="text-white font-semibold">{metadata.capacity}</span>
-				</div>
-			)}
-			
-			{metadata.guests && (
-				<div class="flex items-center justify-between text-sm">
-					<span class="text-gray-400">Max Guests</span>
-					<span class="text-white font-semibold">{metadata.guests}</span>
-				</div>
-			)}
-
-			{metadata.lastUpdated && (
-				<div class="flex items-center justify-between text-sm">
-					<span class="text-gray-400">Last Updated</span>
-					<span class="text-white font-semibold text-xs">{metadata.lastUpdated}</span>
-				</div>
-			)}
-
-			{metadata.features && metadata.features.length > 0 && (
-				<div class="space-y-2">
-					<p class="text-gray-400 text-sm">Features</p>
-					<div class="flex flex-wrap gap-2">
-						{metadata.features.map((feature) => (
-							<span class="text-xs bg-deep-teal/20 text-deep-teal px-3 py-1 rounded-full border border-deep-teal/30">
-								{feature}
-							</span>
-						))}
-					</div>
-				</div>
-			)}
 		</div>
 
 		<!-- Bottom Section: Action Button -->
