@@ -1,0 +1,237 @@
+---
+const restaurantData = {
+  title: "Mipeja Signature Restaurant",
+  description: "Indulge in a culinary journey at Mipeja's signature restaurant. Our space combines elegant interiors with a warm, inviting atmosphere, perfect for breakfast meetings, casual lunches, or romantic dinners. We take pride in serving fresh, locally-sourced ingredients prepared with international flair.",
+  images: [
+    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=500&fit=crop"
+  ],
+  foodMenu: [
+    { name: "Grilled Tilapia", price: "KSh 1,200", description: "Fresh lake tilapia served with ugali and traditional greens." },
+    { name: "Mipeja Beef Stew", price: "KSh 950", description: "Slow-cooked tender beef in a rich, aromatic gravy." },
+    { name: "Chicken Biryani", price: "KSh 1,100", description: "Fragrant rice layered with spiced chicken and caramelised onions." },
+    { name: "Vegetable Stir-fry", price: "KSh 800", description: "Crispy seasonal vegetables tossed in a light soy ginger sauce." }
+  ],
+  drinksMenu: [
+    { name: "Fresh Tropical Juice", price: "KSh 350", description: "Mango, Pineapple, or Watermelon blend." },
+    { name: "Kenyan AA Coffee", price: "KSh 300", description: "Freshly brewed premium highland coffee." },
+    { name: "Signature Cocktail", price: "KSh 850", description: "A refreshing blend of local spirits and exotic fruits." },
+    { name: "Masala Tea", price: "KSh 250", description: "Traditional spiced Kenyan tea with milk." }
+  ]
+};
+
+const conferenceData = {
+  title: "Executive Conference Center",
+  description: "Our modern conference facilities are designed to inspire productivity and collaboration. Equipped with high-speed WiFi, state-of-the-art audiovisual equipment, and ergonomic seating, it's the ideal venue for workshops, seminars, and corporate strategy sessions.",
+  capacity: "Up to 100 People",
+  images: [
+    "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1517457373958-b7bdd458ad20?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1505373633560-8206eba4659b?w=800&h=500&fit=crop"
+  ],
+  features: [
+    "High-speed Fiber WiFi",
+    "Projector & Motorized Screen",
+    "Professional Sound System",
+    "Air Conditioning",
+    "Coffee & Snack Catering",
+    "Dedicated Event Coordinator"
+  ]
+};
+---
+
+<section class="py-24 bg-ivory">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Tab Navigation -->
+    <div class="flex justify-center mb-16">
+      <div class="inline-flex p-1 bg-beige/50 rounded-xl border border-beige/80">
+        <button
+          id="tab-restaurant"
+          class="px-8 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all duration-300 bg-deep-teal text-white shadow-lg"
+          data-tab="restaurant"
+        >
+          Restaurant
+        </button>
+        <button
+          id="tab-conference"
+          class="px-8 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all duration-300 text-charcoal-gray/60 hover:text-charcoal-gray"
+          data-tab="conference"
+        >
+          Conference
+        </button>
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div id="content-restaurant" class="tab-content transition-all duration-500 opacity-100 translate-y-0">
+      <div class="grid lg:grid-cols-2 gap-16 items-center mb-24">
+        <div class="space-y-8">
+          <div class="space-y-4">
+            <p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Culinary Excellence</p>
+            <h2 class="text-4xl md:text-5xl font-display text-brown italic">{restaurantData.title}</h2>
+          </div>
+          <p class="text-charcoal-gray/70 leading-relaxed text-lg">
+            {restaurantData.description}
+          </p>
+          <div class="grid grid-cols-3 gap-4">
+            {restaurantData.images.map((img, i) => (
+              <div class="aspect-square overflow-hidden rounded-xl">
+                <img src={img} alt="Restaurant" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div class="bg-white p-10 rounded-3xl shadow-soft border border-beige/50">
+          <div class="text-center mb-10 pb-6 border-b border-beige/30">
+            <h3 class="text-2xl font-display text-brown italic mb-2">The Menu</h3>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-charcoal-gray/40">Savor the Flavors of Mipeja</p>
+          </div>
+          
+          <div class="space-y-10">
+            <div>
+              <h4 class="text-xs uppercase tracking-[0.3em] text-terracotta font-bold mb-6">Food Specialties</h4>
+              <div class="space-y-6">
+                {restaurantData.foodMenu.map(item => (
+                  <div class="flex justify-between gap-4">
+                    <div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="text-sm font-bold text-charcoal-gray">{item.name}</span>
+                        <div class="flex-grow border-b border-dotted border-beige border-width-2"></div>
+                      </div>
+                      <p class="text-xs text-charcoal-gray/50 leading-relaxed">{item.description}</p>
+                    </div>
+                    <span class="text-sm font-bold text-brown whitespace-nowrap">{item.price}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-xs uppercase tracking-[0.3em] text-terracotta font-bold mb-6">Signature Drinks</h4>
+              <div class="space-y-6">
+                {restaurantData.drinksMenu.map(item => (
+                  <div class="flex justify-between gap-4">
+                    <div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <span class="text-sm font-bold text-charcoal-gray">{item.name}</span>
+                        <div class="flex-grow border-b border-dotted border-beige"></div>
+                      </div>
+                      <p class="text-xs text-charcoal-gray/50 leading-relaxed">{item.description}</p>
+                    </div>
+                    <span class="text-sm font-bold text-brown whitespace-nowrap">{item.price}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="content-conference" class="tab-content hidden opacity-0 translate-y-10 transition-all duration-500">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative group">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+              <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-lg">
+                <img src={conferenceData.images[0]} alt="Conference 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div class="aspect-square rounded-3xl overflow-hidden shadow-lg">
+                <img src={conferenceData.images[1]} alt="Conference 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 delay-100" />
+              </div>
+            </div>
+            <div class="pt-12">
+              <div class="aspect-[4/6] rounded-3xl overflow-hidden shadow-lg">
+                <img src={conferenceData.images[2]} alt="Conference 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 delay-200" />
+              </div>
+            </div>
+          </div>
+          <!-- Capacity Badge -->
+          <div class="absolute -bottom-6 -right-6 bg-brown text-white p-8 rounded-full shadow-2xl flex flex-col items-center justify-center animate-bounce-slow">
+            <span class="text-3xl font-display italic leading-none">{conferenceData.capacity.split(' ')[2]}</span>
+            <span class="text-[8px] uppercase tracking-widest font-bold">Capacity</span>
+          </div>
+        </div>
+
+        <div class="space-y-10">
+          <div class="space-y-4">
+            <p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Business & Events</p>
+            <h2 class="text-4xl md:text-5xl font-display text-brown italic">{conferenceData.title}</h2>
+          </div>
+          <p class="text-charcoal-gray/70 leading-relaxed text-lg">
+            {conferenceData.description}
+          </p>
+          
+          <div class="grid sm:grid-cols-2 gap-6 pt-6">
+            {conferenceData.features.map(feature => (
+              <div class="flex items-center gap-4 group">
+                <div class="w-8 h-8 rounded-full bg-beige/30 flex items-center justify-center text-terracotta group-hover:bg-terracotta group-hover:text-white transition-colors duration-300">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <span class="text-sm font-bold uppercase tracking-widest text-charcoal-gray/70">{feature}</span>
+              </div>
+            ))}
+          </div>
+
+          <div class="pt-8">
+            <a href="/contact" class="inline-flex items-center justify-center bg-brown hover:bg-brown/90 text-white px-10 py-4 rounded-xl text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-lg hover:-translate-y-1">
+              Inquire Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initTabs() {
+    const tabs = document.querySelectorAll('[data-tab]');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-tab');
+
+        // Update active tab styling
+        tabs.forEach(t => {
+          t.classList.remove('bg-deep-teal', 'text-white', 'shadow-lg');
+          t.classList.add('text-charcoal-gray/60');
+        });
+        tab.classList.add('bg-deep-teal', 'text-white', 'shadow-lg');
+        tab.classList.remove('text-charcoal-gray/60');
+
+        // Update content visibility
+        contents.forEach(content => {
+          if (content.id === `content-${target}`) {
+            content.classList.remove('hidden');
+            setTimeout(() => {
+              content.classList.remove('opacity-0', 'translate-y-10');
+              content.classList.add('opacity-100', 'translate-y-0');
+            }, 10);
+          } else {
+            content.classList.add('opacity-0', 'translate-y-10');
+            content.classList.remove('opacity-100', 'translate-y-0');
+            setTimeout(() => content.classList.add('hidden'), 500);
+          }
+        });
+      });
+    });
+  }
+
+  // Initialize
+  initTabs();
+  document.addEventListener('astro:after-swap', initTabs);
+</script>
+
+<style>
+  .animate-bounce-slow {
+    animation: bounce 3s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+</style>

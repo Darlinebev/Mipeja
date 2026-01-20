@@ -3,19 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { hotel } from "../data/hotel";
 import Header from "../components/Header.astro";
 import FacilityCard from "../components/FacilityCard.astro";
+import AmenitiesTabs from "../components/AmenitiesTabs.astro";
 
 const facilities = [
-	{
-		title: "Restaurant",
-		image: "/images/restaurant.svg",
-		description: "Fine dining experience with international and local cuisine",
-		detailedDescription: "Indulge in our award-winning restaurant offering a diverse menu of international and local Kenyan cuisine. Our expert chefs use only the finest ingredients sourced locally to create memorable culinary experiences.",
-		metadata: {
-			capacity: "80 seats",
-			features: ["À la carte", "Fine Dining", "Room Service"],
-			lastUpdated: "Jan 2024"
-		}
-	},
 	{
 		title: "Shared Lounge & TV Area",
 		image: "/images/lounge.svg",
@@ -127,6 +117,9 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 			</div>
 		</section>
 
+		<!-- Restaurant & Conference Tabs -->
+		<AmenitiesTabs />
+
 		<!-- Facilities (Image Cards) -->
 		<section class="max-w-7xl mx-auto px-6 py-32">
 			<div class="text-center mb-20 space-y-4">
@@ -144,64 +137,6 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 						metadata={facility.metadata}
 					/>
 				))}
-			</div>
-		</section>
-
-		<!-- Amenities Details -->
-		<section class="bg-white py-32 border-t border-beige">
-			<div class="max-w-7xl mx-auto px-6">
-				<div class="grid lg:grid-cols-3 gap-24">
-					<!-- Room Features & Guest Amenities -->
-					<div class="space-y-12">
-						<div class="space-y-4">
-							<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Comfort & Convenience</p>
-							<h2 class="text-4xl font-display text-brown italic">Room Features & Guest Amenities</h2>
-							<p class="text-sm text-charcoal/70">These are the comfort + convenience perks your guests actually feel.</p>
-						</div>
-						<div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
-							{amenitiesA.map((item) => (
-								<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
-									<span class="text-terracotta">✦</span>
-									{item}
-								</div>
-							))}
-						</div>
-					</div>
-
-					<!-- Safety & Security -->
-					<div class="space-y-12">
-						<div class="space-y-4">
-							<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Peace of Mind</p>
-							<h2 class="text-4xl font-display text-brown italic">Safety & Security</h2>
-							<p class="text-sm text-charcoal/70">This is your "peace of mind" package. Very important for trust.</p>
-						</div>
-						<div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
-							{amenitiesB.map((item) => (
-								<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
-									<span class="text-terracotta">✦</span>
-									{item}
-								</div>
-							))}
-						</div>
-					</div>
-
-					<!-- Cleanliness, Hygiene & Health Measures -->
-					<div class="space-y-12">
-						<div class="space-y-4">
-							<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Clean & Safe</p>
-							<h2 class="text-4xl font-display text-brown italic">Cleanliness, Hygiene & Health Measures</h2>
-							<p class="text-sm text-charcoal/70">Your anti-germ, hotel-is-not-playing-around section.</p>
-						</div>
-						<div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
-							{amenitiesC.map((item) => (
-								<div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
-									<span class="text-terracotta">✦</span>
-									{item}
-								</div>
-							))}
-						</div>
-					</div>
-				</div>
 			</div>
 		</section>
 
