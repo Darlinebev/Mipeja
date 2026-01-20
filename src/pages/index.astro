@@ -4,6 +4,7 @@ import MobileNav from "../components/MobileNav.astro";
 import Hero from "../components/Hero.astro";
 import Header from "../components/Header.astro";
 import TestimonialSection from "../components/TestimonialSection.astro";
+import HighlightCards from "../components/HighlightCards.astro";
 import { hotel } from "../data/hotel";
 import WifiIcon from "../components/icons/Wifi.astro";
 import Parking from "../components/icons/Parking.astro";
@@ -23,6 +24,9 @@ const featuredRooms = hotel.rooms;
 		<Header bookingUrl={bookingUrl} />
 
 		<Hero hotel={hotel} bookingUrl={bookingUrl} />
+
+		<!-- Highlight Cards Section -->
+		<HighlightCards bookingUrl={bookingUrl} />
 
 		<!-- About Us Section -->
 		<section class="py-24 bg-ivory relative overflow-hidden">
