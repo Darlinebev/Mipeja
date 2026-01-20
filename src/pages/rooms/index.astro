@@ -59,6 +59,39 @@ const pageDescription = `Browse rooms at ${hotel.name} in ${hotel.location}. See
 			</div>
 		</section>
 
+		<!-- Room Facilities Section -->
+		<section class="py-24 md:py-32 bg-white border-t border-beige">
+			<div class="max-w-7xl mx-auto px-6">
+				<div class="text-center mb-20 space-y-4">
+					<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Thoughtful Amenities</p>
+					<h2 class="text-5xl md:text-6xl font-display text-brown italic">Room Facilities</h2>
+				</div>
+
+				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 md:gap-16">
+					{[
+						{ title: "Daily VIP treatment", icon: "star" },
+						{ title: "Bathrooms with shower", icon: "shower" },
+						{ title: "40in Smart-TV", icon: "tv" },
+						{ title: "Daily access to the Spa", icon: "spa" },
+						{ title: "Evening turndown service", icon: "moon" },
+						{ title: "Coffee and tea service", icon: "coffee" },
+						{ title: "Air conditioning", icon: "wind" },
+						{ title: "Safety deposit box", icon: "lock" },
+						{ title: "Minibar drinks", icon: "wine" },
+						{ title: "24h room service", icon: "clock" },
+						{ title: "Laundry service", icon: "tag" },
+						{ title: "Free wifi", icon: "wifi" }
+					].map((item, index) => (
+						<div class={`flex flex-col items-center text-center space-y-4 group reveal`} style={`transition-delay: ${index * 0.05}s`}>
+							<div class="w-16 h-16 rounded-full bg-sand flex items-center justify-center text-terracotta group-hover:bg-terracotta group-hover:text-white transition-all duration-300 border border-sand-light">
+								<i class={`fas fa-${item.icon} text-xl`}></i>
+							</div>
+							<h3 class="text-[13px] font-accent font-bold uppercase tracking-[0.2em] text-brown">{item.title}</h3>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
 
 	</div>
 </BaseLayout>

@@ -168,7 +168,7 @@ const featuredRooms = hotel.rooms;
 			document.addEventListener('astro:page-load', initScroll);
 		</script>
 
-		<!-- Room Facilities Section -->
+		<!-- Suite Highlights & Hotel Services -->
 		<section class="py-24 md:py-32 bg-white">
 			<div class="max-w-7xl mx-auto px-6">
 				<div class="text-center mb-20 space-y-4">
@@ -178,29 +178,7 @@ const featuredRooms = hotel.rooms;
 				</div>
 
 				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 md:gap-16">
-					{[
-						{ title: "Daily VIP treatment", icon: "star" },
-						{ title: "Bathrooms with shower", icon: "shower" },
-						{ title: "40” Smart-TV", icon: "tv" },
-						{ title: "Daily access to the Spa’s", icon: "spa" },
-						{ title: "Evening turndown service", icon: "moon" },
-						{ title: "Coffee and tea service", icon: "coffee" },
-						{ title: "Air conditioning", icon: "wind" },
-						{ title: "Safety deposit box", icon: "lock" },
-						{ title: "Minibar drinks", icon: "wine" },
-						{ title: "24h room service", icon: "clock" },
-						{ title: "Laundry service", icon: "tag" },
-						{ title: "Free wifi", icon: "wifi" }
-					].map((item, index) => (
-						<div class={`flex flex-col items-center text-center space-y-4 group reveal`} style={`transition-delay: ${index * 0.05}s`}>
-							<div class="w-16 h-16 rounded-full bg-ivory flex items-center justify-center text-gold-rich group-hover:bg-gold-rich group-hover:text-white transition-all duration-300 border border-gray-light">
-								<i class={`fas fa-${item.icon} text-xl`}></i>
-							</div>
-							<h3 class="text-[13px] font-accent font-bold uppercase tracking-[0.2em] text-charcoal-gray">{item.title}</h3>
-						</div>
-					))}
 				</div>
-			</div>
 		</section>
 
 		<!-- Suite Highlights & Hotel Services -->
