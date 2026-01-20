@@ -7,60 +7,71 @@ import AmenitiesTabs from "../components/AmenitiesTabs.astro";
 
 const facilities = [
 	{
-		title: "Shared Lounge & TV Area",
-		image: "/images/lounge.svg",
-		description: "Comfortable gathering space for guests to relax and socialize",
-		detailedDescription: "Relax in our elegant shared lounge featuring comfortable seating, premium entertainment systems, and a warm ambiance perfect for socializing with other guests or unwinding after a long day.",
+		title: "24-Hour Front Desk",
+		image: "/images/front-desk.svg",
+		description: "Round-the-clock assistance and concierge services",
+		detailedDescription: "Our dedicated front desk team is available 24/7 to assist with check-ins, check-outs, reservations, and any inquiries. Experience personalized service and immediate support whenever you need it.",
 		metadata: {
-			capacity: "30+ guests",
-			features: ["Smart TV", "WiFi", "Complimentary Refreshments"],
+			capacity: "Always Available",
+			features: ["24/7 Support", "Concierge Services", "Multilingual Staff"],
 			lastUpdated: "Jan 2024"
 		}
 	},
 	{
-		title: "Terrace & Outdoor Furniture",
-		image: "/images/hero.svg",
-		description: "Beautiful outdoor space with panoramic views and comfortable seating",
-		detailedDescription: "Experience breathtaking views from our expansive terrace, thoughtfully furnished with premium outdoor seating. Perfect for morning coffee, evening drinks, or simply enjoying the fresh Kenyan air.",
+		title: "Room Service",
+		image: "/images/room-service.svg",
+		description: "In-room dining with a wide selection of meals",
+		detailedDescription: "Enjoy delicious meals delivered directly to your room at your convenience. Our room service offers a diverse menu featuring local Kenyan cuisine and international dishes, available throughout the day.",
 		metadata: {
-			capacity: "50+ seats",
-			features: ["WiFi", "Sunrise Views", "Outdoor Bar"],
+			capacity: "24 Hours",
+			features: ["Diverse Menu", "Quick Delivery", "Special Dietary Options"],
+			lastUpdated: "Jan 2024"
+		}
+	},
+	{
+		title: "Common Areas",
+		image: "/images/common-areas.svg",
+		description: "Spacious shared spaces for relaxation and socializing",
+		detailedDescription: "Our beautifully designed common areas provide comfortable spaces for guests to relax, read, or connect with fellow travelers. Featuring elegant furnishings and a welcoming atmosphere.",
+		metadata: {
+			capacity: "50+ guests",
+			features: ["Comfortable Seating", "Reading Materials", "Social Spaces"],
+			lastUpdated: "Jan 2024"
+		}
+	},
+	{
+		title: "Terrace",
+		image: "/images/terrace.svg",
+		description: "Outdoor terrace with stunning views and fresh air",
+		detailedDescription: "Step out onto our expansive terrace to enjoy panoramic views and the refreshing Kenyan breeze. Perfect for morning coffee, evening cocktails, or simply soaking in the natural beauty.",
+		metadata: {
+			capacity: "30+ seats",
+			features: ["Scenic Views", "Outdoor Seating", "Refreshment Service"],
+			lastUpdated: "Jan 2024"
+		}
+	},
+	{
+		title: "Television Room",
+		image: "/images/television-room.svg",
+		description: "Dedicated entertainment space with premium TV channels",
+		detailedDescription: "Unwind in our television room equipped with large screens, comfortable seating, and access to a wide range of entertainment channels. Ideal for catching up on news, sports, or your favorite shows.",
+		metadata: {
+			capacity: "20+ guests",
+			features: ["Large Screens", "Premium Channels", "Comfortable Seating"],
 			lastUpdated: "Jan 2024"
 		}
 	},
 	{
 		title: "Free Private Parking",
-		image: "/images/mipeja-hero.jpg",
-		description: "Secure, covered parking facilities for all guests",
-		detailedDescription: "Enjoy complimentary, secure private parking with 24-hour surveillance. Our spacious parking facility accommodates various vehicle sizes with easy access to the hotel entrance.",
+		image: "/images/parking.svg",
+		description: "Secure and complimentary parking for all guests",
+		detailedDescription: "Park your vehicle safely in our secure private parking area at no extra cost. With 24-hour surveillance and easy access to the hotel entrance, your vehicle is always protected.",
 		metadata: {
 			capacity: "40+ vehicles",
-			features: ["24/7 Security", "Covered Spaces", "EV Charging Available"],
+			features: ["24/7 Security", "Free of Charge", "Easy Access"],
 			lastUpdated: "Jan 2024"
 		}
-	},
-	{
-		title: "Non-Smoking Rooms",
-		image: "/images/room-deluxe.svg",
-		description: "Smoke-free accommodations with premium air filtration systems",
-		detailedDescription: "All our non-smoking rooms feature advanced air purification systems ensuring pristine air quality. Perfect for guests with allergies or those who prefer a fresh, clean environment.",
-		metadata: {
-			capacity: "35 rooms",
-			features: ["Air Purification", "Hypoallergenic Bedding", "Fresh Air System"],
-			lastUpdated: "Jan 2024"
-		}
-	},
-	{
-		title: "Designated Smoking Area",
-		image: "/images/room-family.svg",
-		description: "Comfortable outdoor smoking lounge with ventilation",
-		detailedDescription: "Our thoughtfully designed smoking area is fully ventilated and positioned away from non-smoking areas. Features comfortable seating and a welcoming atmosphere for our smoking guests.",
-		metadata: {
-			capacity: "20 seats",
-			features: ["Ventilation System", "Outdoor Setting", "Complimentary Ashtrays"],
-			lastUpdated: "Jan 2024"
-		}
-	},
+	}
 ];
 
 const amenitiesA = [
@@ -108,15 +119,6 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 	<div class="min-h-screen bg-beige/30">
 		<Header bookingUrl={hotel.bookingUrl} />
 
-		<!-- Subpage Hero -->
-		<section class="relative h-[60vh] flex items-center justify-center overflow-hidden">
-			<img src="/images/lounge.svg" alt="Amenities" class="absolute inset-0 w-full h-full object-cover brightness-50" />
-			<div class="relative z-10 text-center space-y-4">
-				<p class="text-[10px] uppercase tracking-[0.4em] text-white font-bold">Experience & Luxury</p>
-				<h1 class="text-6xl md:text-8xl font-display text-white italic">Amenities</h1>
-			</div>
-		</section>
-
 		<!-- Restaurant & Conference Tabs -->
 		<AmenitiesTabs />
 
@@ -127,15 +129,17 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 				<h2 class="text-5xl md:text-6xl font-display text-brown">Our Facilities</h2>
 			</div>
 
-			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-max">
-				{facilities.map((facility) => (
-					<FacilityCard 
-						title={facility.title}
-						image={facility.image}
-						description={facility.description}
-						detailedDescription={facility.detailedDescription}
-						metadata={facility.metadata}
-					/>
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-max facilities-grid">
+				{facilities.map((facility, index) => (
+					<div class="facility-item" style={`animation-delay: ${index * 0.1}s`}>
+						<FacilityCard 
+							title={facility.title}
+							image={facility.image}
+							description={facility.description}
+							detailedDescription={facility.detailedDescription}
+							metadata={facility.metadata}
+						/>
+					</div>
 				))}
 			</div>
 		</section>
@@ -143,4 +147,19 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 
 	</div>
 </BaseLayout>
+
+<style>
+	.facility-item {
+		opacity: 0;
+		transform: translateY(30px);
+		animation: fadeInUp 0.6s ease-out forwards;
+	}
+
+	@keyframes fadeInUp {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>
 
