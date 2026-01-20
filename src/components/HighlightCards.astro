@@ -11,6 +11,7 @@ const highlights = [
     title: "Accommodation",
     description:
       "Relax in style—our rooms blend comfort, elegance, and modern amenities for the perfect stay.",
+    detailedDescription: "Experience luxury redefined in our thoughtfully designed rooms featuring premium bedding, modern amenities, and stunning views. Each room is crafted to provide the perfect balance of comfort and sophistication for your stay.",
     image:
       "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&h=400&fit=crop",
     link: "/rooms",
@@ -20,6 +21,7 @@ const highlights = [
     title: "Dining",
     description:
       "Savor every moment—experience gourmet flavors and local specialties at our signature restaurant.",
+    detailedDescription: "Indulge in our award-winning restaurant offering a diverse menu of international and local Kenyan cuisine. Our expert chefs use only the finest ingredients to create memorable culinary experiences in an elegant setting.",
     image:
       "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop",
     link: "#dining",
@@ -29,6 +31,7 @@ const highlights = [
     title: "Conference Facilities",
     description:
       "Connect and create—state-of-the-art spaces designed for impactful meetings, events, and celebrations.",
+    detailedDescription: "Host successful meetings, conferences, and special events in our modern facilities equipped with state-of-the-art technology, comfortable seating, and professional service. Perfect for business gatherings and celebrations.",
     image:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
     link: "#amenities",
@@ -51,50 +54,48 @@ const highlights = [
       {
         highlights.map((card, index) => (
           <div
-            class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 reveal"
+            class="facility-card group relative overflow-hidden rounded-2xl h-96 cursor-pointer"
             style={`animation-delay: ${index * 0.15}s`}
           >
-            <!-- Background Image Container -->
-            <div class="relative h-80 md:h-96 overflow-hidden bg-charcoal-gray">
+            <!-- Background Image -->
+            <div class="absolute inset-0">
               <img
                 src={card.image}
                 alt={card.title}
-                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
               />
-              <!-- Dark Overlay Gradient -->
-              <div class="absolute inset-0 bg-gradient-to-t from-charcoal-gray via-charcoal-gray/50 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-500"></div>
+              <!-- Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
             </div>
 
-            <!-- Content Container -->
-            <div class="absolute inset-0 flex flex-col justify-between p-8 text-white">
-              <!-- Top spacing for image -->
-              <div></div>
+            <!-- Collapsed View (Always visible initially) -->
+            <div class="absolute inset-0 flex flex-col justify-end p-6 transition-all duration-300 group-hover:opacity-0 group-hover:invisible z-10">
+              <h3 class="text-2xl font-bold text-white font-display mb-3">
+                {card.title}
+              </h3>
+              <p class="text-sm text-gray-200 leading-relaxed line-clamp-3">
+                {card.description}
+              </p>
+            </div>
 
-              <!-- Card Content at bottom -->
-              <div class="space-y-6 transform transition-all duration-500">
-                <div class="space-y-3">
-                  <h3 class="text-3xl md:text-4xl font-display font-bold leading-tight group-hover:text-gold-rich transition-colors duration-300">
-                    {card.title}
-                  </h3>
-                  <p class="text-white/90 text-base md:text-lg leading-relaxed">
-                    {card.description}
-                  </p>
-                </div>
-
-                <!-- Explore Button -->
-                <div>
-                  <a
-                    href={card.link}
-                    class="inline-flex items-center justify-center bg-gold-rich hover:bg-gold-rich/90 text-charcoal-gray px-8 py-3 text-sm font-accent font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform hover:glow"
-                  >
-                    Explore
-                  </a>
-                </div>
+            <!-- Expanded View (Appears on hover/click) -->
+            <div class="absolute inset-0 flex flex-col justify-between p-8 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-20 bg-gradient-to-br from-black/80 via-black/85 to-black/90">
+              <!-- Content Section -->
+              <div class="space-y-6 flex flex-col justify-center h-full">
+                <h3 class="text-3xl font-bold text-white font-display">
+                  {card.title}
+                </h3>
+                <p class="text-gray-300 text-base leading-relaxed">
+                  {card.detailedDescription}
+                </p>
               </div>
-            </div>
 
-            <!-- Subtle border highlight on hover -->
-            <div class="absolute inset-0 border border-gold-rich/0 group-hover:border-gold-rich/30 rounded-lg transition-all duration-500 pointer-events-none"></div>
+              <!-- Bottom Section: Action Button -->
+              <a href={card.link} class="w-full bg-deep-teal hover:bg-deep-teal/90 text-white font-bold py-3 rounded-lg transition-colors duration-200 text-sm uppercase tracking-widest text-center block">
+                Explore More →
+              </a>
+            </div>
           </div>
         ))
       }
@@ -103,13 +104,27 @@ const highlights = [
 </section>
 
 <style>
-  /* Glow effect for button hover */
-  .hover\:glow:hover {
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 4px 15px rgba(212, 175, 55, 0.3);
+  @media (max-width: 1024px) {
+    .facility-card {
+      /* Mobile: Expand on tap/click */
+    }
+
+    .facility-card.expanded {
+      min-height: 500px;
+    }
+
+    .facility-card.expanded > div:first-of-type::after {
+      opacity: 0;
+    }
+  }
+
+  /* Smooth transition for mobile toggle */
+  .facility-card {
+    transition: all 0.3s ease;
   }
 
   /* Ensure reveal animation triggers */
-  .reveal {
+  .facility-card {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 0.8s cubic-bezier(0.5, 0, 0, 1) forwards;
@@ -126,3 +141,41 @@ const highlights = [
     }
   }
 </style>
+
+<script>
+  // Mobile toggle functionality
+  function initializeHighlightCards() {
+    const cards = document.querySelectorAll('.facility-card');
+
+    cards.forEach(card => {
+      // Skip hover-based expansion on touch devices
+      if (!('ontouchstart' in window)) {
+        return;
+      }
+
+      card.addEventListener('click', (e) => {
+        // Close other expanded cards
+        cards.forEach(c => {
+          if (c !== card) {
+            c.classList.remove('expanded');
+          }
+        });
+
+        // Toggle current card
+        card.classList.toggle('expanded');
+        e.stopPropagation();
+      });
+    });
+
+    // Close expanded card when clicking outside
+    document.addEventListener('click', () => {
+      cards.forEach(card => {
+        card.classList.remove('expanded');
+      });
+    });
+  }
+
+  // Initialize on DOMContentLoaded and after Astro transitions
+  document.addEventListener('DOMContentLoaded', initializeHighlightCards);
+  document.addEventListener('astro:after-swap', initializeHighlightCards);
+</script>
