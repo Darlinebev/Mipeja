@@ -1,0 +1,154 @@
+---
+interface Props {
+	title: string;
+	image: string;
+	description: string;
+	detailedDescription: string;
+	metadata: {
+		guests?: number;
+		capacity?: string;
+		lastUpdated?: string;
+		features?: string[];
+	};
+}
+
+const { title, image, description, detailedDescription, metadata } = Astro.props;
+---
+
+<div class="facility-card group relative overflow-hidden rounded-2xl h-96 cursor-pointer">
+	<!-- Background Image -->
+	<div class="absolute inset-0">
+		<img 
+			src={image} 
+			alt={title}
+			class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+			loading="lazy"
+		/>
+		<!-- Overlay -->
+		<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+	</div>
+
+	<!-- Collapsed View (Always visible initially) -->
+	<div class="absolute inset-0 flex flex-col justify-end p-6 transition-all duration-300 group-hover:opacity-0 group-hover:invisible z-10">
+		<h3 class="text-2xl font-bold text-white font-display mb-3">
+			{title}
+		</h3>
+		<p class="text-sm text-gray-200 leading-relaxed line-clamp-3">
+			{description}
+		</p>
+	</div>
+
+	<!-- Expanded View (Appears on hover/click) -->
+	<div class="absolute inset-0 flex flex-col justify-between p-8 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-20 bg-gradient-to-br from-black/80 via-black/85 to-black/90">
+		<!-- Top Section: Title -->
+		<div class="space-y-4">
+			<h3 class="text-3xl font-bold text-white font-display">
+				{title}
+			</h3>
+			<p class="text-gray-300 text-sm leading-relaxed">
+				{detailedDescription}
+			</p>
+		</div>
+
+		<!-- Middle Section: Metadata -->
+		<div class="space-y-4">
+			{metadata.capacity && (
+				<div class="flex items-center justify-between text-sm">
+					<span class="text-gray-400">Capacity</span>
+					<span class="text-white font-semibold">{metadata.capacity}</span>
+				</div>
+			)}
+			
+			{metadata.guests && (
+				<div class="flex items-center justify-between text-sm">
+					<span class="text-gray-400">Max Guests</span>
+					<span class="text-white font-semibold">{metadata.guests}</span>
+				</div>
+			)}
+
+			{metadata.lastUpdated && (
+				<div class="flex items-center justify-between text-sm">
+					<span class="text-gray-400">Last Updated</span>
+					<span class="text-white font-semibold text-xs">{metadata.lastUpdated}</span>
+				</div>
+			)}
+
+			{metadata.features && metadata.features.length > 0 && (
+				<div class="space-y-2">
+					<p class="text-gray-400 text-sm">Features</p>
+					<div class="flex flex-wrap gap-2">
+						{metadata.features.map((feature) => (
+							<span class="text-xs bg-deep-teal/20 text-deep-teal px-3 py-1 rounded-full border border-deep-teal/30">
+								{feature}
+							</span>
+						))}
+					</div>
+				</div>
+			)}
+		</div>
+
+		<!-- Bottom Section: Action Button -->
+		<button class="w-full bg-deep-teal hover:bg-deep-teal/90 text-white font-bold py-3 rounded-lg transition-colors duration-200 text-sm uppercase tracking-widest">
+			Explore More →
+		</button>
+	</div>
+</div>
+
+<style>
+	@media (max-width: 1024px) {
+		.facility-card {
+			/* Mobile: Expand on tap/click */
+		}
+
+		.facility-card.expanded {
+			min-height: 500px;
+		}
+
+		.facility-card.expanded > div:first-of-type::after {
+			opacity: 0;
+		}
+	}
+
+	/* Smooth transition for mobile toggle */
+	.facility-card {
+		transition: all 0.3s ease;
+	}
+</style>
+
+<script>
+	// Mobile toggle functionality
+	function initializeFacilityCards() {
+		const cards = document.querySelectorAll('.facility-card');
+		
+		cards.forEach(card => {
+			// Skip hover-based expansion on touch devices
+			if (!('ontouchstart' in window)) {
+				return;
+			}
+
+			card.addEventListener('click', (e) => {
+				// Close other expanded cards
+				cards.forEach(c => {
+					if (c !== card) {
+						c.classList.remove('expanded');
+					}
+				});
+
+				// Toggle current card
+				card.classList.toggle('expanded');
+				e.stopPropagation();
+			});
+		});
+
+		// Close expanded card when clicking outside
+		document.addEventListener('click', () => {
+			cards.forEach(card => {
+				card.classList.remove('expanded');
+			});
+		});
+	}
+
+	// Initialize on DOMContentLoaded and after Astro transitions
+	document.addEventListener('DOMContentLoaded', initializeFacilityCards);
+	document.addEventListener('astro:after-swap', initializeFacilityCards);
+</script>

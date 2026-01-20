@@ -2,20 +2,75 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { hotel } from "../data/hotel";
 import Header from "../components/Header.astro";
-import AirConditioning from "../components/icons/AirConditioning.astro";
-import Tv from "../components/icons/Tv.astro";
-import WifiIcon from "../components/icons/Wifi.astro";
-import Bathroom from "../components/icons/Bathroom.astro";
-import Desk from "../components/icons/Desk.astro";
-import Wardrobe from "../components/icons/Wardrobe.astro";
+import FacilityCard from "../components/FacilityCard.astro";
 
 const facilities = [
-	{ title: "Restaurant", img: "/images/restaurant.svg" },
-	{ title: "Shared lounge / TV area", img: "/images/lounge.svg" },
-	{ title: "Terrace & outdoor furniture", img: "/images/hero.svg" },
-	{ title: "Free private parking", img: "/images/mipeja-hero.jpg" },
-	{ title: "Non-smoking rooms", img: "/images/room-deluxe.svg" },
-	{ title: "Designated smoking area", img: "/images/room-family.svg" },
+	{
+		title: "Restaurant",
+		image: "/images/restaurant.svg",
+		description: "Fine dining experience with international and local cuisine",
+		detailedDescription: "Indulge in our award-winning restaurant offering a diverse menu of international and local Kenyan cuisine. Our expert chefs use only the finest ingredients sourced locally to create memorable culinary experiences.",
+		metadata: {
+			capacity: "80 seats",
+			features: ["À la carte", "Fine Dining", "Room Service"],
+			lastUpdated: "Jan 2024"
+		}
+	},
+	{
+		title: "Shared Lounge & TV Area",
+		image: "/images/lounge.svg",
+		description: "Comfortable gathering space for guests to relax and socialize",
+		detailedDescription: "Relax in our elegant shared lounge featuring comfortable seating, premium entertainment systems, and a warm ambiance perfect for socializing with other guests or unwinding after a long day.",
+		metadata: {
+			capacity: "30+ guests",
+			features: ["Smart TV", "WiFi", "Complimentary Refreshments"],
+			lastUpdated: "Jan 2024"
+		}
+	},
+	{
+		title: "Terrace & Outdoor Furniture",
+		image: "/images/hero.svg",
+		description: "Beautiful outdoor space with panoramic views and comfortable seating",
+		detailedDescription: "Experience breathtaking views from our expansive terrace, thoughtfully furnished with premium outdoor seating. Perfect for morning coffee, evening drinks, or simply enjoying the fresh Kenyan air.",
+		metadata: {
+			capacity: "50+ seats",
+			features: ["WiFi", "Sunrise Views", "Outdoor Bar"],
+			lastUpdated: "Jan 2024"
+		}
+	},
+	{
+		title: "Free Private Parking",
+		image: "/images/mipeja-hero.jpg",
+		description: "Secure, covered parking facilities for all guests",
+		detailedDescription: "Enjoy complimentary, secure private parking with 24-hour surveillance. Our spacious parking facility accommodates various vehicle sizes with easy access to the hotel entrance.",
+		metadata: {
+			capacity: "40+ vehicles",
+			features: ["24/7 Security", "Covered Spaces", "EV Charging Available"],
+			lastUpdated: "Jan 2024"
+		}
+	},
+	{
+		title: "Non-Smoking Rooms",
+		image: "/images/room-deluxe.svg",
+		description: "Smoke-free accommodations with premium air filtration systems",
+		detailedDescription: "All our non-smoking rooms feature advanced air purification systems ensuring pristine air quality. Perfect for guests with allergies or those who prefer a fresh, clean environment.",
+		metadata: {
+			capacity: "35 rooms",
+			features: ["Air Purification", "Hypoallergenic Bedding", "Fresh Air System"],
+			lastUpdated: "Jan 2024"
+		}
+	},
+	{
+		title: "Designated Smoking Area",
+		image: "/images/room-family.svg",
+		description: "Comfortable outdoor smoking lounge with ventilation",
+		detailedDescription: "Our thoughtfully designed smoking area is fully ventilated and positioned away from non-smoking areas. Features comfortable seating and a welcoming atmosphere for our smoking guests.",
+		metadata: {
+			capacity: "20 seats",
+			features: ["Ventilation System", "Outdoor Setting", "Complimentary Ashtrays"],
+			lastUpdated: "Jan 2024"
+		}
+	},
 ];
 
 const amenitiesA = [
@@ -79,17 +134,15 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 				<h2 class="text-5xl md:text-6xl font-display text-brown">Our Facilities</h2>
 			</div>
 
-			<div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-				{facilities.map((f) => (
-					<div class="group space-y-6">
-						<div class="aspect-[4/5] overflow-hidden bg-charcoal">
-							<img src={f.img} alt={f.title} class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" loading="lazy" />
-						</div>
-						<div class="space-y-2">
-							<h3 class="font-display text-2xl font-bold text-brown">{f.title}</h3>
-							<p class="text-[10px] uppercase tracking-[0.2em] text-charcoal/60 leading-relaxed font-bold">Comprehensive guest services</p>
-						</div>
-					</div>
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-max">
+				{facilities.map((facility) => (
+					<FacilityCard 
+						title={facility.title}
+						image={facility.image}
+						description={facility.description}
+						detailedDescription={facility.detailedDescription}
+						metadata={facility.metadata}
+					/>
 				))}
 			</div>
 		</section>

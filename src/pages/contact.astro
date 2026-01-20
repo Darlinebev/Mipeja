@@ -31,10 +31,10 @@ const pageDescription = `Get in touch with ${hotel.name}. Contact us for booking
 						<p class="text-gray-600 leading-relaxed">Find answers to common questions about our hotel, amenities, and services.</p>
 					</div>
 					<!-- Right Column -->
-					<div class="space-y-6">
+					<div class="space-y-6 faq-container">
 						<!-- FAQ 1 -->
-						<div class="bg-white rounded-2xl shadow-soft p-6">
-							<div class="flex justify-between items-center cursor-pointer" onclick="toggleAccordion(this)">
+						<div class="bg-white rounded-2xl shadow-soft p-6 faq-card">
+							<div class="flex justify-between items-center cursor-pointer faq-header">
 								<h3 class="text-lg font-bold text-charcoal">What time is check-in at Mipeja Hotel, Busia?</h3>
 								<div class="w-8 h-8 bg-deep-teal rounded-full flex items-center justify-center">
 									<svg class="w-4 h-4 text-white transform transition-transform chevron rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -42,11 +42,11 @@ const pageDescription = `Get in touch with ${hotel.name}. Contact us for booking
 									</svg>
 								</div>
 							</div>
-							<div class="mt-4 text-gray-600 answer">Check-in is from 14:00:00 to 00:00:00.</div>
+							<div class="mt-4 text-gray-600 faq-answer">Check-in is from 14:00:00 to 00:00:00.</div>
 						</div>
 						<!-- FAQ 2 -->
-						<div class="bg-white rounded-2xl shadow-soft p-6">
-							<div class="flex justify-between items-center cursor-pointer" onclick="toggleAccordion(this)">
+						<div class="bg-white rounded-2xl shadow-soft p-6 faq-card">
+							<div class="flex justify-between items-center cursor-pointer faq-header">
 								<h3 class="text-lg font-bold text-charcoal">What time is check-out at Mipeja Hotel, Busia?</h3>
 								<div class="w-8 h-8 bg-deep-teal rounded-full flex items-center justify-center">
 									<svg class="w-4 h-4 text-white transform transition-transform chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,11 +54,11 @@ const pageDescription = `Get in touch with ${hotel.name}. Contact us for booking
 									</svg>
 								</div>
 							</div>
-							<div class="mt-4 text-gray-600 answer hidden">Check-out is 10:00:00.</div>
+							<div class="mt-4 text-gray-600 faq-answer hidden">Check-out is 10:00:00.</div>
 						</div>
 						<!-- FAQ 3 -->
-						<div class="bg-white rounded-2xl shadow-soft p-6">
-							<div class="flex justify-between items-center cursor-pointer" onclick="toggleAccordion(this)">
+						<div class="bg-white rounded-2xl shadow-soft p-6 faq-card">
+							<div class="flex justify-between items-center cursor-pointer faq-header">
 								<h3 class="text-lg font-bold text-charcoal">Is parking available at Mipeja Hotel, Busia?</h3>
 								<div class="w-8 h-8 bg-deep-teal rounded-full flex items-center justify-center">
 									<svg class="w-4 h-4 text-white transform transition-transform chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,11 +66,11 @@ const pageDescription = `Get in touch with ${hotel.name}. Contact us for booking
 									</svg>
 								</div>
 							</div>
-							<div class="mt-4 text-gray-600 answer hidden">Parking is available at Mipeja Hotel, Busia.</div>
+							<div class="mt-4 text-gray-600 faq-answer hidden">Parking is available at Mipeja Hotel, Busia.</div>
 						</div>
 						<!-- FAQ 4 -->
-						<div class="bg-white rounded-2xl shadow-soft p-6">
-							<div class="flex justify-between items-center cursor-pointer" onclick="toggleAccordion(this)">
+						<div class="bg-white rounded-2xl shadow-soft p-6 faq-card">
+							<div class="flex justify-between items-center cursor-pointer faq-header">
 								<h3 class="text-lg font-bold text-charcoal">Are pets allowed at Mipeja Hotel, Busia?</h3>
 								<div class="w-8 h-8 bg-deep-teal rounded-full flex items-center justify-center">
 									<svg class="w-4 h-4 text-white transform transition-transform chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,7 +78,7 @@ const pageDescription = `Get in touch with ${hotel.name}. Contact us for booking
 									</svg>
 								</div>
 							</div>
-							<div class="mt-4 text-gray-600 answer hidden">Pets are not allowed at Mipeja Hotel, Busia.</div>
+							<div class="mt-4 text-gray-600 faq-answer hidden">Pets are not allowed at Mipeja Hotel, Busia.</div>
 						</div>
 					</div>
 				</div>
@@ -154,16 +154,19 @@ const pageDescription = `Get in touch with ${hotel.name}. Contact us for booking
 </BaseLayout>
 
 <script>
-	function toggleAccordion(element) {
-		const answer = element.parentElement.querySelector('.answer');
-		const chevron = element.querySelector('.chevron');
-		if (answer.classList.contains('hidden')) {
-			answer.classList.remove('hidden');
-			chevron.classList.add('rotate-180');
-		} else {
-			answer.classList.add('hidden');
-			chevron.classList.remove('rotate-180');
-		}
-	}
+	document.addEventListener('DOMContentLoaded', () => {
+		const faqHeaders = document.querySelectorAll('.faq-header');
+		
+		faqHeaders.forEach(header => {
+			header.addEventListener('click', () => {
+				const card = header.closest('.faq-card');
+				const answer = card.querySelector('.faq-answer');
+				const chevron = card.querySelector('.chevron');
+				
+				answer.classList.toggle('hidden');
+				chevron.classList.toggle('rotate-180');
+			});
+		});
+	});
 </script>
 
