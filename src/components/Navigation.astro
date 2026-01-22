@@ -1,17 +1,14 @@
 ---
-const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Amenities", href: "/amenities" },
-  { label: "Room", href: "/rooms" },
-  { label: "Contact", href: "/contact" },
-];
+import { navigationItems } from "../data/navigation";
+
+const { textColorClass = "text-white" } = Astro.props;
 ---
 
 <nav class="flex flex-row items-center gap-8">
-  {navItems.map((item) => (
+  {navigationItems.map((item) => (
     <a
       href={item.href}
-      class="nav-link text-[11px] font-accent font-bold uppercase tracking-[0.2em] text-white hover:text-gold-rich relative py-2 transition-colors duration-300 group"
+      class={`nav-link text-[11px] font-accent font-bold uppercase tracking-[0.2em] ${textColorClass} hover:text-gold-rich relative py-2 transition-colors duration-300 group`}
     >
       {item.label}
       <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-rich transition-all duration-300 group-hover:w-full"></span>

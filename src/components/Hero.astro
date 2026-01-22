@@ -4,21 +4,21 @@ const { hotel, bookingUrl } = Astro.props;
 // Keep existing images or placeholders
 const slides = [
 	{
-		image: '/images/mipeja-hero.jpg', 
+		image: '/images/one.jpg', 
 		alt: 'Luxury Hotel Stay'
 	},
 	{
-		image: '/images/hero-bg.jpg',
+		image: '/images/two.png',
 		alt: 'Comfortable Room'
 	},
 	{
-		image: '/images/inspo.jpg',
+		image: '/images/three.png',
 		alt: 'Relaxing Vibes'
 	}
 ];
 ---
 
-<div class="relative h-screen w-full overflow-hidden">
+<div class="relative h-screen w-full overflow-hidden max-w-full">
     <!-- Background Slider -->
     <div class="absolute inset-0 z-0">
         {slides.map((slide, index) => (
@@ -30,16 +30,16 @@ const slides = [
     </div>
 
     <!-- Hero Content -->
-    <div class="relative z-10 flex flex-col justify-center h-full px-6 md:px-12 max-w-7xl mx-auto">
-        <div class="max-w-3xl space-y-8 pb-32">
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-medium text-white leading-tight">
+    <div class="relative z-10 flex flex-col justify-center h-full px-4 sm:px-6 md:px-12 max-w-7xl mx-auto w-full">
+        <div class="max-w-3xl space-y-4 sm:space-y-6 md:space-y-8 pt-24 pb-12 md:pb-32 md:pt-0">
+            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-medium text-white leading-tight">
                 Find Your <br/> Perfect Stay.
             </h1>
-            <p class="text-white/80 text-lg md:text-xl font-light leading-relaxed max-w-xl">
-                Book boutique hotels, private villas, stays more permissions & minted experiences. Tailored to your ease, travel with taste.
+            <p class="text-white/80 text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-xl">
+                Experience comfort and convenience in the heart of Busia. Whether for business or leisure, Mipeja Hotel offers the perfect stay tailored to your needs.
             </p>
             <div class="flex items-center gap-4 pt-4">
-                 <a href={bookingUrl} class="inline-flex items-center gap-2 bg-white text-theme-black px-8 py-4 rounded-full font-semibold hover:bg-theme-gold hover:text-white transition-all group">
+                 <a href={bookingUrl} class="inline-flex items-center gap-2 bg-white text-theme-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-semibold hover:bg-theme-gold hover:text-white transition-all group">
                     Booking Now
                     <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                  </a>
@@ -47,51 +47,51 @@ const slides = [
         </div>
 
         <!-- Float Indicators -->
-        <div class="absolute right-12 bottom-48 flex gap-4 text-white/60 text-sm font-mono hidden md:flex">
+        <div class="absolute right-12 bottom-48 flex gap-4 text-white/60 text-sm font-mono hidden lg:flex">
              <span>01</span>
              <div class="w-12 h-[1px] bg-white/40 self-center"></div>
              <span>03</span>
         </div>
     </div>
 
-    <!-- Booking Bar -->
-    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl z-20">
-        <div class="bg-white rounded-full p-2 md:p-3 shadow-2xl flex flex-col md:flex-row items-stretch justify-between gap-4 md:gap-0">
+    <!-- Booking Bar (Desktop Only) -->
+    <div class="hidden lg:block absolute bottom-12 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl z-20 px-4">
+        <div class="bg-white rounded-full p-3 shadow-2xl flex flex-row items-stretch justify-between w-full">
             
-            <div class="flex-1 w-full md:w-auto px-8 py-3 md:border-r border-gray-100 relative group cursor-pointer hover:bg-gray-50 rounded-full md:rounded-l-full md:rounded-r-none transition-colors">
+            <div class="flex-1 w-auto px-4 xl:px-8 py-3 border-r border-gray-100 relative group cursor-pointer hover:bg-gray-50 rounded-l-full transition-colors min-w-0">
                 <label class="block text-[10px] uppercase tracking-wider text-gray-500 font-bold mb-1">Room</label>
-                <div class="flex items-center justify-between gap-4">
-                    <span class="text-theme-black font-semibold text-sm">Fine Log</span>
-                    <i class="fa-solid fa-chevron-down text-[10px] text-gray-400"></i>
+                <div class="flex items-center justify-between gap-2 xl:gap-4">
+                    <span class="text-theme-black font-semibold text-sm truncate">Fine Log</span>
+                    <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 flex-shrink-0"></i>
                 </div>
             </div>
 
-            <div class="flex-1 w-full md:w-auto px-8 py-3 md:border-r border-gray-100 relative group cursor-pointer hover:bg-gray-50 transition-colors">
+            <div class="flex-1 w-auto px-4 xl:px-8 py-3 border-r border-gray-100 relative group cursor-pointer hover:bg-gray-50 transition-colors min-w-0">
                 <label class="block text-[10px] uppercase tracking-wider text-gray-500 font-bold mb-1">Check In</label>
-                 <div class="flex items-center justify-between gap-4">
-                    <span class="text-theme-black font-semibold text-sm">10 Mar 2024</span>
-                    <i class="fa-regular fa-calendar text-[10px] text-gray-400"></i>
+                 <div class="flex items-center justify-between gap-2 xl:gap-4">
+                    <span class="text-theme-black font-semibold text-sm truncate">10 Mar 2024</span>
+                    <i class="fa-regular fa-calendar text-[10px] text-gray-400 flex-shrink-0"></i>
                 </div>
             </div>
 
-            <div class="flex-1 w-full md:w-auto px-8 py-3 md:border-r border-gray-100 relative group cursor-pointer hover:bg-gray-50 transition-colors">
+            <div class="flex-1 w-auto px-4 xl:px-8 py-3 border-r border-gray-100 relative group cursor-pointer hover:bg-gray-50 transition-colors min-w-0">
                 <label class="block text-[10px] uppercase tracking-wider text-gray-500 font-bold mb-1">Check Out</label>
-                 <div class="flex items-center justify-between gap-4">
-                    <span class="text-theme-black font-semibold text-sm">15 Mar 2024</span>
-                    <i class="fa-regular fa-calendar text-[10px] text-gray-400"></i>
+                 <div class="flex items-center justify-between gap-2 xl:gap-4">
+                    <span class="text-theme-black font-semibold text-sm truncate">15 Mar 2024</span>
+                    <i class="fa-regular fa-calendar text-[10px] text-gray-400 flex-shrink-0"></i>
                 </div>
             </div>
 
-            <div class="flex-1 w-full md:w-auto px-8 py-3 relative group cursor-pointer hover:bg-gray-50 rounded-full md:rounded-r-full md:rounded-l-none transition-colors">
+            <div class="flex-1 w-auto px-4 xl:px-8 py-3 relative group cursor-pointer hover:bg-gray-50 rounded-r-full transition-colors min-w-0">
                 <label class="block text-[10px] uppercase tracking-wider text-gray-500 font-bold mb-1">Guests</label>
-                 <div class="flex items-center justify-between gap-4">
-                    <span class="text-theme-black font-semibold text-sm">04 Adults</span>
-                    <i class="fa-solid fa-chevron-down text-[10px] text-gray-400"></i>
+                 <div class="flex items-center justify-between gap-2 xl:gap-4">
+                    <span class="text-theme-black font-semibold text-sm truncate">04 Adults</span>
+                    <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 flex-shrink-0"></i>
                 </div>
             </div>
 
             <div class="p-1 flex-shrink-0">
-                <a href={bookingUrl} class="flex items-center justify-center w-full md:w-auto bg-theme-black text-white px-8 py-4 rounded-full font-bold uppercase tracking-wide text-xs hover:bg-theme-gold transition-colors shadow-lg h-full">
+                <a href={bookingUrl} class="flex items-center justify-center w-auto bg-theme-black text-white px-6 xl:px-8 py-4 rounded-full font-bold uppercase tracking-wide text-[10px] xl:text-xs hover:bg-theme-gold transition-colors shadow-lg h-full whitespace-nowrap">
                     Check Availability
                 </a>
             </div>

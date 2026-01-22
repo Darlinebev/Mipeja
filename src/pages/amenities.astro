@@ -8,7 +8,7 @@ import AmenitiesTabs from "../components/AmenitiesTabs.astro";
 const facilities = [
 	{
 		title: "24-Hour Front Desk",
-		image: "/images/front-desk.svg",
+		image: "/images/eighteen.png",
 		description: "Round-the-clock assistance and concierge services",
 		detailedDescription: "Our dedicated front desk team is available 24/7 to assist with check-ins, check-outs, reservations, and any inquiries. Experience personalized service and immediate support whenever you need it.",
 		metadata: {
@@ -19,7 +19,7 @@ const facilities = [
 	},
 	{
 		title: "Room Service",
-		image: "/images/room-service.svg",
+		image: "/images/nineteen.png",
 		description: "In-room dining with a wide selection of meals",
 		detailedDescription: "Enjoy delicious meals delivered directly to your room at your convenience. Our room service offers a diverse menu featuring local Kenyan cuisine and international dishes, available throughout the day.",
 		metadata: {
@@ -30,7 +30,7 @@ const facilities = [
 	},
 	{
 		title: "Common Areas",
-		image: "/images/common-areas.svg",
+		image: "/images/two.png",
 		description: "Spacious shared spaces for relaxation and socializing",
 		detailedDescription: "Our beautifully designed common areas provide comfortable spaces for guests to relax, read, or connect with fellow travelers. Featuring elegant furnishings and a welcoming atmosphere.",
 		metadata: {
@@ -38,77 +38,7 @@ const facilities = [
 			features: ["Comfortable Seating", "Reading Materials", "Social Spaces"],
 			lastUpdated: "Jan 2024"
 		}
-	},
-	{
-		title: "Terrace",
-		image: "/images/terrace.svg",
-		description: "Outdoor terrace with stunning views and fresh air",
-		detailedDescription: "Step out onto our expansive terrace to enjoy panoramic views and the refreshing Kenyan breeze. Perfect for morning coffee, evening cocktails, or simply soaking in the natural beauty.",
-		metadata: {
-			capacity: "30+ seats",
-			features: ["Scenic Views", "Outdoor Seating", "Refreshment Service"],
-			lastUpdated: "Jan 2024"
-		}
-	},
-	{
-		title: "Television Room",
-		image: "/images/television-room.svg",
-		description: "Dedicated entertainment space with premium TV channels",
-		detailedDescription: "Unwind in our television room equipped with large screens, comfortable seating, and access to a wide range of entertainment channels. Ideal for catching up on news, sports, or your favorite shows.",
-		metadata: {
-			capacity: "20+ guests",
-			features: ["Large Screens", "Premium Channels", "Comfortable Seating"],
-			lastUpdated: "Jan 2024"
-		}
-	},
-	{
-		title: "Free Private Parking",
-		image: "/images/parking.svg",
-		description: "Secure and complimentary parking for all guests",
-		detailedDescription: "Park your vehicle safely in our secure private parking area at no extra cost. With 24-hour surveillance and easy access to the hotel entrance, your vehicle is always protected.",
-		metadata: {
-			capacity: "40+ vehicles",
-			features: ["24/7 Security", "Free of Charge", "Easy Access"],
-			lastUpdated: "Jan 2024"
-		}
 	}
-];
-
-const amenitiesA = [
-	"Air conditioning",
-	"Free WiFi",
-	"WiFi",
-	"WiFi available in all areas",
-	"Internet services",
-	"Non-smoking rooms",
-	"Designated smoking area",
-	"Room service",
-	"Food can be delivered to guest accommodation",
-	"Restaurant",
-	"Outdoor furniture",
-	"Terrace",
-	"Shared lounge / TV area",
-	"Parking",
-	"Parking on site",
-	"Free parking",
-	"Private parking"
-];
-
-const amenitiesB = [
-	"24-hour front desk",
-	"24-hour security",
-	"CCTV in common areas",
-	"Security alarm",
-	"Fire extinguishers"
-];
-
-const amenitiesC = [
-	"Guest accommodation is disinfected between stays",
-	"Guest accommodation sealed after cleaning",
-	"Property is cleaned by professional cleaning companies",
-	"Use of cleaning chemicals effective against Coronavirus",
-	"Linens, towels and laundry washed according to local authority guidelines",
-	"Guests can cancel cleaning services during their stay"
 ];
 
 const pageTitle = `Amenities | ${hotel.name}`;
@@ -117,19 +47,19 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 
 <BaseLayout title={pageTitle} description={pageDescription}>
 	<div class="min-h-screen bg-theme-off-white">
-		<Header bookingUrl={hotel.bookingUrl} />
+		<Header bookingUrl={hotel.bookingUrl} theme="dark" />
 
 		<!-- Restaurant & Conference Tabs -->
 		<AmenitiesTabs />
 
 		<!-- Facilities (Image Cards) -->
-		<section class="max-w-7xl mx-auto px-6 py-32" style="margin-top: -60px;">
-			<div class="text-center mb-20 space-y-4">
-				<p class="text-[10px] uppercase tracking-[0.4em] text-theme-gold font-bold">Premium Services</p>
-				<h2 class="text-5xl md:text-6xl font-display text-theme-black">Our Facilities</h2>
+		<section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-32 relative z-10 md:mt-[-60px]">
+			<div class="text-center mb-12 md:mb-20 space-y-3 sm:space-y-4">
+				<p class="text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] text-theme-gold font-bold">Premium Services</p>
+				<h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display text-theme-black">Our Facilities</h2>
 			</div>
 
-			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-max facilities-grid">
+			<div class="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-max facilities-grid">
 				{facilities.map((facility, index) => (
 					<div class="facility-item" style={`animation-delay: ${index * 0.1}s`}>
 						<FacilityCard 
@@ -143,7 +73,6 @@ const pageDescription = `Discover the amenities and facilities at ${hotel.name} 
 				))}
 			</div>
 		</section>
-
 
 	</div>
 </BaseLayout>

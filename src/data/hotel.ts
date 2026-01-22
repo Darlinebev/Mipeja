@@ -20,18 +20,18 @@ export const hotel = {
 	],
 	rooms: [
 		{
-			name: "Double Deluxe with Ocean View",
+			name: "Double Deluxe",
 			slug: "double-deluxe",
 			price: "KES 5,800",
-			image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1000",
-			description: "Experience unparalleled comfort in our Double Deluxe rooms, where modern luxury meets the calming influence of nature. Each room is meticulously designed to provide a serene sanctuary with breathtaking views of the ocean.",
+			image: "/images/eleven.png",
+			description: "Experience unparalleled comfort in our Double Deluxe rooms, where modern luxury meets the calming influence of nature. Each room is meticulously designed to provide a serene sanctuary.",
 			features: ["56 m² in size", "Connecting rooms", "Pillow Menu", "Breakfast room"]
 		},
 		{
 			name: "Executive Twin City View",
 			slug: "executive-twin",
 			price: "KES 6,500",
-			image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&q=80&w=1000",
+			image: "/images/twelve.png",
 			description: "Designed for business and leisure travelers alike, our Executive Twin rooms offer a blend of functionality and relaxation with stunning city vistas. Perfect for those who need a dedicated workspace without compromising on comfort.",
 			features: ["45 m² in size", "Workspace desk", "City view", "High-speed WiFi"]
 		},
@@ -39,34 +39,40 @@ export const hotel = {
 			name: "Family Suite Garden View",
 			slug: "family-suite",
 			price: "KES 8,400",
-			image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1000",
+			image: "/images/thirteen.png",
 			description: "Spacious and inviting, the Family Suite provides the perfect retreat for your loved ones, featuring separate living areas and direct garden access. Create lasting memories in a space designed for togetherness.",
 			features: ["80 m² in size", "Two bedrooms", "Private terrace", "Kitchenette"]
 		}
 	],
 	amenities: [
-		"24-hour front desk",
-		"24-hour security",
-		"Air conditioning",
-		"CCTV in common areas",
-		"Designated smoking area",
-		"Fire extinguishers",
-		"Food delivery to rooms",
-		"Free WiFi",
-		"Free parking / Private parking on site",
+		"Breakfast",
+		"Restaurant",
+		"Free private parking on site",
 		"Non-smoking rooms",
-		"Outdoor furniture & terrace",
-		"Restaurant & room service",
-		"Shared lounge / TV area",
-		"Security alarm"
+		"Air conditioning",
+		"Designated smoking area",
+		"Free WiFi in all areas",
+		"Room service",
+		"24-hour front desk",
+		"Shared lounge/TV area",
+		"Terrace",
+		"Outdoor furniture",
+		"Conference facilities"
 	],
 	safety: [
-		"Guest accommodation is disinfected between stays",
+		"24-hour security",
+		"Security alarm",
+		"CCTV in common areas",
+		"Fire extinguishers",
+		"Use of cleaning chemicals against coronavirus",
+		"Linens washed per local authority guidelines",
+		"Guest accommodation disinfected between stays",
 		"Guest accommodation sealed after cleaning",
-		"Use of effective cleaning chemicals",
-		"Linens, towels and laundry washed per local guidelines",
-		"Physical distancing rules in dining areas",
-		"Property cleaned by professional cleaning companies"
+		"Property cleaned by professional cleaning companies",
+		"Option to cancel cleaning services",
+		"Physical distancing in dining areas",
+		"Food delivered to guest accommodation",
+		"Physical distancing rules followed"
 	],
 	rules: ["No pets allowed", "Minimum age: 18", "No hen, stag, or similar parties"],
 	testimonials: [

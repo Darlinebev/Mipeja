@@ -8,10 +8,28 @@
 
 html {
 	scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 body {
-	@apply bg-theme-off-white text-theme-black font-body selection:bg-theme-gold/20 selection:text-theme-black;
+	@apply bg-theme-off-white text-theme-black font-body selection:bg-theme-gold/20 selection:text-theme-black overflow-x-hidden w-full relative;
+    max-width: 100vw;
+}
+
+* {
+    max-width: 100%;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Prevent horizontal overflow on all containers */
+section, div, main {
+    max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -233,4 +251,21 @@ details > summary {
 
 details > summary::-webkit-details-marker {
 	display: none;
+}
+
+/* Hide scrollbar for horizontal scrolling containers */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ensure all containers respect viewport width */
+@media (max-width: 768px) {
+    section {
+        overflow-x: hidden;
+    }
 }

@@ -12,31 +12,31 @@ const pageDescription = `Learn about ${hotel.name} in ${hotel.location}. Our sto
 		<Header bookingUrl={hotel.bookingUrl} />
 
 		<!-- Subpage Hero -->
-		<section class="relative h-[60vh] flex items-center justify-center overflow-hidden">
-			<img src="/images/hero.svg" alt="Our Story" class="absolute inset-0 w-full h-full object-cover brightness-50" />
-			<div class="relative z-10 text-center space-y-4">
-				<p class="text-[10px] uppercase tracking-[0.4em] text-white font-bold">The Mipeja Legacy</p>
-				<h1 class="text-6xl md:text-8xl font-display text-white italic">Our Story</h1>
+		<section class="relative h-[50vh] sm:h-[55vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
+			<img src="/images/one.jpg" alt="Our Story" class="absolute inset-0 w-full h-full object-cover brightness-50" />
+			<div class="relative z-10 text-center space-y-3 sm:space-y-4 px-4">
+				<p class="text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] text-white font-bold">The Mipeja Legacy</p>
+				<h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-display text-white italic">Our Story</h1>
 			</div>
 		</section>
 
 		<!-- Story Section (Larita Split) -->
-		<section class="max-w-7xl mx-auto px-6 py-32">
-			<div class="grid lg:grid-cols-2 gap-24 items-center">
-				<div class="grid grid-cols-2 gap-4">
+		<section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-32">
+			<div class="grid lg:grid-cols-2 gap-12 sm:gap-16 md:gap-24 items-center">
+				<div class="grid grid-cols-2 gap-3 sm:gap-4">
 					<div class="aspect-[3/4] overflow-hidden">
-                        <img src="/images/mipeja-hero.jpg" alt="Hotel exterior" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                        <img src="/images/four.png" alt="Hotel exterior" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
                     </div>
-					<div class="aspect-[3/4] overflow-hidden mt-12">
-                        <img src="/images/lounge.svg" alt="Hotel lounge" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+					<div class="aspect-[3/4] overflow-hidden mt-8 sm:mt-12">
+                        <img src="/images/twenty.png" alt="Hotel lounge" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
                     </div>
 				</div>
-				<div class="space-y-10">
+				<div class="space-y-8 sm:space-y-10">
 					<div>
-                        <p class="text-[10px] uppercase tracking-[0.4em] text-theme-gold mb-4 font-bold">Welcome to Mipeja</p>
-                        <h2 class="text-5xl font-display text-theme-black leading-tight italic">Elegance and comfort redefined.</h2>
+                        <p class="text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] text-theme-gold mb-4 font-bold">Welcome to Mipeja</p>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-display text-theme-black leading-tight italic">Elegance and comfort redefined.</h2>
                     </div>
-					<div class="space-y-6 text-theme-black/70 leading-relaxed max-w-lg text-lg">
+					<div class="space-y-4 sm:space-y-6 text-theme-black/70 leading-relaxed max-w-lg text-base sm:text-lg">
 						<p>
 							Mipeja Hotel was founded with a simple vision: to create a welcoming, comfortable sanctuary for travelers passing through Busia. We believe that hospitality is not just about providing a room, but about creating an experience that guests will remember.
 						</p>
@@ -49,17 +49,17 @@ const pageDescription = `Learn about ${hotel.name} in ${hotel.location}. Our sto
 		</section>
 
 		<!-- Values Section -->
-		<section class="bg-white py-32 border-y border-gray-100">
-			<div class="max-w-7xl mx-auto px-6">
-                <div class="grid lg:grid-cols-3 gap-16">
+		<section class="bg-white py-16 sm:py-24 md:py-32 border-y border-gray-100">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 md:gap-16">
                     {[
                         { title: "Warmth", desc: "We treat every guest like family. Your comfort and happiness are our top priority.", icon: "W" },
                         { title: "Excellence", desc: "From housekeeping to service, we maintain high standards in everything we do.", icon: "E" },
                         { title: "Community", desc: "We're proud to be part of the Busia community and support local businesses.", icon: "C" }
                     ].map(item => (
-                        <div class="space-y-6">
-                            <div class="w-12 h-12 bg-theme-off-white flex items-center justify-center text-theme-gold font-bold text-xl rounded-full">{item.icon}</div>
-                            <h3 class="font-display text-2xl text-theme-black">{item.title}</h3>
+                        <div class="space-y-4 sm:space-y-6">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-theme-off-white flex items-center justify-center text-theme-gold font-bold text-lg sm:text-xl rounded-full">{item.icon}</div>
+                            <h3 class="font-display text-xl sm:text-2xl text-theme-black">{item.title}</h3>
                             <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-theme-black/60 leading-relaxed">{item.desc}</p>
                         </div>
                     ))}
@@ -68,21 +68,21 @@ const pageDescription = `Learn about ${hotel.name} in ${hotel.location}. Our sto
 		</section>
 
 		<!-- FAQs Section -->
-		<section class="max-w-7xl mx-auto px-6 py-32">
-			<div class="grid lg:grid-cols-[0.4fr_0.6fr] gap-24">
-                <div class="space-y-6">
-                    <p class="text-[10px] uppercase tracking-[0.4em] text-theme-gold font-bold">Assistance</p>
-                    <h2 class="text-5xl font-display text-theme-black italic">Common Questions</h2>
-                    <p class="text-theme-black/60 leading-relaxed">Everything you need to know about your stay at Mipeja Hotel.</p>
+		<section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-32">
+			<div class="grid lg:grid-cols-[0.4fr_0.6fr] gap-12 sm:gap-16 md:gap-24">
+                <div class="space-y-4 sm:space-y-6">
+                    <p class="text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] text-theme-gold font-bold">Assistance</p>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display text-theme-black italic">Common Questions</h2>
+                    <p class="text-theme-black/60 text-sm sm:text-base leading-relaxed">Everything you need to know about your stay at Mipeja Hotel.</p>
                 </div>
                 <div class="divide-y divide-gray-200">
                     {hotel.faqs.map((faq) => (
-                        <details class="group py-8 cursor-pointer">
-                            <summary class="flex items-center justify-between font-display text-xl text-theme-black list-none">
-                                <span>{faq.question}</span>
-                                <span class="text-theme-gold font-bold transition-transform group-open:rotate-45">+</span>
+                        <details class="group py-6 sm:py-8 cursor-pointer">
+                            <summary class="flex items-center justify-between font-display text-lg sm:text-xl text-theme-black list-none">
+                                <span class="pr-4">{faq.question}</span>
+                                <span class="text-theme-gold font-bold transition-transform group-open:rotate-45 flex-shrink-0">+</span>
                             </summary>
-                            <div class="mt-6 text-theme-black/70 leading-relaxed max-w-xl">
+                            <div class="mt-4 sm:mt-6 text-theme-black/70 text-sm sm:text-base leading-relaxed max-w-xl">
                                 {faq.answer}
                             </div>
                         </details>

@@ -17,86 +17,86 @@ const bookingUrl = hotel.bookingUrl;
 		<Hero hotel={hotel} bookingUrl={bookingUrl} />
 
 		<!-- About Mipeja Section -->
-		<section class="py-24 relative overflow-hidden">
-			<div class="max-w-7xl mx-auto px-6">
-				<div class="grid lg:grid-cols-2 gap-16 items-center">
-					<div class="space-y-8">
-						<h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-theme-black leading-tight">
+		<section class="py-12 sm:py-16 md:py-24 relative overflow-hidden">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6">
+				<div class="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
+					<div class="space-y-6 md:space-y-8">
+						<h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-theme-black leading-tight">
 							About <br/> Mipeja
 						</h2>
-						<p class="text-theme-text/80 text-lg leading-relaxed">
+						<p class="text-theme-text/80 text-base sm:text-lg leading-relaxed">
 							Mipeja Hotel, located in the heart of Busia just 20 miles from Tororo Railway Station and within easy reach of Myanga Railway Station and Kisumu International Airport, offers a welcoming blend of comfort and affordability for both business and leisure travelers; guests enjoy spacious air‑conditioned rooms with modern amenities including flat‑screen TVs, work desks, private bathrooms, and ample storage, while the property features a restaurant, bar, terrace, complimentary WiFi, free private parking, and 24‑hour front desk service, making it an ideal choice for families, tourists, and professionals seeking a convenient, budget‑friendly stay with warm hospitality and reliable service.
 						</p>
 						<div class="pt-4">
-							<a href="/about" class="inline-flex items-center gap-2 border border-theme-black rounded-full px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-theme-black hover:text-white transition-all">
+							<a href="/about" class="inline-flex items-center gap-2 border border-theme-black rounded-full px-6 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-theme-black hover:text-white transition-all">
 								Explore More <i class="fa-solid fa-arrow-right ml-2"></i>
 							</a>
 						</div>
                         
                         <!-- Decorative Curve Line -->
-                         <svg class="w-full max-w-xs h-24 text-gray-300 mt-8" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                         <svg class="w-full max-w-xs h-24 text-gray-300 mt-8 hidden sm:block" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                              <path d="M10 30 Q 50 10 90 30 T 170 30" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" fill="none" />
                              <circle cx="170" cy="30" r="3" fill="currentColor" />
                          </svg>
 					</div>
 
 					<div class="relative">
-						<div class="flex gap-4 items-end">
+						<div class="flex gap-3 sm:gap-4 items-end">
                              <div class="w-2/3">
-                                 <img src="/images/mipeja-hero.jpg" alt="Hotel Interior" class="w-full h-[400px] object-cover rounded-tr-[40px] rounded-bl-[40px]" />
+                                 <img src="/images/mipeja-hero.jpg" alt="Hotel Interior" class="w-full h-[300px] sm:h-[350px] md:h-[400px] object-cover rounded-tr-[30px] sm:rounded-tr-[40px] rounded-bl-[30px] sm:rounded-bl-[40px]" />
                              </div>
                              <div class="w-1/3">
-                                 <img src="/images/hero-bg.jpg" alt="Cozy Room" class="w-full h-[250px] object-cover rounded-tl-[40px] rounded-br-[40px]" />
+                                 <img src="/images/hero-bg.jpg" alt="Cozy Room" class="w-full h-[200px] sm:h-[220px] md:h-[250px] object-cover rounded-tl-[30px] sm:rounded-tl-[40px] rounded-br-[30px] sm:rounded-br-[40px]" />
                              </div>
                         </div>
 					</div>
 				</div>
                 
                 <!-- Partners/Logos Strip -->
-                <div class="mt-20 border-t border-gray-200 pt-10">
-                    <div class="flex flex-wrap justify-between items-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="mt-12 sm:mt-16 md:mt-20 border-t border-gray-200 pt-8 md:pt-10">
+                    <div class="flex flex-wrap justify-center sm:justify-between items-center gap-4 sm:gap-6 md:gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                          <!-- Placeholders for partner logos -->
-                         <div class="text-xl font-bold font-display">SUNSET</div>
-                         <div class="text-xl font-bold font-display">TRAVELWORLD</div>
-                         <div class="text-xl font-bold font-display">TRAVEL & HOTEL</div>
-                         <div class="text-xl font-bold font-display">airbnb</div>
-                         <div class="text-xl font-bold font-display">TRIPADVISOR</div>
+                         <div class="text-base sm:text-lg md:text-xl font-bold font-display">SUNSET</div>
+                         <div class="text-base sm:text-lg md:text-xl font-bold font-display">TRAVELWORLD</div>
+                         <div class="text-base sm:text-lg md:text-xl font-bold font-display hidden sm:block">TRAVEL & HOTEL</div>
+                         <div class="text-base sm:text-lg md:text-xl font-bold font-display">airbnb</div>
+                         <div class="text-base sm:text-lg md:text-xl font-bold font-display hidden sm:block">TRIPADVISOR</div>
                     </div>
                 </div>
 			</div>
 		</section>
 
 		<!-- Why Book With Us Section -->
-		<section class="py-24 bg-theme-black text-white relative">
-			<div class="max-w-7xl mx-auto px-6">
-                <div class="grid lg:grid-cols-2 gap-16 mb-16">
-                    <h2 class="text-4xl md:text-5xl font-display font-medium leading-tight">
+		<section class="py-12 sm:py-16 md:py-24 bg-theme-black text-white relative">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 mb-12 md:mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-medium leading-tight">
                         Why Book With Us
                     </h2>
-                    <p class="text-white/60 text-lg">
+                    <p class="text-white/60 text-base sm:text-lg">
                         Every stay, a better experience. From personalized service to luxurious amenities, discover the unmatched benefits that make every booking with us a five-star experience.
                     </p>
                 </div>
                 
                 <!-- Feature Grid -->
                 <!-- First big feature with image in background or specialized layout -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                      <!-- Featured Card -->
-                     <div class="lg:col-span-1 relative h-[300px] rounded-2xl overflow-hidden group">
-                         <img src="/images/inspo.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Special feature" />
-                         <div class="absolute inset-0 bg-black/40 p-8 flex flex-col justify-end">
+                     <div class="lg:col-span-1 relative h-[250px] sm:h-[280px] md:h-[300px] rounded-2xl overflow-hidden group">
+                         <img src="/images/four.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Special feature" />
+                         <div class="absolute inset-0 bg-black/40 p-6 sm:p-8 flex flex-col justify-end">
                              <div class="bg-theme-gold text-white text-xs font-bold px-3 py-1 inline-block w-fit mb-2 rounded-sm">16 YEARS</div>
-                             <p class="font-display text-xl">of Service</p>
+                             <p class="font-display text-lg sm:text-xl">of Service</p>
                          </div>
                      </div>
 
                      <!-- Features List -->
-                     <div class="lg:col-span-2 grid sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 content-center">
-                         <div class="space-y-3">
-                             <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-theme-gold">
-                                 <i class="fa-solid fa-snowflake"></i>
+                     <div class="lg:col-span-2 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6 md:gap-y-10 content-center">
+                         <div class="space-y-2 sm:space-y-3">
+                             <div class="w-8 h-8 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center text-theme-gold">
+                                 <i class="fa-solid fa-snowflake text-sm sm:text-base"></i>
                              </div>
-                             <h3 class="text-sm font-bold text-white">Air Conditioner</h3>
+                             <h3 class="text-xs sm:text-sm font-bold text-white">Air Conditioner</h3>
                          </div>
                          <div class="space-y-3">
                              <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-theme-gold">
@@ -151,47 +151,47 @@ const bookingUrl = hotel.bookingUrl;
 		</section>
 
 		<!-- Your Stay, Our Service (3 Cards) -->
-		<section class="py-24 bg-theme-off-white">
-			<div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-16 max-w-3xl mx-auto">
-                    <h2 class="text-4xl md:text-5xl font-display font-medium text-theme-black leading-tight mb-4">
+		<section class="py-12 sm:py-16 md:py-24 bg-theme-off-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-medium text-theme-black leading-tight mb-4">
                         Your Stay, Our Service
                     </h2>
-                    <p class="text-theme-text/70">
+                    <p class="text-theme-text/70 text-sm sm:text-base">
                         We provide everything you need for a smooth and stress-free stay. From easy booking to personalized services.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-6 h-[500px]">
+                <div class="grid md:grid-cols-3 gap-4 sm:gap-6 md:h-[500px]">
                     <!-- Card 1: Restaurant -->
-                    <div class="relative rounded-[2rem] overflow-hidden group h-full">
-                         <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=800&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Restaurant" />
-                         <div class="absolute inset-x-0 bottom-0 p-8 z-10 text-white">
-                             <h3 class="text-2xl font-display mb-2">Restaurant</h3>
-                             <p class="text-sm opacity-80 mb-4">Savor gourmet meals.</p>
+                    <div class="relative rounded-2xl md:rounded-[2rem] overflow-hidden group h-[280px] sm:h-[300px] md:h-full">
+                         <img src="/images/five.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Restaurant" />
+                         <div class="absolute inset-x-0 bottom-0 p-6 sm:p-8 z-10 text-white">
+                             <h3 class="text-xl sm:text-2xl font-display mb-2">Restaurant</h3>
+                             <p class="text-xs sm:text-sm opacity-80 mb-4">Savor gourmet meals.</p>
                              <div class="h-1 w-12 bg-white/50"></div>
                          </div>
                          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </div>
                      <!-- Card 2: Conference -->
-                    <div class="relative rounded-[2rem] overflow-hidden group h-full mt-12 md:mt-0">
-                         <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&h=800&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Conference" />
+                    <div class="relative rounded-2xl md:rounded-[2rem] overflow-hidden group h-[280px] sm:h-[300px] md:h-full">
+                         <img src="/images/six.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Conference" />
                          <div class="absolute inset-0 flex items-center justify-center z-10">
-                              <h3 class="text-3xl font-display text-white">Conference</h3>
+                              <h3 class="text-2xl sm:text-3xl font-display text-white">Conference</h3>
                          </div>
                          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
                     </div>
                      <!-- Card 3: Facilities -->
-                    <div class="relative rounded-[2rem] overflow-hidden group h-full">
-                         <img src="https://images.unsplash.com/photo-1571896349842-6e5c48dc52e3?w=600&h=800&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Facilities" />
+                    <div class="relative rounded-2xl md:rounded-[2rem] overflow-hidden group h-[280px] sm:h-[300px] md:h-full">
+                         <img src="/images/seven.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Facilities" />
                           <div class="absolute inset-0 flex items-center justify-center z-10">
-                              <h3 class="text-3xl font-display text-white">Facilities</h3>
+                              <h3 class="text-2xl sm:text-3xl font-display text-white">Facilities</h3>
                          </div>
                          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
                     </div>
                 </div>
-                 <div class="text-center mt-12">
-                     <a href="#" class="inline-flex items-center gap-2 border border-theme-black rounded-full px-8 py-2 text-sm font-bold uppercase tracking-widest hover:bg-theme-black hover:text-white transition-all">
+                 <div class="text-center mt-8 sm:mt-12">
+                     <a href="#" class="inline-flex items-center gap-2 border border-theme-black rounded-full px-6 sm:px-8 py-2 text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-theme-black hover:text-white transition-all">
                         Explore More <i class="fa-solid fa-arrow-right ml-2 opacity-50"></i>
                     </a>
                 </div>
@@ -199,37 +199,37 @@ const bookingUrl = hotel.bookingUrl;
 		</section>
 
         <!-- Conference Areas -->
-        <section class="py-24 bg-[#F2F0EB]">
-             <div class="max-w-6xl mx-auto px-6 relative">
+        <section class="py-12 sm:py-16 md:py-24 bg-[#F2F0EB]">
+             <div class="max-w-6xl mx-auto px-4 sm:px-6 relative">
                  <div class="text-center mb-12">
                      <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Professional Spaces</p>
-                     <h2 class="text-4xl md:text-5xl font-display font-medium text-theme-black mb-6">Conference Areas</h2>
-                     <p class="text-theme-text/70 max-w-2xl mx-auto">
+                     <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-medium text-theme-black mb-6">Conference Areas</h2>
+                     <p class="text-theme-text/70 text-sm sm:text-base max-w-2xl mx-auto">
                          From intimate board meetings to grand corporate events, our versatile conference spaces are designed for productivity and success.
                      </p>
                  </div>
 
                  <!-- Collage -->
-                 <div class="relative h-[400px] md:h-[500px] w-full mt-16 flex justify-center items-center">
+                 <div class="relative h-[350px] sm:h-[400px] md:h-[500px] w-full mt-12 md:mt-16 flex justify-center items-center">
                       <!-- Center Image -->
-                      <div class="z-20 w-[300px] h-[400px] rounded-t-full overflow-hidden shadow-2xl relative border-4 border-white">
-                          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=800&fit=crop" class="w-full h-full object-cover" alt="Meeting Room" />
-                          <div class="absolute bottom-6 left-0 right-0 text-center">
-                              <span class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-theme-black">Modern Conference Rooms</span>
+                      <div class="z-20 w-full max-w-[240px] sm:max-w-[280px] md:max-w-[300px] h-[350px] sm:h-[380px] md:h-[400px] rounded-t-full overflow-hidden shadow-2xl relative border-4 border-white">
+                          <img src="/images/eight.png" class="w-full h-full object-cover" alt="Meeting Room" />
+                          <div class="absolute bottom-4 sm:bottom-6 left-0 right-0 text-center">
+                              <span class="bg-white/90 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest text-theme-black">Modern Conference Rooms</span>
                           </div>
                       </div>
                       
                       <!-- Decoration wings (simplified with absolute positioning for collage feel) -->
-                      <div class="absolute left-[10%] top-1/2 -translate-y-1/2 w-[200px] h-[250px] bg-gray-200 z-10 opacity-80 rounded-lg overflow-hidden hidden md:block rotate-[-6deg]">
-                           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=800&fit=crop" class="w-full h-full object-cover" alt="Office Space" />
+                      <div class="absolute left-[5%] sm:left-[10%] top-1/2 -translate-y-1/2 w-[140px] sm:w-[180px] md:w-[200px] h-[180px] sm:h-[220px] md:h-[250px] bg-gray-200 z-10 opacity-80 rounded-lg overflow-hidden hidden md:block rotate-[-6deg]">
+                           <img src="/images/nine.png" class="w-full h-full object-cover" alt="Office Space" />
                       </div>
-                      <div class="absolute right-[10%] top-1/2 -translate-y-1/2 w-[200px] h-[250px] bg-gray-200 z-10 opacity-80 rounded-lg overflow-hidden hidden md:block rotate-[6deg]">
-                           <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=800&fit=crop" class="w-full h-full object-cover" alt="Discussion" />
+                      <div class="absolute right-[5%] sm:right-[10%] top-1/2 -translate-y-1/2 w-[140px] sm:w-[180px] md:w-[200px] h-[180px] sm:h-[220px] md:h-[250px] bg-gray-200 z-10 opacity-80 rounded-lg overflow-hidden hidden md:block rotate-[6deg]">
+                           <img src="/images/ten.png" class="w-full h-full object-cover" alt="Discussion" />
                       </div>
                  </div>
                  
                  <div class="text-center mt-12">
-                     <a href="#" class="inline-flex items-center gap-2 bg-theme-gold text-white px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-theme-black transition-all">
+                     <a href="#" class="inline-flex items-center gap-2 bg-theme-gold text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-theme-black transition-all">
                         Explore More <i class="fa-solid fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -237,30 +237,30 @@ const bookingUrl = hotel.bookingUrl;
         </section>
 
         <!-- Choose Your Room -->
-         <section class="py-24 bg-theme-gold text-white" style="background-color: #C19B76;"> <!-- Using explicit color from palette logic if needed -->
-            <div class="max-w-7xl mx-auto px-6">
-                 <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-display font-medium text-white leading-tight mb-4">
+         <section class="py-12 sm:py-16 md:py-24 bg-theme-gold text-white" style="background-color: #C19B76;"> <!-- Using explicit color from palette logic if needed -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                 <div class="text-center mb-12 md:mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-medium text-white leading-tight mb-4">
                         Choose Your Room
                     </h2>
-                    <p class="text-white/80 max-w-2xl mx-auto">
+                    <p class="text-white/80 text-sm sm:text-base max-w-2xl mx-auto">
                         Explore a variety of rooms tailored to your comfort and style. Whether you're traveling solo or with family, find the perfect space.
                     </p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {hotel.rooms.slice(0, 3).map((room) => (
                         <div class="bg-white text-theme-black rounded-xl overflow-hidden shadow-lg group">
-                            <div class="relative h-64 overflow-hidden">
+                            <div class="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                                 <img src={room.image} alt={room.name} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                                 <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold">
                                     From {room.price}
                                 </div>
                             </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-display font-bold mb-2 group-hover:text-theme-gold transition-colors">{room.name}</h3>
-                                <p class="text-sm opacity-70 mb-4 line-clamp-2">{room.description}</p>
-                                <div class="flex items-center gap-4 text-xs opacity-60 mb-6">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-display font-bold mb-2 group-hover:text-theme-gold transition-colors">{room.name}</h3>
+                                <p class="text-xs sm:text-sm opacity-70 mb-4 line-clamp-2">{room.description}</p>
+                                <div class="flex items-center gap-3 sm:gap-4 text-xs opacity-60 mb-4 sm:mb-6">
                                     <span><i class="fa-solid fa-bed mr-1"></i> {room.features[0]}</span>
                                     <span><i class="fa-solid fa-user mr-1"></i> 2 Guests</span>
                                 </div>
@@ -271,43 +271,43 @@ const bookingUrl = hotel.bookingUrl;
                         </div>
                     ))}
                 </div>
-                 <div class="text-center mt-12">
-                     <a href="/rooms" class="inline-flex items-center gap-2 bg-white text-theme-gold px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-theme-black hover:text-white transition-all">
-                        Explore All Suites <i class="fa-solid fa-arrow-right ml-2"></i>
+                 <div class="text-center mt-8 sm:mt-12">
+                     <a href="/rooms" class="inline-flex items-center gap-2 bg-white text-theme-gold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-theme-black hover:text-white transition-all">
+                        Explore All Rooms <i class="fa-solid fa-arrow-right ml-2"></i>
                     </a>
                 </div>
             </div>
          </section>
 
          <!-- Value Your Time -->
-         <section class="py-24">
-             <div class="max-w-7xl mx-auto px-6">
-                 <div class="grid lg:grid-cols-2 gap-16 items-center">
+         <section class="py-12 sm:py-16 md:py-24">
+             <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                 <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
                      <div>
-                         <h2 class="text-4xl md:text-5xl font-display font-medium text-theme-black mb-6">
+                         <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-medium text-theme-black mb-6">
                              Enjoy and value your time
                          </h2>
-                         <p class="text-lg text-theme-text/80 mb-6">
-                             Explore and experience the valley. Enjoy your time in Napa Valley with our dedicated packages and experiences.
+                         <p class="text-base sm:text-lg text-theme-text/80 mb-6">
+                             Experience the best of Busia. Enjoy your time with our dedicated services, comfortable rooms, and excellent amenities.
                          </p>
-                          <a href="#" class="inline-flex items-center gap-2 bg-theme-gold text-white px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-theme-black transition-all">
-                            Explore More <i class="fa-solid fa-arrow-right ml-2 opacity-70"></i>
+                          <a href="/amenities" class="inline-flex items-center gap-2 bg-theme-gold text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-theme-black transition-all">
+                            View Amenities <i class="fa-solid fa-arrow-right ml-2 opacity-70"></i>
                         </a>
                      </div>
                      <div class="relative">
                          <!-- Overlapping Layout -->
-                         <div class="w-full bg-gray-200 h-[400px] rounded-2xl overflow-hidden relative z-0">
-                             <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&h=800&fit=crop" class="w-full h-full object-cover" alt="Time" />
+                         <div class="w-full bg-gray-200 h-[300px] sm:h-[350px] md:h-[400px] rounded-2xl overflow-hidden relative z-0">
+                             <img src="/images/fourteen.png" class="w-full h-full object-cover" alt="Time" />
                          </div>
-                         <div class="absolute -bottom-10 -left-10 bg-white p-6 shadow-2xl rounded-xl z-10 max-w-xs hidden md:block">
+                         <div class="absolute -bottom-8 sm:-bottom-10 -left-6 sm:-left-10 bg-white p-4 sm:p-6 shadow-2xl rounded-xl z-10 max-w-[200px] sm:max-w-xs hidden md:block">
                              <div class="flex items-baseline gap-2">
-                                 <span class="text-4xl font-bold text-theme-black">112+</span>
-                                 <span class="text-sm font-semibold text-gray-500">Hotels And Resorts</span>
+                                 <span class="text-3xl sm:text-4xl font-bold text-theme-black">24/7</span>
+                                 <span class="text-xs sm:text-sm font-semibold text-gray-500">Front Desk & Security</span>
                              </div>
                              <div class="h-px bg-gray-200 my-4"></div>
                              <div class="flex items-baseline gap-2">
-                                 <span class="text-4xl font-bold text-theme-black">30K+</span>
-                                 <span class="text-sm font-semibold text-gray-500">Satisfied Customers</span>
+                                 <span class="text-3xl sm:text-4xl font-bold text-theme-black">100%</span>
+                                 <span class="text-xs sm:text-sm font-semibold text-gray-500">Comfort Guaranteed</span>
                              </div>
                          </div>
                      </div>
@@ -317,29 +317,29 @@ const bookingUrl = hotel.bookingUrl;
         
 
         <!-- Testimonials - Dark -->
-        <section class="py-24 bg-theme-black text-white">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <section class="py-12 sm:py-16 md:py-24 bg-theme-black text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
                     <div>
-                         <h2 class="text-4xl md:text-5xl font-display font-medium mb-6 text-white">
+                         <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-medium mb-6 text-white">
                              What People Say <br/> About Us
                          </h2>
-                         <p class="text-white/60 mb-8 max-w-md">
+                         <p class="text-white/60 text-sm sm:text-base mb-8 max-w-md">
                              Explore hidden gems, local experiences, travel hacks, and destination stories all began to elevate your journey.
                          </p>
-                         <div class="flex gap-4">
-                             <button class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                         <div class="flex gap-4 hidden sm:flex">
+                             <button class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all">
                                  <i class="fa-solid fa-chevron-left"></i>
                              </button>
-                             <button class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                             <button class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all">
                                  <i class="fa-solid fa-chevron-right"></i>
                              </button>
                          </div>
                     </div>
                     
-                    <div class="flex gap-6 overflow-x-auto pb-8 snap-x">
+                    <div class="flex gap-4 sm:gap-6 overflow-x-auto pb-6 sm:pb-8 snap-x scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
                         <!-- Testimonial Card 1 -->
-                        <div class="bg-white/10 p-8 rounded-2xl min-w-[300px] md:min-w-[400px] backdrop-blur-sm snap-start">
+                        <div class="bg-white/10 p-6 sm:p-8 rounded-2xl min-w-[280px] sm:min-w-[320px] md:min-w-[400px] backdrop-blur-sm snap-start flex-shrink-0">
                              <div class="flex gap-1 text-theme-gold mb-4 text-xs">
                                  <i class="fa-solid fa-star"></i>
                                  <i class="fa-solid fa-star"></i>
@@ -347,7 +347,7 @@ const bookingUrl = hotel.bookingUrl;
                                  <i class="fa-solid fa-star"></i>
                                  <i class="fa-solid fa-star"></i>
                              </div>
-                             <p class="text-white/90 italic mb-6 leading-relaxed">
+                             <p class="text-white/90 text-sm sm:text-base italic mb-6 leading-relaxed">
                                  "The villa we stayed in was straight out of a movie. Private beach access, gourmet meals, and a sunset massage... it was everything we hoped for."
                              </p>
                              <div class="flex items-center gap-4">
@@ -359,7 +359,7 @@ const bookingUrl = hotel.bookingUrl;
                              </div>
                         </div>
                          <!-- Testimonial Card 2 -->
-                        <div class="bg-white/10 p-8 rounded-2xl min-w-[300px] md:min-w-[400px] backdrop-blur-sm snap-start">
+                        <div class="bg-white/10 p-6 sm:p-8 rounded-2xl min-w-[280px] sm:min-w-[320px] md:min-w-[400px] backdrop-blur-sm snap-start flex-shrink-0">
                              <div class="flex gap-1 text-theme-gold mb-4 text-xs">
                                  <i class="fa-solid fa-star"></i>
                                  <i class="fa-solid fa-star"></i>
@@ -367,7 +367,7 @@ const bookingUrl = hotel.bookingUrl;
                                  <i class="fa-solid fa-star"></i>
                                  <i class="fa-solid fa-star"></i>
                              </div>
-                             <p class="text-white/90 italic mb-6 leading-relaxed">
+                             <p class="text-white/90 text-sm sm:text-base italic mb-6 leading-relaxed">
                                  "Our kids loved the play area and pool while we enjoyed the hot tub suite. Plus, the complimentary breakfast had amazing variety!"
                              </p>
                              <div class="flex items-center gap-4">
@@ -384,12 +384,12 @@ const bookingUrl = hotel.bookingUrl;
         </section>
 
 		<!-- Pre-footer CTA -->
-		<section class="h-[60vh] relative flex items-center justify-center overflow-hidden">
+		<section class="h-[50vh] sm:h-[55vh] md:h-[60vh] relative flex items-center justify-center overflow-hidden">
              <img src="/images/mipeja-hero.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Footer CTA" />
              <div class="absolute inset-0 bg-black/40"></div>
-             <div class="relative z-10 text-center text-white px-6">
-                 <h2 class="text-4xl md:text-6xl font-display font-medium mb-8">Ready to embark on <br/>your next adventure?</h2>
-                 <a href={bookingUrl} class="inline-flex items-center gap-2 bg-theme-gold text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-white hover:text-theme-black transition-all">
+             <div class="relative z-10 text-center text-white px-4 sm:px-6">
+                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-display font-medium mb-6 sm:mb-8">Ready to embark on <br class="hidden sm:block"/>your next adventure?</h2>
+                 <a href={bookingUrl} class="inline-flex items-center gap-2 bg-theme-gold text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-theme-black transition-all">
                     Booking Now <i class="fa-solid fa-arrow-right ml-2 opacity-70"></i>
                 </a>
              </div>

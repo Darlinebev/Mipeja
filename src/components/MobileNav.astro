@@ -1,83 +1,116 @@
 ---
+import { navigationItems } from "../data/navigation";
+
 interface Props {
   hotelName: string;
   hotelLocation: string;
+  barClass?: string;
 }
 
-const { hotelName, hotelLocation } = Astro.props;
-
-const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Amenities", href: "/amenities" },
-  { label: "Room", href: "/rooms" },
-  { label: "Contact", href: "/contact" },
-];
+const { hotelName, hotelLocation, barClass = "bg-white" } = Astro.props;
 ---
 
 <div class="lg:hidden">
   <button 
     id="mobile-menu-btn" 
-    class="relative z-[60] flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none group"
+    class="relative z-[60] flex flex-col justify-center items-center w-9 h-9 sm:w-10 sm:h-10 gap-1.5 focus:outline-none group"
     aria-label="Toggle menu"
   >
-    <span id="bar-1" class="w-6 h-0.5 bg-white transition-all duration-300 mobile-menu-bar"></span>
-    <span id="bar-2" class="w-6 h-0.5 bg-white transition-all duration-300 mobile-menu-bar"></span>
+    <span id="bar-1" class={`w-6 h-0.5 ${barClass} transition-all duration-300 mobile-menu-bar`}></span>
+    <span id="bar-2" class={`w-6 h-0.5 ${barClass} transition-all duration-300 mobile-menu-bar`}></span>
   </button>
 
   <!-- Mobile menu panel -->
   <div 
     id="mobile-menu" 
-    class="fixed inset-0 bg-theme-off-white translate-x-full transition-transform duration-500 ease-in-out z-50 flex flex-col justify-center items-center text-center p-8 lg:hidden"
+    class="fixed inset-0 bg-theme-off-white translate-x-full transition-transform duration-500 ease-in-out z-[100] flex flex-col justify-center items-center text-center px-6 py-10 lg:hidden h-screen w-full"
   >
-    <nav class="flex flex-col gap-6">
-      {navItems.map(item => (
+    <button 
+        id="mobile-menu-close"
+        class="absolute top-6 right-6 p-2 text-theme-black hover:text-theme-gold transition-colors"
+        aria-label="Close menu"
+    >
+        <i class="fa-solid fa-xmark text-2xl"></i>
+    </button>
+
+    <nav class="flex flex-col gap-6 sm:gap-8 w-full">
+      {navigationItems.map(item => (
         <a 
           href={item.href} 
-          class="text-2xl font-display text-theme-black hover:text-theme-gold transition-colors tracking-widest uppercase font-bold"
+          class="text-2xl sm:text-3xl font-display text-theme-black hover:text-theme-gold transition-colors tracking-wider uppercase font-bold nav-link-mobile"
         >
           {item.label}
         </a>
       ))}
     </nav>
     
-    <div class="mt-20 border-t border-gray-light pt-10 w-full">
-        <p class="text-[10px] uppercase tracking-[0.4em] text-charcoal-gray/40 mb-4 whitespace-nowrap">Reservations</p>
-        <p class="text-gold-rich font-accent tracking-wider font-bold">+888-607-5000</p>
+    <div class="mt-12 sm:mt-20 border-t border-gray-200 pt-8 sm:pt-10 w-full max-w-xs">
+      <p class="text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] text-theme-black/40 mb-4">Reservations</p>
+      <p class="text-theme-gold font-accent tracking-wider font-bold text-base sm:text-lg break-words">+254 712 345 678</p>
     </div>
   </div>
 </div>
 
-<script>
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const bar1 = document.getElementById('bar-1');
-  const bar2 = document.getElementById('bar-2');
+<script is:inline>
+  function initMobileMenu() {
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const closeBtn = document.getElementById('mobile-menu-close');
+      const bar1 = document.getElementById('bar-1');
+      const bar2 = document.getElementById('bar-2');
 
-  if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
-      const isHidden = mobileMenu.classList.contains('translate-x-full');
-      
-      if (isHidden) {
-        mobileMenu.classList.remove('translate-x-full');
-        mobileMenu.classList.add('translate-x-0');
-        bar1?.classList.add('rotate-45', 'translate-y-[4px]');
-        bar2?.classList.add('-rotate-45', '-translate-y-[4px]');
-      } else {
-        mobileMenu.classList.add('translate-x-full');
-        mobileMenu.classList.remove('translate-x-0');
+      function toggleMenu() {
+        if (!menu) return;
+        const isHidden = menu.classList.contains('translate-x-full');
+        
+        if (isHidden) {
+            menu.classList.remove('translate-x-full');
+            menu.classList.add('translate-x-0');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+            
+            // Animate hamburger to X
+            bar1?.classList.add('rotate-45', 'translate-y-[4px]');
+            bar2?.classList.add('-rotate-45', '-translate-y-[4px]');
+        } else {
+            closeMenu();
+        }
+      }
+
+      function closeMenu() {
+        if (!menu) return;
+        menu.classList.add('translate-x-full');
+        menu.classList.remove('translate-x-0');
+        document.body.style.overflow = '';
+        
+        // Reset hamburger
         bar1?.classList.remove('rotate-45', 'translate-y-[4px]');
         bar2?.classList.remove('-rotate-45', '-translate-y-[4px]');
       }
-    });
 
-    // Close menu when clicking a link
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('translate-x-full');
-            mobileMenu.classList.remove('translate-x-0');
-            bar1?.classList.remove('rotate-45', 'translate-y-[4px]');
-            bar2?.classList.remove('-rotate-45', '-translate-y-[4px]');
-        });
-    });
+      // Cleanup old listeners to prevent duplicates (not strictly necessary with is:inline usually running once per load, but safe)
+      const newBtn = btn?.cloneNode(true);
+      if (btn && newBtn) {
+          btn.parentNode.replaceChild(newBtn, btn);
+          newBtn.addEventListener('click', (e) => {
+              e.preventDefault();
+              toggleMenu();
+          });
+      }
+
+      if (closeBtn) {
+          closeBtn.addEventListener('click', closeMenu);
+      }
+
+      // Close on link click
+      const links = menu?.querySelectorAll('a');
+      links?.forEach(link => {
+          link.addEventListener('click', closeMenu);
+      });
   }
+
+  // Initialize on load
+  initMobileMenu();
+  
+  // Re-initialize if using view transitions
+  document.addEventListener('astro:page-load', initMobileMenu);
 </script>
