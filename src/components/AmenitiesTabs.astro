@@ -41,21 +41,21 @@ const conferenceData = {
 };
 ---
 
-<section class="py-24 bg-ivory">
+<section class="py-24 bg-theme-off-white">
   <div class="max-w-7xl mx-auto px-6">
     <!-- Tab Navigation -->
     <div class="flex justify-center mb-16">
-      <div class="inline-flex p-1 bg-beige/50 rounded-xl border border-beige/80">
+      <div class="inline-flex p-1 bg-gray-200/50 rounded-xl border border-gray-200">
         <button
           id="tab-restaurant"
-          class="px-8 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all duration-300 bg-deep-teal text-white shadow-lg"
+          class="px-8 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all duration-300 bg-theme-gold text-white shadow-lg"
           data-tab="restaurant"
         >
           Restaurant
         </button>
         <button
           id="tab-conference"
-          class="px-8 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all duration-300 text-charcoal-gray/60 hover:text-charcoal-gray"
+          class="px-8 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all duration-300 text-theme-black/60 hover:text-theme-black"
           data-tab="conference"
         >
           Conference
@@ -68,10 +68,10 @@ const conferenceData = {
       <div class="grid lg:grid-cols-2 gap-16 items-center mb-24">
         <div class="space-y-8">
           <div class="space-y-4">
-            <p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Culinary Excellence</p>
-            <h2 class="text-4xl md:text-5xl font-display text-brown italic">{restaurantData.title}</h2>
+            <p class="text-[10px] uppercase tracking-[0.4em] text-theme-gold font-bold">Culinary Excellence</p>
+            <h2 class="text-4xl md:text-5xl font-display text-theme-black italic">{restaurantData.title}</h2>
           </div>
-          <p class="text-charcoal-gray/70 leading-relaxed text-lg">
+          <p class="text-theme-black/70 leading-relaxed text-lg">
             {restaurantData.description}
           </p>
           <div class="grid grid-cols-3 gap-4">
@@ -83,44 +83,44 @@ const conferenceData = {
           </div>
         </div>
         
-        <div class="bg-white p-10 rounded-3xl shadow-soft border border-beige/50">
-          <div class="text-center mb-10 pb-6 border-b border-beige/30">
-            <h3 class="text-2xl font-display text-brown italic mb-2">The Menu</h3>
-            <p class="text-[10px] uppercase tracking-[0.2em] text-charcoal-gray/40">Savor the Flavors of Mipeja</p>
+        <div class="bg-white p-10 rounded-3xl shadow-soft border border-theme-off-white/50">
+          <div class="text-center mb-10 pb-6 border-b border-theme-off-white/30">
+            <h3 class="text-2xl font-display text-theme-black italic mb-2">The Menu</h3>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-theme-black/40">Savor the Flavors of Mipeja</p>
           </div>
           
           <div class="space-y-10">
             <div>
-              <h4 class="text-xs uppercase tracking-[0.3em] text-terracotta font-bold mb-6">Food Specialties</h4>
+              <h4 class="text-xs uppercase tracking-[0.3em] text-theme-gold font-bold mb-6">Food Specialties</h4>
               <div class="space-y-6">
                 {restaurantData.foodMenu.map(item => (
                   <div class="flex justify-between gap-4">
                     <div>
                       <div class="flex items-center gap-2 mb-1">
-                        <span class="text-sm font-bold text-charcoal-gray">{item.name}</span>
-                        <div class="flex-grow border-b border-dotted border-beige border-width-2"></div>
+                        <span class="text-sm font-bold text-theme-black">{item.name}</span>
+                        <div class="flex-grow border-b border-dotted border-theme-off-white border-width-2"></div>
                       </div>
-                      <p class="text-xs text-charcoal-gray/50 leading-relaxed">{item.description}</p>
+                      <p class="text-xs text-theme-black/50 leading-relaxed">{item.description}</p>
                     </div>
-                    <span class="text-sm font-bold text-brown whitespace-nowrap">{item.price}</span>
+                    <span class="text-sm font-bold text-theme-black whitespace-nowrap">{item.price}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             <div>
-              <h4 class="text-xs uppercase tracking-[0.3em] text-terracotta font-bold mb-6">Signature Drinks</h4>
+              <h4 class="text-xs uppercase tracking-[0.3em] text-theme-gold font-bold mb-6">Signature Drinks</h4>
               <div class="space-y-6">
                 {restaurantData.drinksMenu.map(item => (
                   <div class="flex justify-between gap-4">
                     <div>
                       <div class="flex items-center gap-2 mb-1">
-                        <span class="text-sm font-bold text-charcoal-gray">{item.name}</span>
-                        <div class="flex-grow border-b border-dotted border-beige"></div>
+                        <span class="text-sm font-bold text-theme-black">{item.name}</span>
+                        <div class="flex-grow border-b border-dotted border-theme-off-white"></div>
                       </div>
-                      <p class="text-xs text-charcoal-gray/50 leading-relaxed">{item.description}</p>
+                      <p class="text-xs text-theme-black/50 leading-relaxed">{item.description}</p>
                     </div>
-                    <span class="text-sm font-bold text-brown whitespace-nowrap">{item.price}</span>
+                    <span class="text-sm font-bold text-theme-black whitespace-nowrap">{item.price}</span>
                   </div>
                 ))}
               </div>
@@ -149,7 +149,7 @@ const conferenceData = {
             </div>
           </div>
           <!-- Capacity Badge -->
-          <div class="absolute -bottom-6 -right-6 bg-brown text-white p-8 rounded-full shadow-2xl flex flex-col items-center justify-center animate-bounce-slow">
+          <div class="absolute -bottom-6 -right-6 bg-theme-black text-white p-8 rounded-full shadow-2xl flex flex-col items-center justify-center animate-bounce-slow">
             <span class="text-3xl font-display italic leading-none">{conferenceData.capacity.split(' ')[2]}</span>
             <span class="text-[8px] uppercase tracking-widest font-bold">Capacity</span>
           </div>
@@ -157,26 +157,26 @@ const conferenceData = {
 
         <div class="space-y-10">
           <div class="space-y-4">
-            <p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Business & Events</p>
-            <h2 class="text-4xl md:text-5xl font-display text-brown italic">{conferenceData.title}</h2>
+            <p class="text-[10px] uppercase tracking-[0.4em] text-theme-gold font-bold">Business & Events</p>
+            <h2 class="text-4xl md:text-5xl font-display text-theme-black italic">{conferenceData.title}</h2>
           </div>
-          <p class="text-charcoal-gray/70 leading-relaxed text-lg">
+          <p class="text-theme-black/70 leading-relaxed text-lg">
             {conferenceData.description}
           </p>
           
           <div class="grid sm:grid-cols-2 gap-6 pt-6">
             {conferenceData.features.map(feature => (
               <div class="flex items-center gap-4 group">
-                <div class="w-8 h-8 rounded-full bg-beige/30 flex items-center justify-center text-terracotta group-hover:bg-terracotta group-hover:text-white transition-colors duration-300">
+                <div class="w-8 h-8 rounded-full bg-theme-off-white flex items-center justify-center text-theme-gold group-hover:bg-theme-gold group-hover:text-white transition-colors duration-300">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
-                <span class="text-sm font-bold uppercase tracking-widest text-charcoal-gray/70">{feature}</span>
+                <span class="text-sm font-bold uppercase tracking-widest text-theme-black/70">{feature}</span>
               </div>
             ))}
           </div>
 
           <div class="pt-8">
-            <a href="/contact" class="inline-flex items-center justify-center bg-brown hover:bg-brown/90 text-white px-10 py-4 rounded-xl text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-lg hover:-translate-y-1">
+            <a href="/contact" class="inline-flex items-center justify-center bg-theme-black hover:bg-theme-black/90 text-white px-10 py-4 rounded-xl text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-lg hover:-translate-y-1">
               Inquire Now
             </a>
           </div>
@@ -197,11 +197,11 @@ const conferenceData = {
 
         // Update active tab styling
         tabs.forEach(t => {
-          t.classList.remove('bg-deep-teal', 'text-white', 'shadow-lg');
-          t.classList.add('text-charcoal-gray/60');
+          t.classList.remove('bg-theme-gold', 'text-white', 'shadow-lg');
+          t.classList.add('text-theme-black/60');
         });
-        tab.classList.add('bg-deep-teal', 'text-white', 'shadow-lg');
-        tab.classList.remove('text-charcoal-gray/60');
+        tab.classList.add('bg-theme-gold', 'text-white', 'shadow-lg');
+        tab.classList.remove('text-theme-black/60');
 
         // Update content visibility
         contents.forEach(content => {

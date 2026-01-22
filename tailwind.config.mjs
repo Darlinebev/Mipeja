@@ -15,6 +15,11 @@ export default {
 				beige: "#F4EFEA",
 				cream: "#FFFDF5",
 				terracotta: "#B35A38",
+				// New Theme Colors
+				"theme-black": "#1A1A1A",
+				"theme-gold": "#C19B76", // Adjusted for a softer gold/beige
+				"theme-text": "#5A5A5A",
+				"theme-off-white": "#FDFBF7",
 				"burnt-orange": "#CC5500",
 				gold: "#C9A46A",
 				"gold-dark": "#B08C50",

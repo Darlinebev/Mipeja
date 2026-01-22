@@ -11,19 +11,19 @@ html {
 }
 
 body {
-	@apply bg-ivory text-charcoal-gray font-body selection:bg-gold-rich/20 selection:text-charcoal-gray;
+	@apply bg-theme-off-white text-theme-black font-body selection:bg-theme-gold/20 selection:text-theme-black;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	@apply font-display tracking-tight text-charcoal-gray;
+	@apply font-display tracking-tight text-theme-black;
 }
 
 .section-heading {
-	@apply text-3xl sm:text-4xl md:text-5xl font-display font-bold text-charcoal-gray leading-tight;
+	@apply text-3xl sm:text-4xl md:text-5xl font-display font-medium text-theme-black leading-tight;
 }
 
 .kicker {
-	@apply uppercase tracking-widest text-xs font-bold text-deep-teal mb-4 block;
+	@apply uppercase tracking-widest text-xs font-bold text-theme-gold mb-4 block;
 }
 
 .card {
@@ -35,11 +35,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-	@apply inline-flex items-center justify-center rounded-none bg-gold-rich px-8 py-4 text-white font-accent font-bold uppercase tracking-[0.2em] transition-all hover:bg-gold-rich/90 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-95;
+	@apply inline-flex items-center justify-center rounded-full bg-theme-gold px-8 py-3 text-white text-sm font-accent font-semibold  transition-all hover:bg-theme-gold/90 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-95;
 }
 
 .btn-outline {
-	@apply inline-flex items-center justify-center rounded-none border border-gold-rich px-8 py-4 text-gold-rich font-accent font-bold uppercase tracking-[0.2em] bg-transparent hover:bg-gold-rich hover:text-white transition-all active:scale-95;
+	@apply inline-flex items-center justify-center rounded-full border border-theme-gold px-8 py-3 text-theme-gold text-sm font-accent font-semibold bg-transparent hover:bg-theme-gold hover:text-white transition-all active:scale-95;
 }
 
 /* Glass effect utilities */
@@ -220,10 +220,10 @@ a, button {
 	@apply px-4 py-2 font-medium text-xs transition-all duration-200 border-b border-transparent uppercase tracking-widest;
 }
 .nav-link:hover {
-	@apply text-terracotta border-terracotta;
+	@apply text-theme-gold border-theme-gold;
 }
 .nav-active {
-	@apply text-terracotta border-terracotta;
+	@apply text-theme-gold border-theme-gold;
 }
 
 /* Details (accordion) styling */

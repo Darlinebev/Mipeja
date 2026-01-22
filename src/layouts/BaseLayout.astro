@@ -38,12 +38,12 @@ const { title, description } = Astro.props;
 			}
 		</style>
 	</head>
-	<body class="bg-ivory text-charcoal-gray antialiased">
+	<body class="bg-theme-off-white text-theme-black antialiased font-body">
 		<slot />
 
 		<Footer />
 
-		<script>
+		<script is:inline>
 			// Intersection Observer for reveal animations
 			const observerOptions = {
 				threshold: 0.1

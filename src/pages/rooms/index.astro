@@ -8,7 +8,7 @@ const pageDescription = `Browse rooms at ${hotel.name} in ${hotel.location}. See
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-	<div class="min-h-screen bg-beige/30">
+	<div class="min-h-screen bg-theme-off-white">
 		<Header bookingUrl={hotel.bookingUrl} />
 
 		<!-- Subpage Hero -->
@@ -27,27 +27,27 @@ const pageDescription = `Browse rooms at ${hotel.name} in ${hotel.location}. See
 					<div class={`grid lg:grid-cols-[1fr_1.2fr] gap-16 items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
 						<div class={`space-y-8 ${index % 2 !== 0 ? 'lg:order-2' : 'lg:order-1'}`}>
 							<div class="space-y-4">
-								<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Exclusive Discovery</p>
-								<h2 class="text-5xl font-display text-brown italic">{room.name}</h2>
+								<p class="text-[10px] uppercase tracking-[0.4em] text-theme-gold font-bold">Exclusive Discovery</p>
+								<h2 class="text-5xl font-display text-theme-black italic">{room.name}</h2>
 							</div>
-							<p class="text-charcoal/70 leading-relaxed">
+							<p class="text-theme-black/70 leading-relaxed">
 								{room.description || `Experience high-end amenities and sophisticated design in our ${room.name}. Every detail is crafted for your utmost comfort and relaxation.`}
 							</p>
-							<div class="grid grid-cols-2 gap-y-4 text-[10px] uppercase tracking-widest font-bold text-charcoal/60">
+							<div class="grid grid-cols-2 gap-y-4 text-[10px] uppercase tracking-widest font-bold text-theme-black/60">
 								{room.features.slice(0, 4).map(feature => (
 									<div class="flex items-center gap-3">
-										<span class="text-terracotta">✦</span> {feature}
+										<span class="text-theme-gold">✦</span> {feature}
 									</div>
 								))}
 							</div>
 							<div class="flex items-center gap-8 pt-4">
-								<div class="text-brown">
+								<div class="text-theme-black">
 									<span class="text-[10px] uppercase tracking-widest block opacity-50 font-bold mb-1">Starting from</span>
 									<span class="text-3xl font-display italic">{room.price}</span>
 								</div>
 								<div class="flex gap-4">
-									<a href={`/rooms/${room.slug}`} class="border border-brown/20 px-8 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-brown hover:border-terracotta hover:text-terracotta transition-all">Explore →</a>
-									<a href={hotel.bookingUrl} class="bg-terracotta px-10 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-white hover:bg-burnt-orange transition-all shadow-xl shadow-terracotta/10">Book Now</a>
+									<a href={`/rooms/${room.slug}`} class="border border-theme-black/20 px-8 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-theme-black hover:border-theme-gold hover:text-theme-gold transition-all">Explore →</a>
+									<a href={hotel.bookingUrl} class="bg-theme-gold px-10 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-white hover:bg-theme-black transition-all shadow-xl shadow-theme-gold/10">Book Now</a>
 								</div>
 							</div>
 						</div>
@@ -60,11 +60,11 @@ const pageDescription = `Browse rooms at ${hotel.name} in ${hotel.location}. See
 		</section>
 
 		<!-- Room Facilities Section -->
-		<section class="py-24 md:py-32 bg-white border-t border-beige">
+		<section class="py-24 md:py-32 bg-white border-t border-gray-100">
 			<div class="max-w-7xl mx-auto px-6">
 				<div class="text-center mb-20 space-y-4">
-					<p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Thoughtful Amenities</p>
-					<h2 class="text-5xl md:text-6xl font-display text-brown italic">Room Facilities</h2>
+					<p class="text-[10px] uppercase tracking-[0.4em] text-theme-gold font-bold">Thoughtful Amenities</p>
+					<h2 class="text-5xl md:text-6xl font-display text-theme-black italic">Room Facilities</h2>
 				</div>
 
 				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 md:gap-16">
@@ -83,10 +83,10 @@ const pageDescription = `Browse rooms at ${hotel.name} in ${hotel.location}. See
 						{ title: "Free wifi", icon: "wifi" }
 					].map((item, index) => (
 						<div class={`flex flex-col items-center text-center space-y-4 group reveal`} style={`transition-delay: ${index * 0.05}s`}>
-							<div class="w-16 h-16 rounded-full bg-sand flex items-center justify-center text-terracotta group-hover:bg-terracotta group-hover:text-white transition-all duration-300 border border-sand-light">
+							<div class="w-16 h-16 rounded-full bg-theme-off-white flex items-center justify-center text-theme-gold group-hover:bg-theme-gold group-hover:text-white transition-all duration-300 border border-theme-off-white">
 								<i class={`fas fa-${item.icon} text-xl`}></i>
 							</div>
-							<h3 class="text-[13px] font-accent font-bold uppercase tracking-[0.2em] text-brown">{item.title}</h3>
+							<h3 class="text-[13px] font-accent font-bold uppercase tracking-[0.2em] text-theme-black">{item.title}</h3>
 						</div>
 					))}
 				</div>

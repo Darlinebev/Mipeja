@@ -8,79 +8,81 @@ const { bookingUrl } = Astro.props;
 
 <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-500 py-6">
 	<div class="mx-auto flex max-w-7xl items-center justify-between px-6">
-		<div class="flex items-center gap-12">
-			<a href="/" class="flex items-center gap-3 group">
-				<div class="h-10 w-10 border border-white/30 text-white flex items-center justify-center font-display text-xl font-bold group-hover:border-gold-rich group-hover:text-gold-rich transition-colors italic logo-box">
-					M
+		<div class="flex items-center gap-12 w-full justify-between">
+			<a href="/" class="flex items-center gap-2 group z-50">
+				<div class="text-white text-2xl group-hover:text-theme-gold transition-colors logo-icon">
+					<i class="fa-solid fa-hotel"></i>
 				</div>
-                <div class="hidden sm:block">
-                    <p class="text-xl font-display font-bold leading-none text-white tracking-widest uppercase logo-text">Mipeja</p>
+                <div class="block">
+                    <p class="text-xl font-display font-bold leading-none text-white tracking-wide logo-text">Mipeja</p>
                 </div>
 			</a>
-			<div class="hidden lg:block border-l border-white/20 pl-12 nav-container">
+			
+            <div class="hidden lg:flex items-center gap-8 nav-container absolute left-1/2 -translate-x-1/2">
 				<Navigation />
 			</div>
-		</div>
-		<div class="flex items-center gap-6">
-			<a class="hidden md:inline-flex items-center justify-center bg-gold-rich px-8 py-4 text-[11px] font-accent font-bold text-white uppercase tracking-[0.2em] hover:bg-gold-rich/90 transition-all shadow-lg reservation-btn" href={bookingUrl || hotel.bookingUrl} target="_blank" rel="noreferrer">
-				Reservation
-			</a>
-			<MobileNav hotelName={hotel.name} hotelLocation={hotel.location} />
+
+            <div class="flex items-center gap-4 z-50">
+                <a class="hidden md:inline-flex items-center justify-center bg-white text-theme-black px-6 py-2 text-sm font-accent font-semibold rounded-full hover:bg-theme-gold hover:text-white transition-all shadow-sm reservation-btn" href="/contact">
+                    Contact Us
+                </a>
+                <MobileNav hotelName={hotel.name} hotelLocation={hotel.location} />
+            </div>
 		</div>
 	</div>
 </header>
 
 <script>
     const header = document.getElementById('main-header');
-    const logoBox = header?.querySelector('.logo-box');
+    const logoIcon = header?.querySelector('.logo-icon');
     const logoText = header?.querySelector('.logo-text');
     const navLinks = header?.querySelectorAll('.nav-link');
-    const navContainer = header?.querySelector('.nav-container');
     const mobileBars = header?.querySelectorAll('.mobile-menu-bar');
+    const resBtn = header?.querySelector('.reservation-btn');
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            header?.classList.add('bg-ivory', 'shadow-md', 'py-4');
+            header?.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-4');
             header?.classList.remove('bg-transparent', 'py-6');
             
-            logoBox?.classList.add('border-charcoal-gray/20', 'text-charcoal-gray');
-            logoBox?.classList.remove('border-white/30', 'text-white');
+            logoIcon?.classList.add('text-theme-black');
+            logoIcon?.classList.remove('text-white');
             
-            logoText?.classList.add('text-charcoal-gray');
+            logoText?.classList.add('text-theme-black');
             logoText?.classList.remove('text-white');
 
-            navContainer?.classList.add('border-charcoal-gray/20');
-            navContainer?.classList.remove('border-white/20');
-
             navLinks?.forEach(link => {
-                link.classList.add('text-charcoal-gray');
+                link.classList.add('text-theme-black');
                 link.classList.remove('text-white');
             });
+            
+            resBtn?.classList.add('bg-theme-black', 'text-white');
+            resBtn?.classList.remove('bg-white', 'text-theme-black');
 
             mobileBars?.forEach(bar => {
-                bar.classList.add('bg-charcoal-gray');
+                bar.classList.add('bg-theme-black');
                 bar.classList.remove('bg-white');
             });
         } else {
-            header?.classList.remove('bg-ivory', 'shadow-md', 'py-4');
+            header?.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-4');
             header?.classList.add('bg-transparent', 'py-6');
             
-            logoBox?.classList.remove('border-charcoal-gray/20', 'text-charcoal-gray');
-            logoBox?.classList.add('border-white/30', 'text-white');
+            logoIcon?.classList.remove('text-theme-black');
+            logoIcon?.classList.add('text-white');
             
-            logoText?.classList.remove('text-charcoal-gray');
+            logoText?.classList.remove('text-theme-black');
             logoText?.classList.add('text-white');
 
-            navContainer?.classList.remove('border-charcoal-gray/20');
-            navContainer?.classList.add('border-white/20');
-
             navLinks?.forEach(link => {
-                link.classList.remove('text-charcoal-gray');
+                link.classList.remove('text-theme-black');
                 link.classList.add('text-white');
             });
+            
+            resBtn?.classList.remove('bg-theme-black', 'text-white');
+            resBtn?.classList.add('bg-white', 'text-theme-black');
 
             mobileBars?.forEach(bar => {
-                bar.classList.remove('bg-charcoal-gray');
+                bar.classList.remove('bg-theme-black');
                 bar.classList.add('bg-white');
             });
         }

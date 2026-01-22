@@ -16,7 +16,7 @@ const pageDescription = `${room.name} at ${hotel.name} in ${hotel.location}. Fea
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-	<div class="min-h-screen bg-beige/30">
+	<div class="min-h-screen bg-theme-off-white">
 		<Header bookingUrl={hotel.bookingUrl} />
 
 		<!-- Subpage Hero -->
@@ -34,8 +34,8 @@ const pageDescription = `${room.name} at ${hotel.name} in ${hotel.location}. Fea
                 <div class="space-y-16">
                     <div class="space-y-8">
                         <div class="space-y-4">
-                            <p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Pure Relaxation</p>
-                            <h2 class="text-5xl font-display text-brown italic">Sophisticated comfort</h2>
+                            <p class="text-[10px] uppercase tracking-[0.4em] text-theme-gold font-bold">Pure Relaxation</p>
+                            <h2 class="text-5xl font-display text-theme-black italic">Sophisticated comfort</h2>
                         </div>
                         <p class="text-charcoal/70 leading-relaxed text-lg max-w-2xl">
                             Our {room.name} provides a sanctuary of peace in the heart of the city. Meticulously designed with high-quality materials and thoughtful amenities, it offers the perfect environment for both rest and productivity.
@@ -44,18 +44,18 @@ const pageDescription = `${room.name} at ${hotel.name} in ${hotel.location}. Fea
 
                     <div class="space-y-12">
                          <div class="space-y-4">
-                            <p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">In-room amenities</p>
-                            <h3 class="text-3xl font-display text-brown italic">Thoughtful details</h3>
+                            <p class="text-[10px] uppercase tracking-[0.4em] text-theme-gold font-bold">In-room amenities</p>
+                            <h3 class="text-3xl font-display text-theme-black italic">Thoughtful details</h3>
                         </div>
                         <div class="grid sm:grid-cols-2 gap-x-12 gap-y-6">
                             {room.features.map(feature => (
-                                <div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
-                                    <span class="text-terracotta">✦</span> {feature}
+                                <div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-gray-200 pb-4">
+                                    <span class="text-theme-gold">✦</span> {feature}
                                 </div>
                             ))}
                             {hotel.amenities.slice(0, 4).map(item => (
-                                <div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-beige pb-4">
-                                    <span class="text-terracotta">✦</span> {item}
+                                <div class="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] text-charcoal/70 border-b border-gray-200 pb-4">
+                                    <span class="text-theme-gold">✦</span> {item}
                                 </div>
                             ))}
                         </div>
@@ -63,20 +63,20 @@ const pageDescription = `${room.name} at ${hotel.name} in ${hotel.location}. Fea
                 </div>
 
                 <div class="space-y-12">
-                    <div class="bg-white p-12 shadow-2xl border border-beige space-y-8">
+                    <div class="bg-white p-12 shadow-2xl border border-gray-100 space-y-8">
                         <div class="space-y-2">
                              <span class="text-[10px] uppercase tracking-widest block opacity-50 font-bold">Price per night</span>
-                             <p class="text-5xl font-display italic text-brown">{room.price}</p>
+                             <p class="text-5xl font-display italic text-theme-black">{room.price}</p>
                         </div>
-                        <div class="space-y-4 pt-4 border-t border-beige">
-                             <a href={hotel.bookingUrl} class="block w-full bg-brown text-white py-6 text-center text-[10px] uppercase tracking-[0.4em] font-bold hover:bg-terracotta transition-all">Book This Room</a>
+                        <div class="space-y-4 pt-4 border-t border-gray-100">
+                             <a href={hotel.bookingUrl} class="block w-full bg-theme-black text-white py-6 text-center text-[10px] uppercase tracking-[0.4em] font-bold hover:bg-theme-gold transition-all">Book This Room</a>
                              <p class="text-center text-[8px] uppercase tracking-widest text-charcoal/40">Free cancellation available</p>
                         </div>
                     </div>
 
                     <div class="space-y-6">
-                        <p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Assistance</p>
-                        <p class="text-xs font-bold text-brown uppercase tracking-widest">Need help with your booking?</p>
+                        <p class="text-[10px] uppercase tracking-[0.4em] text-theme-gold font-bold">Assistance</p>
+                        <p class="text-xs font-bold text-theme-black uppercase tracking-widest">Need help with your booking?</p>
                         <div class="space-y-2 text-xs uppercase tracking-widest text-charcoal/60">
                              <p>{hotel.phone}</p>
                              <p>{hotel.email}</p>
@@ -87,14 +87,14 @@ const pageDescription = `${room.name} at ${hotel.name} in ${hotel.location}. Fea
 		</section>
 
         <!-- Other Rooms (Slider) -->
-        <section class="bg-white py-32 border-t border-beige">
+        <section class="bg-white py-32 border-t border-gray-100">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-12">
                     <div class="space-y-4">
-                        <p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Exquisite Selection</p>
-                        <h2 class="text-5xl font-display text-brown">Discover more rooms</h2>
+                        <p class="text-[10px] uppercase tracking-[0.4em] text-theme-gold font-bold">Exquisite Selection</p>
+                        <h2 class="text-5xl font-display text-theme-black">Discover more rooms</h2>
                     </div>
-                    <a href="/rooms" class="text-[10px] uppercase tracking-[0.3em] font-bold text-charcoal/60 border-b border-terracotta-dark/30 hover:border-terracotta pb-1 transition-all">View all rooms →</a>
+                    <a href="/rooms" class="text-[10px] uppercase tracking-[0.3em] font-bold text-charcoal/60 border-b border-theme-black/30 hover:border-theme-gold pb-1 transition-all">View all rooms →</a>
                 </div>
 
                 <div class="relative">
@@ -109,7 +109,7 @@ const pageDescription = `${room.name} at ${hotel.name} in ${hotel.location}. Fea
                                         <img src={item.image} alt={item.name} class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" loading="lazy" />
                                     </div>
                                     <div class="space-y-2">
-                                        <h3 class="font-display text-2xl text-brown">{item.name}</h3>
+                                        <h3 class="font-display text-2xl text-theme-black">{item.name}</h3>
                                         <p class="text-[10px] uppercase tracking-widest text-charcoal/50 font-bold font-body">From {item.price}</p>
                                     </div>
                                 </a>
@@ -229,8 +229,8 @@ const pageDescription = `${room.name} at ${hotel.name} in ${hotel.location}. Fea
                     function updateActiveDot(logicalIndex, count) {
                         const active = ((index - slidesPerView) % count + count) % count;
                         Array.from(dotsWrap.children).forEach((d, i) => {
-                            d.classList.toggle('bg-terracotta', i === active);
-                            d.classList.toggle('bg-white/30', i !== active);
+                            d.classList.toggle('bg-theme-gold', i === active);
+                            d.classList.toggle('bg-gray-300', i !== active);
                         });
                     }
 

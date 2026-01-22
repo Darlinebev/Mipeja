@@ -1,141 +1,117 @@
 ---
 const { hotel, bookingUrl } = Astro.props;
 
+// Keep existing images or placeholders
 const slides = [
 	{
-		image: '/images/mipeja-hero.jpg',
-		subtitle: 'A blend of elegance and nature',
-		title: 'Double Deluxe Room',
-		alt: 'Double Deluxe Room'
+		image: '/images/mipeja-hero.jpg', 
+		alt: 'Luxury Hotel Stay'
 	},
 	{
 		image: '/images/hero-bg.jpg',
-		subtitle: 'Luxury meets comfort',
-		title: 'Executive Twin Room',
-		alt: 'Executive Twin Room'
+		alt: 'Comfortable Room'
 	},
 	{
 		image: '/images/inspo.jpg',
-		subtitle: 'Perfect for families',
-		title: 'Family Suite',
-		alt: 'Family Suite'
+		alt: 'Relaxing Vibes'
 	}
 ];
 ---
-<header role="banner" class="relative h-screen min-h-[700px] overflow-hidden flex items-center">
-  <div class="absolute inset-0 z-0">
-    {slides.map((slide, index) => (
-      <div class={`slide absolute inset-0 transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`} data-slide={index}>
-        <img src={slide.image} alt={slide.alt} class="object-cover w-full h-full scale-105 animate-float-slow" loading={index === 0 ? "eager" : "lazy"} />
-      </div>
-    ))}
-    <div class="absolute inset-0 bg-black/30"></div>
-    <!-- Darker overlay in center for text readability -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-64 bg-black/40 rounded-lg blur-xl opacity-60"></div>
-  </div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-6 w-full text-center">
-    <div class="max-w-4xl mx-auto text-white">
-      <p id="hero-subtitle" class="text-[12px] md:text-[14px] font-accent font-bold uppercase tracking-[0.5em] mb-6 animate-fade-in-down">
-        A blend of elegance and nature
-      </p>
-
-      <h1 id="hero-title" class="text-6xl md:text-8xl lg:text-9xl font-display font-medium leading-[1.1] mb-12 animate-fade-in-up">
-        Double Deluxe Room
-      </h1>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up delay-200">
-        <a href={bookingUrl} target="_blank" rel="noopener noreferrer" class="bg-gold-rich hover:bg-gold-rich/90 text-white px-12 py-5 text-[14px] font-accent font-bold uppercase tracking-[0.3em] transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 rounded-sm">
-          BOOK ROOM
-        </a>
-      </div>
+<div class="relative h-screen w-full overflow-hidden">
+    <!-- Background Slider -->
+    <div class="absolute inset-0 z-0">
+        {slides.map((slide, index) => (
+            <div class={`slide absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === 0 ? 'opacity-100' : 'opacity-0'}`} data-slide={index}>
+                <img src={slide.image} alt={slide.alt} class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+        ))}
     </div>
-  </div>
 
-  <!-- Slide indicators -->
-  <div class="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 flex space-x-3">
-    {slides.map((_, index) => (
-      <button class={`slide-indicator w-3 h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-gold-rich' : 'bg-white/40'}`} data-slide={index}></button>
-    ))}
-  </div>
+    <!-- Hero Content -->
+    <div class="relative z-10 flex flex-col justify-center h-full px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="max-w-3xl space-y-8 pb-32">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-medium text-white leading-tight">
+                Find Your <br/> Perfect Stay.
+            </h1>
+            <p class="text-white/80 text-lg md:text-xl font-light leading-relaxed max-w-xl">
+                Book boutique hotels, private villas, stays more permissions & minted experiences. Tailored to your ease, travel with taste.
+            </p>
+            <div class="flex items-center gap-4 pt-4">
+                 <a href={bookingUrl} class="inline-flex items-center gap-2 bg-white text-theme-black px-8 py-4 rounded-full font-semibold hover:bg-theme-gold hover:text-white transition-all group">
+                    Booking Now
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                 </a>
+            </div>
+        </div>
 
-  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 hidden md:block animate-bounce opacity-80">
-     <div class="w-px h-20 bg-white/40 mx-auto relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1.5 after:h-1.5 after:bg-white after:rounded-full"></div>
-  </div>
-</header>
+        <!-- Float Indicators -->
+        <div class="absolute right-12 bottom-48 flex gap-4 text-white/60 text-sm font-mono hidden md:flex">
+             <span>01</span>
+             <div class="w-12 h-[1px] bg-white/40 self-center"></div>
+             <span>03</span>
+        </div>
+    </div>
+
+    <!-- Booking Bar -->
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl z-20">
+        <div class="bg-white rounded-full p-2 md:p-3 shadow-2xl flex flex-col md:flex-row items-stretch justify-between gap-4 md:gap-0">
+            
+            <div class="flex-1 w-full md:w-auto px-8 py-3 md:border-r border-gray-100 relative group cursor-pointer hover:bg-gray-50 rounded-full md:rounded-l-full md:rounded-r-none transition-colors">
+                <label class="block text-[10px] uppercase tracking-wider text-gray-500 font-bold mb-1">Room</label>
+                <div class="flex items-center justify-between gap-4">
+                    <span class="text-theme-black font-semibold text-sm">Fine Log</span>
+                    <i class="fa-solid fa-chevron-down text-[10px] text-gray-400"></i>
+                </div>
+            </div>
+
+            <div class="flex-1 w-full md:w-auto px-8 py-3 md:border-r border-gray-100 relative group cursor-pointer hover:bg-gray-50 transition-colors">
+                <label class="block text-[10px] uppercase tracking-wider text-gray-500 font-bold mb-1">Check In</label>
+                 <div class="flex items-center justify-between gap-4">
+                    <span class="text-theme-black font-semibold text-sm">10 Mar 2024</span>
+                    <i class="fa-regular fa-calendar text-[10px] text-gray-400"></i>
+                </div>
+            </div>
+
+            <div class="flex-1 w-full md:w-auto px-8 py-3 md:border-r border-gray-100 relative group cursor-pointer hover:bg-gray-50 transition-colors">
+                <label class="block text-[10px] uppercase tracking-wider text-gray-500 font-bold mb-1">Check Out</label>
+                 <div class="flex items-center justify-between gap-4">
+                    <span class="text-theme-black font-semibold text-sm">15 Mar 2024</span>
+                    <i class="fa-regular fa-calendar text-[10px] text-gray-400"></i>
+                </div>
+            </div>
+
+            <div class="flex-1 w-full md:w-auto px-8 py-3 relative group cursor-pointer hover:bg-gray-50 rounded-full md:rounded-r-full md:rounded-l-none transition-colors">
+                <label class="block text-[10px] uppercase tracking-wider text-gray-500 font-bold mb-1">Guests</label>
+                 <div class="flex items-center justify-between gap-4">
+                    <span class="text-theme-black font-semibold text-sm">04 Adults</span>
+                    <i class="fa-solid fa-chevron-down text-[10px] text-gray-400"></i>
+                </div>
+            </div>
+
+            <div class="p-1 flex-shrink-0">
+                <a href={bookingUrl} class="flex items-center justify-center w-full md:w-auto bg-theme-black text-white px-8 py-4 rounded-full font-bold uppercase tracking-wide text-xs hover:bg-theme-gold transition-colors shadow-lg h-full">
+                    Check Availability
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <script>
-  const slides = [
-    {
-      subtitle: 'A blend of elegance and nature',
-      title: 'Double Deluxe Room'
-    },
-    {
-      subtitle: 'Luxury meets comfort',
-      title: 'Executive Twin Room'
-    },
-    {
-      subtitle: 'Perfect for families',
-      title: 'Family Suite'
-    }
-  ];
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
 
-  let currentSlide = 0;
-  const slideElements = document.querySelectorAll('.slide');
-  const indicators = document.querySelectorAll('.slide-indicator');
-  const subtitleElement = document.getElementById('hero-subtitle');
-  const titleElement = document.getElementById('hero-title');
+    const nextSlide = () => {
+        if (!slides.length) return;
+        slides[currentSlide].classList.remove('opacity-100');
+        slides[currentSlide].classList.add('opacity-0');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.remove('opacity-0');
+        slides[currentSlide].classList.add('opacity-100');
+    };
 
-  function updateSlide(index) {
-    // Update slide images
-    slideElements.forEach((slide, i) => {
-      slide.classList.toggle('opacity-100', i === index);
-      slide.classList.toggle('opacity-0', i !== index);
-    });
-
-    // Update indicators
-    indicators.forEach((indicator, i) => {
-      indicator.classList.toggle('bg-gold-rich', i === index);
-      indicator.classList.toggle('bg-white/40', i !== index);
-    });
-
-    // Update text with fade effect
-    subtitleElement.style.opacity = '0';
-    titleElement.style.opacity = '0';
-
-    setTimeout(() => {
-      subtitleElement.textContent = slides[index].subtitle;
-      titleElement.textContent = slides[index].title;
-      subtitleElement.style.opacity = '1';
-      titleElement.style.opacity = '1';
-    }, 300);
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    updateSlide(currentSlide);
-  }
-
-  // Auto-play every 5 seconds
-  setInterval(nextSlide, 5000);
-
-  // Click indicators to change slides
-  indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-      currentSlide = index;
-      updateSlide(currentSlide);
-    });
-  });
+    setInterval(nextSlide, 5000);
 </script>
-
-<style>
-  @keyframes float-slow {
-    0%, 100% { transform: scale(1.05) translateY(0); }
-    50% { transform: scale(1.1) translateY(-10px); }
-  }
-  .animate-float-slow {
-    animation: float-slow 20s ease-in-out infinite;
-  }
-  .delay-200 { animation-delay: 0.2s; }
-</style>

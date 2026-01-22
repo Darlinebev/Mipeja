@@ -8,7 +8,7 @@ const pageDescription = `Learn about ${hotel.name} in ${hotel.location}. Our sto
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-	<div class="min-h-screen bg-beige/30">
+	<div class="min-h-screen bg-theme-off-white">
 		<Header bookingUrl={hotel.bookingUrl} />
 
 		<!-- Subpage Hero -->
@@ -33,10 +33,10 @@ const pageDescription = `Learn about ${hotel.name} in ${hotel.location}. Our sto
 				</div>
 				<div class="space-y-10">
 					<div>
-                        <p class="text-[10px] uppercase tracking-[0.4em] text-terracotta mb-4 font-bold">Welcome to Mipeja</p>
-                        <h2 class="text-5xl font-display text-brown leading-tight italic">Elegance and comfort redefined.</h2>
+                        <p class="text-[10px] uppercase tracking-[0.4em] text-theme-gold mb-4 font-bold">Welcome to Mipeja</p>
+                        <h2 class="text-5xl font-display text-theme-black leading-tight italic">Elegance and comfort redefined.</h2>
                     </div>
-					<div class="space-y-6 text-charcoal/70 leading-relaxed max-w-lg text-lg">
+					<div class="space-y-6 text-theme-black/70 leading-relaxed max-w-lg text-lg">
 						<p>
 							Mipeja Hotel was founded with a simple vision: to create a welcoming, comfortable sanctuary for travelers passing through Busia. We believe that hospitality is not just about providing a room, but about creating an experience that guests will remember.
 						</p>
@@ -49,7 +49,7 @@ const pageDescription = `Learn about ${hotel.name} in ${hotel.location}. Our sto
 		</section>
 
 		<!-- Values Section -->
-		<section class="bg-white py-32 border-y border-beige">
+		<section class="bg-white py-32 border-y border-gray-100">
 			<div class="max-w-7xl mx-auto px-6">
                 <div class="grid lg:grid-cols-3 gap-16">
                     {[
@@ -58,9 +58,9 @@ const pageDescription = `Learn about ${hotel.name} in ${hotel.location}. Our sto
                         { title: "Community", desc: "We're proud to be part of the Busia community and support local businesses.", icon: "C" }
                     ].map(item => (
                         <div class="space-y-6">
-                            <div class="w-12 h-12 bg-beige flex items-center justify-center text-terracotta font-bold text-xl">{item.icon}</div>
-                            <h3 class="font-display text-2xl text-brown">{item.title}</h3>
-                            <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-charcoal/60 leading-relaxed">{item.desc}</p>
+                            <div class="w-12 h-12 bg-theme-off-white flex items-center justify-center text-theme-gold font-bold text-xl rounded-full">{item.icon}</div>
+                            <h3 class="font-display text-2xl text-theme-black">{item.title}</h3>
+                            <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-theme-black/60 leading-relaxed">{item.desc}</p>
                         </div>
                     ))}
                 </div>
@@ -71,18 +71,18 @@ const pageDescription = `Learn about ${hotel.name} in ${hotel.location}. Our sto
 		<section class="max-w-7xl mx-auto px-6 py-32">
 			<div class="grid lg:grid-cols-[0.4fr_0.6fr] gap-24">
                 <div class="space-y-6">
-                    <p class="text-[10px] uppercase tracking-[0.4em] text-terracotta font-bold">Assistance</p>
-                    <h2 class="text-5xl font-display text-brown italic">Common Questions</h2>
-                    <p class="text-charcoal/60 leading-relaxed">Everything you need to know about your stay at Mipeja Hotel.</p>
+                    <p class="text-[10px] uppercase tracking-[0.4em] text-theme-gold font-bold">Assistance</p>
+                    <h2 class="text-5xl font-display text-theme-black italic">Common Questions</h2>
+                    <p class="text-theme-black/60 leading-relaxed">Everything you need to know about your stay at Mipeja Hotel.</p>
                 </div>
-                <div class="divide-y divide-beige">
+                <div class="divide-y divide-gray-200">
                     {hotel.faqs.map((faq) => (
                         <details class="group py-8 cursor-pointer">
-                            <summary class="flex items-center justify-between font-display text-xl text-brown list-none">
+                            <summary class="flex items-center justify-between font-display text-xl text-theme-black list-none">
                                 <span>{faq.question}</span>
-                                <span class="text-terracotta font-bold transition-transform group-open:rotate-45">+</span>
+                                <span class="text-theme-gold font-bold transition-transform group-open:rotate-45">+</span>
                             </summary>
-                            <div class="mt-6 text-charcoal/70 leading-relaxed max-w-xl">
+                            <div class="mt-6 text-theme-black/70 leading-relaxed max-w-xl">
                                 {faq.answer}
                             </div>
                         </details>
@@ -90,38 +90,6 @@ const pageDescription = `Learn about ${hotel.name} in ${hotel.location}. Our sto
                 </div>
             </div>
 		</section>
-
-		<footer class="bg-charcoal text-white py-24 border-t border-white/5 font-body">
-			<div class="max-w-7xl mx-auto px-6">
-				<div class="grid lg:grid-cols-4 gap-16">
-					<div class="col-span-2 space-y-8">
-						<div>
-							<p class="font-display text-3xl font-bold tracking-widest uppercase mb-4">{hotel.name}</p>
-							<p class="text-xs opacity-60 uppercase tracking-[0.2em] max-w-sm leading-relaxed">{hotel.tagline}</p>
-						</div>
-					</div>
-					<div class="space-y-6">
-						<p class="text-[10px] uppercase tracking-[0.3em] font-bold text-terracotta">Contact Us</p>
-						<div class="space-y-4 text-xs uppercase tracking-widest opacity-70">
-							<p>{hotel.location}</p>
-							<p>{hotel.phone}</p>
-							<p>{hotel.email}</p>
-						</div>
-					</div>
-					<div class="space-y-6">
-						<p class="text-[10px] uppercase tracking-[0.3em] font-bold text-terracotta">Quick Links</p>
-						<nav class="flex flex-col gap-4 text-xs uppercase tracking-widest opacity-70">
-							<a href="/rooms" class="hover:text-terracotta transition-colors">Rooms & Suites</a>
-                            <a href="/amenities" class="hover:text-terracotta transition-colors">Amenities</a>
-							<a href="/contact" class="hover:text-terracotta transition-colors">Get in touch</a>
-						</nav>
-					</div>
-				</div>
-                <div class="mt-20 pt-12 border-t border-white/5 text-center text-[10px] uppercase tracking-[0.3em] opacity-40">
-					© {new Date().getFullYear()} {hotel.name}. All rights reserved.
-				</div>
-			</div>
-		</footer>
 	</div>
 </BaseLayout>
 
